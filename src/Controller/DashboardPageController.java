@@ -74,6 +74,8 @@ public class DashboardPageController  {
     private Pane manageTanksPane;
 
     private int[] tankIdArr = new int[0];
+    private double[] temperatureData = new double[0];
+    private String[] timeStampData = new String[0];
     @FXML
     public void initialize() {
 
@@ -84,18 +86,14 @@ public class DashboardPageController  {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from tankDetail");
             while (resultSet.next()){
-
                 int[] tempArray = new int[tankIdArr.length+1];
-
                 for (int i = 0; i < tankIdArr.length; i++){
                     tempArray[i] = tankIdArr[i];
                 }
                 tempArray[tempArray.length-1] = Integer.parseInt(resultSet.getString("tankId"));
                 tankIdArr = tempArray;
-
                 System.out.println(Integer.parseInt(resultSet.getString("tankId")));
             }
-
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -172,36 +170,77 @@ public class DashboardPageController  {
         x.setTickLabelGap(4);
         x.setTickMarkVisible(false);
 
-        //tl1
-        XYChart.Series seriesTemp = new XYChart.Series<>();
-        seriesTemp.setName("Temparature");
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2.5), e -> {
-            Random r = new Random();
-            String nextMinute = "17:" + ( timer);
-            seriesTemp.getData().add(new XYChart.Data<>(nextMinute, r.nextDouble() * 100));
-            if(seriesTemp.getData().size() >= 7){
-                seriesTemp.getData().remove(0);
-            }
-        }));
-        fxLinechart.getData().add(seriesTemp);
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
+        try{
 
-        //tl2
-        XYChart.Series seriesPH = new XYChart.Series<>();
-        seriesPH.setName("pH");
-        Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(2.5), e -> {
-            Random r = new Random();
-            String nextMinute = "17:" + ( timer);
-            timer = timer+10;
-            seriesPH.getData().add(new XYChart.Data<>(nextMinute, r.nextDouble() * 100));
-            if(seriesPH.getData().size() >= 7){
-                seriesPH.getData().remove(0);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from tempRecords ORDER BY id DESC LIMIT 4");
+            while (resultSet.next()){
+                double[] tempArray = new double[temperatureData.length+1];
+                for (int i = 0; i < temperatureData.length; i++){
+                    tempArray[i] = temperatureData[i];
+                 }
+                tempArray[tempArray.length-1] = Double.parseDouble(resultSet.getString("temperature"));
+                temperatureData = tempArray;
+                System.out.println(Double.parseDouble(resultSet.getString("temperature")));
+
+                String[] tempArray2 = new String[timeStampData.length+1];
+                for (int i = 0; i < timeStampData.length; i++){
+                    tempArray2[i] = timeStampData[i];
+                }
+                tempArray2[tempArray2.length-1] = resultSet.getString("timeStampTemp");
+                timeStampData = tempArray2;
+                System.out.println(resultSet.getString("timeStampTemp"));
             }
-        }));
-        fxLinechart.getData().add(seriesPH);
-        timeline2.setCycleCount(Animation.INDEFINITE);
-        timeline2.play();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        XYChart.Series series = new XYChart.Series();
+        series.setName("Temperature");
+        //populating the series with data
+        for(int i = timeStampData.length; i > 0; i--){
+
+            series.getData().add(new XYChart.Data(timeStampData[i-1], temperatureData[i-1]));
+        }
+
+//        series.getData().add(new XYChart.Data("1", 23));
+//        series.getData().add(new XYChart.Data("2", 14));
+
+
+        fxLinechart.getData().add(series);
+
+//        //tl1
+//        XYChart.Series seriesTemp = new XYChart.Series<>();
+//        seriesTemp.setName("Temparature");
+//        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2.5), e -> {
+//            Random r = new Random();
+//            String nextMinute = "17:" + ( timer);
+//            seriesTemp.getData().add(new XYChart.Data<>(nextMinute, r.nextDouble() * 100));
+//            if(seriesTemp.getData().size() >= 7){
+//                seriesTemp.getData().remove(0);
+//            }
+//        }));
+//        fxLinechart.getData().add(seriesTemp);
+//        timeline.setCycleCount(Animation.INDEFINITE);
+//        timeline.play();
+
+//        //tl2
+//        XYChart.Series seriesPH = new XYChart.Series<>();
+//        seriesPH.setName("pH");
+//        Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(2.5), e -> {
+//            Random r = new Random();
+//            String nextMinute = "17:" + ( timer);
+//            timer = timer+10;
+//            seriesPH.getData().add(new XYChart.Data<>(nextMinute, r.nextDouble() * 100));
+//            if(seriesPH.getData().size() >= 7){
+//                seriesPH.getData().remove(0);
+//            }
+//        }));
+//        fxLinechart.getData().add(seriesPH);
+//        timeline2.setCycleCount(Animation.INDEFINITE);
+//        timeline2.play();
 
 
     }
