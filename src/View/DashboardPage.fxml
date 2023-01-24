@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="655.0" minWidth="1024.0" prefHeight="655.0" prefWidth="1024.0" scaleShape="false" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DashboardPageController">
+   <children>
+      <Pane prefHeight="657.0" prefWidth="1024.0" style="-fx-background-color: #1f1f1f;">
+         <children>
+            <LineChart id="lineChartFx" fx:id="fxLinechart" layoutX="275.0" layoutY="293.0" prefHeight="325.0" prefWidth="732.0" style="-fx-background-color: #fff; -fx-region-background: #fff;">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" fx:id="x" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="y" side="LEFT" tickLabelFill="WHITE" />
+              </yAxis>
+            </LineChart>
+            <Pane layoutX="6.0" layoutY="6.0" prefHeight="642.0" prefWidth="252.0" style="-fx-background-color: #2f2f2f;">
+               <children>
+                  <Pane layoutX="5.0" layoutY="8.0" prefHeight="122.0" prefWidth="240.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
+                     <children>
+                        <Pane layoutX="27.0" layoutY="25.0" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 50px; -fx-background-image: url(&quot;./Assets/user.png&quot;); -fx-background-size: 40px; -fx-background-position: 50%; -fx-background-repeat: no-repeat; -fx-border-color: #78E08F; -fx-border-radius: 100px;" />
+                        <Label layoutX="87.0" layoutY="28.0" text="Admin" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="87.0" layoutY="48.0" text="You are an Admin user" textFill="WHITE">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
+                  <Pane layoutX="5.0" layoutY="138.0" prefHeight="491.0" prefWidth="240.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
+                     <children>
+                        <Pane fx:id="manageTanksPane" layoutX="5.0" layoutY="9.0" onMouseEntered="#sidepane1MouseEnter" onMouseExited="#sidepane1MouseExit" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
+                           <children>
+                              <Label layoutX="27.0" layoutY="15.0" text="Manage Tanks" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.5" />
+                                 </font>
+                              </Label>
+                           </children></Pane>
+                        <Pane fx:id="getReportPane" layoutX="5.0" layoutY="66.0" onMouseEntered="#sidepane2MouseEnter" onMouseExited="#sidepane2MouseExit" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
+                           <children>
+                              <Label layoutX="28.0" layoutY="15.0" text="Get Report" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.5" />
+                                 </font>
+                              </Label>
+                           </children></Pane>
+                        <Pane fx:id="wchPane" layoutX="5.0" layoutY="122.0" onMouseEntered="#sidepane3MouseEnter" onMouseExited="#sidepane3MouseExit" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
+                           <children>
+                              <Label layoutX="27.0" layoutY="16.0" text="Water change history" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.5" />
+                                 </font>
+                              </Label>
+                           </children></Pane>
+                        <Pane fx:id="fishPane" layoutX="5.0" layoutY="178.0" onMouseEntered="#sidepane4MouseEnter" onMouseExited="#sidepane4MouseExit" prefHeight="53.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
+                           <children>
+                              <Label layoutX="29.0" layoutY="15.0" text="Fishes" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.5" />
+                                 </font>
+                              </Label>
+                           </children></Pane>
+                        <Pane fx:id="logoutPane" layoutX="5.0" layoutY="432.0" onMouseClicked="#logoutClick" onMouseEntered="#logOutMouseEnter" onMouseExited="#logOutMouseExit" prefHeight="46.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px; -fx-background-image: url(&quot;./Assets/logout.png&quot;); -fx-background-repeat: no-repeat; -fx-background-size: 30px;; -fx-background-position: 10%;">
+                           <children>
+                              <Label layoutX="69.0" layoutY="11.0" text="Logout" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.5" />
+                                 </font>
+                              </Label>
+                           </children></Pane>
+                        <Pane fx:id="vcPane" layoutX="5.0" layoutY="235.0" onMouseEntered="#sidepane5MouseEnter" onMouseExited="#sidepane5MouseExit" prefHeight="53.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
+                           <children>
+                              <Label layoutX="29.0" layoutY="15.0" text="View Cameras" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.5" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="infoPane" layoutX="5.0" layoutY="292.0" onMouseEntered="#sidepane6MouseEnter" onMouseExited="#sidepane6MouseExit" prefHeight="53.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
+                           <children>
+                              <Label layoutX="29.0" layoutY="15.0" text="Info" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.5" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane layoutX="268.0" layoutY="71.0" prefHeight="214.0" prefWidth="736.0" style="-fx-background-color: #2f2f2f;">
+               <children>
+                  <Pane layoutX="178.0" layoutY="13.0" prefHeight="190.0" prefWidth="169.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
+                     <children>
+                        <PieChart fx:id="tempPieChart" labelsVisible="false" layoutX="-18.0" layoutY="2.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 90deg;;">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </PieChart>
+                        <Circle fill="#4c4c4c" layoutX="88.0" layoutY="82.0" radius="53.0" stroke="WHITE" strokeType="INSIDE" />
+                        <Label layoutX="58.0" layoutY="158.0" text="Temperatue" textFill="WHITE" />
+                        <Label layoutX="75.0" layoutY="74.0" text="30°C" textFill="WHITE" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="359.0" layoutY="13.0" prefHeight="190.0" prefWidth="169.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
+                     <children>
+                        <PieChart fx:id="phPieChart" labelsVisible="false" layoutX="-18.0" layoutY="2.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 90deg;;">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </PieChart>
+                        <Circle fill="#4c4c4c" layoutX="88.0" layoutY="82.0" radius="53.0" stroke="WHITE" strokeType="INSIDE" />
+                        <Label layoutX="80.0" layoutY="157.0" text="pH" textFill="WHITE" />
+                        <Label layoutX="75.0" layoutY="74.0" text="7pH" textFill="WHITE" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="538.0" layoutY="13.0" prefHeight="190.0" prefWidth="169.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
+                     <children>
+                        <PieChart fx:id="amoPieChart" labelsVisible="false" layoutX="-18.0" layoutY="2.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 90deg;;">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </PieChart>
+                        <Circle fill="#4c4c4c" layoutX="88.0" layoutY="82.0" radius="53.0" stroke="WHITE" strokeType="INSIDE" />
+                        <Label layoutX="68.0" layoutY="155.0" text="Amonia" textFill="WHITE" />
+                        <Label layoutX="75.0" layoutY="74.0" text="0.5ppm" textFill="WHITE" />
+                     </children>
+                  </Pane>
+                  <Label layoutX="36.0" layoutY="84.0" text="Tank 001" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="36.0" layoutY="114.0" text="parameters &gt;&gt;" textFill="WHITE" />
+               </children>
+            </Pane>
+            <Pane layoutX="268.0" layoutY="6.0" prefHeight="61.0" prefWidth="737.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
+               <children>
+                  <TextField layoutX="39.0" layoutY="14.0" prefHeight="34.0" prefWidth="309.0" style="-fx-background-color: #4c4c4c;" />
+                  <Button layoutX="514.0" layoutY="18.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" style="-fx-background-image: url(&quot;./Assets/notification.png&quot;); -fx-background-size: 20px; -fx-background-position: 55%; -fx-background-repeat: no-repeat; -fx-background-color: #4C4C4C;" />
+                  <Button layoutX="554.0" layoutY="18.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" style="-fx-background-image: url(&quot;./Assets/settings.png&quot;); -fx-background-size: 20px; -fx-background-position: 55%; -fx-background-repeat: no-repeat; -fx-background-color: #4C4C4C;" />
+                  <Label fx:id="timeLabel" layoutX="599.0" layoutY="22.0" text="YYYY-MM-DD HH:MM:SS" textFill="WHITE" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <PieChart fx:id="fxPieChart1" labelsVisible="false" layoutX="620.0" layoutY="-216.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </PieChart>
+      <Circle fill="#4c4c4c" layoutX="726.0" layoutY="-136.0" radius="53.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" />
+   </children>
+</AnchorPane>

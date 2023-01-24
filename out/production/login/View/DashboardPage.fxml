@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+
+
+<AnchorPane minHeight="655.0" minWidth="1024.0" prefHeight="655.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DashboardPageController">
+   <children>
+      <Pane prefHeight="657.0" prefWidth="1024.0" style="-fx-background-color: #1f1f1f;">
+         <children>
+            <LineChart id="lineChartFx" fx:id="fxLinechart" layoutX="275.0" layoutY="232.0" prefHeight="366.0" prefWidth="732.0" style="-fx-background-color: #fff; -fx-region-background: #fff;">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" fx:id="x" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="y" side="LEFT" tickLabelFill="WHITE" />
+              </yAxis>
+            </LineChart>
+            <Pane layoutX="6.0" layoutY="6.0" prefHeight="642.0" prefWidth="252.0" style="-fx-background-color: #2f2f2f;">
+               <children>
+                  <Pane layoutX="5.0" layoutY="8.0" prefHeight="122.0" prefWidth="240.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;" />
+                  <Pane layoutX="5.0" layoutY="138.0" prefHeight="491.0" prefWidth="240.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
+                     <children>
+                        <Pane layoutX="5.0" layoutY="9.0" prefHeight="69.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" />
+                        <Pane layoutX="5.0" layoutY="84.0" prefHeight="69.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" />
+                        <Pane layoutX="5.0" layoutY="159.0" prefHeight="69.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" />
+                        <Pane layoutX="5.0" layoutY="234.0" prefHeight="69.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" />
+                        <Pane layoutX="5.0" layoutY="409.0" prefHeight="69.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane layoutX="268.0" layoutY="7.0" prefHeight="214.0" prefWidth="736.0" style="-fx-background-color: #2f2f2f;">
+               <children>
+                  <Pane layoutX="28.0" layoutY="15.0" prefHeight="190.0" prefWidth="169.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
+                     <children>
+                        <PieChart fx:id="fxPieChart" labelsVisible="false" layoutX="-18.0" layoutY="2.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 90deg;;">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </PieChart>
+                        <Circle fill="#4c4c4c" layoutX="88.0" layoutY="82.0" radius="53.0" stroke="WHITE" strokeType="INSIDE" />
+                        <Label layoutX="58.0" layoutY="158.0" text="Temperatue" textFill="WHITE" />
+                        <Label layoutX="75.0" layoutY="74.0" text="30°C" textFill="WHITE" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="221.0" layoutY="48.0" prefHeight="142.0" prefWidth="142.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <PieChart fx:id="fxPieChart1" labelsVisible="false" layoutX="620.0" layoutY="-216.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </PieChart>
+      <Circle fill="#4c4c4c" layoutX="726.0" layoutY="-136.0" radius="53.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" />
+   </children>
+</AnchorPane>
