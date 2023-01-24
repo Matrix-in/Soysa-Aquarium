@@ -10,21 +10,27 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
+import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-
 import java.awt.*;
 import java.io.IOException;
+import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Random;
 import javafx.scene.control.Label;
 
 public class DashboardPageController  {
+
+    @FXML
+    private ComboBox tankComboBox;
+
     @FXML
     private Label timeLabel;
     @FXML
@@ -38,7 +44,6 @@ public class DashboardPageController  {
 
     private int timer = 0;
 
-
     @FXML
     private PieChart tempPieChart;
     @FXML
@@ -46,7 +51,6 @@ public class DashboardPageController  {
 
     @FXML
     private PieChart amoPieChart;
-
 
     @FXML
     private Pane logoutPane;
@@ -69,18 +73,52 @@ public class DashboardPageController  {
     @FXML
     private Pane manageTanksPane;
 
-
+    private int[] tankIdArr = new int[0];
     @FXML
     public void initialize() {
+
+        try{
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from tankDetail");
+            while (resultSet.next()){
+
+                int[] tempArray = new int[tankIdArr.length+1];
+
+                for (int i = 0; i < tankIdArr.length; i++){
+                    tempArray[i] = tankIdArr[i];
+                }
+                tempArray[tempArray.length-1] = Integer.parseInt(resultSet.getString("tankId"));
+                tankIdArr = tempArray;
+
+                System.out.println(Integer.parseInt(resultSet.getString("tankId")));
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        tankComboBox.setPromptText("Tank 001");
+//        tankComboBox.setStyle("-fx-prompt-text-fill : #000000;");
+
+
+        ObservableList<String> tanksCB =
+                FXCollections.observableArrayList();
+
+        System.out.println(Arrays.toString(tankIdArr));
+        for (int id: tankIdArr){
+            System.out.println(id);
+            tanksCB.add("Tank 00"+id);
+        }
+
+
+        tankComboBox.setItems(tanksCB);
+
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
         timeLabel.setText(timeStamp);
 
-
-
-//        x.setAutoRanging(false);
-//        x.setLowerBound(0);
-//        x.setUpperBound(24);
-//        x.setTickUnit(3);
 
         ObservableList<PieChart.Data> tempPieChartData = FXCollections.observableArrayList(
                 new PieChart.Data("Filled", 40),
@@ -127,84 +165,44 @@ public class DashboardPageController  {
             }
         }
 
+        //line chart codes starts
+
         fxLinechart.setCreateSymbols(false);
-
         fxLinechart.lookup(".chart-plot-background").setStyle("-fx-background-color: transparent;");
-//
-//        XYChart.Series series = new XYChart.Series();
-//        series.setName("Temparature");
-//        series.getData().add(new XYChart.Data("17:00", 15));
-//        series.getData().add(new XYChart.Data("17:05", 20));
-//        series.getData().add(new XYChart.Data("17:10", 15));
-//        series.getData().add(new XYChart.Data("17:15", 60));
-//
-//
-//
-//        XYChart.Series series2 = new XYChart.Series();
-//        series2.setName("Water Level");
-//        series2.getData().add(new XYChart.Data("17:00", 1));
-//        series2.getData().add(new XYChart.Data("17:05", 3));
-//        series2.getData().add(new XYChart.Data("17:10", 5));
-//        series2.getData().add(new XYChart.Data("17:15", 8));
-//        fxLinechart.getData().addAll(series, series2);
-
-
         x.setTickLabelGap(4);
         x.setTickMarkVisible(false);
 
-
-
+        //tl1
         XYChart.Series seriesTemp = new XYChart.Series<>();
         seriesTemp.setName("Temparature");
-
-
-
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2.5), e -> {
-
-
             Random r = new Random();
-
-
             String nextMinute = "17:" + ( timer);
-
-
             seriesTemp.getData().add(new XYChart.Data<>(nextMinute, r.nextDouble() * 100));
-
             if(seriesTemp.getData().size() >= 7){
                 seriesTemp.getData().remove(0);
             }
-
-
-
         }));
         fxLinechart.getData().add(seriesTemp);
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
 
+        //tl2
         XYChart.Series seriesPH = new XYChart.Series<>();
         seriesPH.setName("pH");
-
         Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(2.5), e -> {
-
             Random r = new Random();
             String nextMinute = "17:" + ( timer);
             timer = timer+10;
             seriesPH.getData().add(new XYChart.Data<>(nextMinute, r.nextDouble() * 100));
-
             if(seriesPH.getData().size() >= 7){
                 seriesPH.getData().remove(0);
             }
-
         }));
         fxLinechart.getData().add(seriesPH);
         timeline2.setCycleCount(Animation.INDEFINITE);
         timeline2.play();
 
-//        int numPoints = seriesTemp.getData().size();
-//        if (numPoints > 4) {
-//            x.setLowerBound(numPoints - 4);
-//            x.setUpperBound(numPoints - 1);
-//        }
 
     }
     @FXML
