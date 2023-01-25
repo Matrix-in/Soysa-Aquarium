@@ -25,6 +25,8 @@ public class Main extends Application {
 
 //ishan ttest
 
+        //dilshan comment
+
         FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/View/DashboardPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage2 =new Stage();
