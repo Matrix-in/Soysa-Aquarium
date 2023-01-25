@@ -8,7 +8,7 @@ configured your Database with these queries - [link](https://docs.google.com/doc
 
 ### If you don't have the project yet - follow these steps -> 
 
-Got the directory that you want to initialize the project.
+Go to the directory that you want to initialize the project.
 
 open CMD by typing cmd in the address bar. Or just open any terminal and go to the project directory.
 
