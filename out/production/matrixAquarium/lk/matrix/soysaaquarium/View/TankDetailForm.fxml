@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="657.0" prefWidth="1024.0" style="-fx-background-color: #1f1f1f;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.TankDetailForm">
+   <children>
+      <Pane layoutX="14.0" layoutY="12.0" prefHeight="630.0" prefWidth="376.0" style="-fx-background-color: #2f2f2f; -fx-background-radius: 20px; -fx-border-color: white; -fx-border-radius: 20px;">
+         <children>
+            <Label layoutX="14.0" layoutY="213.0" prefHeight="33.0" prefWidth="87.0" text="Min Temp : " textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="201.0" layoutY="213.0" prefHeight="33.0" prefWidth="87.0" text="Max Temp :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="159.0" prefHeight="33.0" prefWidth="87.0" text="Fish Type :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="107.0" prefHeight="33.0" prefWidth="87.0" text="Tank Id :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="261.0" prefHeight="33.0" prefWidth="87.0" text="Min pH :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="201.0" layoutY="261.0" prefHeight="33.0" prefWidth="87.0" text="Max pH :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="308.0" prefHeight="33.0" prefWidth="87.0" text="Min Amo :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="201.0" layoutY="308.0" prefHeight="33.0" prefWidth="87.0" text="Max Amo :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="fishCountTextField" layoutX="99.0" layoutY="361.0" prefHeight="33.0" prefWidth="258.0" promptText="Fish Count" style="-fx-background-radius: 10px;" />
+            <Label layoutX="14.0" layoutY="361.0" prefHeight="33.0" prefWidth="87.0" text="Fish Count :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="fishTypeComboBox" focusColor="#66a9ff" layoutX="99.0" layoutY="159.0" onAction="#fishTypeComboBoxOnAction" onMouseClicked="#fishTypeComboBoxOnMouseClicked" prefHeight="33.0" prefWidth="258.0" promptText="Select Fish Type" style="-fx-background-color: white; -fx-background-radius: 10px;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXComboBox>
+            <TextField fx:id="minTempTextField" alignment="CENTER" editable="false" layoutX="101.0" layoutY="213.0" prefHeight="33.0" prefWidth="69.0" style="-fx-background-radius: 10px;" />
+            <TextField fx:id="maxTempTextField" alignment="CENTER" editable="false" layoutX="286.0" layoutY="213.0" prefHeight="33.0" prefWidth="69.0" style="-fx-background-radius: 10px;" />
+            <TextField fx:id="minpHTextField" alignment="CENTER" editable="false" layoutX="101.0" layoutY="261.0" prefHeight="33.0" prefWidth="69.0" style="-fx-background-radius: 10px;" />
+            <TextField fx:id="maxpHTextField" alignment="CENTER" editable="false" layoutX="286.0" layoutY="261.0" prefHeight="33.0" prefWidth="69.0" style="-fx-background-radius: 10px;" />
+            <TextField fx:id="minAmoTextField" alignment="CENTER" editable="false" layoutX="100.0" layoutY="308.0" prefHeight="33.0" prefWidth="69.0" style="-fx-background-radius: 10px;" />
+            <TextField fx:id="maxAmoTextField" alignment="CENTER" editable="false" layoutX="287.0" layoutY="308.0" prefHeight="33.0" prefWidth="69.0" style="-fx-background-radius: 10px;" />
+            <JFXComboBox fx:id="tankComboBox" focusColor="#66a9ff" layoutX="99.0" layoutY="107.0" onMouseClicked="#tankComboBoxOnMouseClicked" prefHeight="33.0" prefWidth="258.0" promptText="Select Tank" style="-fx-background-color: white; -fx-background-radius: 10px;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXComboBox>
+            <Label alignment="CENTER" layoutX="40.0" layoutY="14.0" prefHeight="53.0" prefWidth="297.0" text="Tank Detail Form" textFill="WHITE" textOverrun="CLIP" underline="true">
+               <font>
+                  <Font name="Arial Bold" size="30.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="addTankButton" layoutX="98.0" layoutY="550.0" onAction="#addTankButtonOnAction" prefHeight="53.0" prefWidth="181.0" style="-fx-background-color: #323232; -fx-background-radius: 10px; -fx-border-color: #1569C7; -fx-border-radius: 10px;" text="Add Tank" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="31.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </Pane>
+      <ImageView blendMode="LIGHTEN" fitHeight="657.0" fitWidth="369.0" layoutX="655.0" preserveRatio="true">
+         <image>
+            <Image url="@../Assets/1367965.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageId" fitHeight="475.0" fitWidth="462.0" layoutX="424.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+         <effect>
+            <Reflection />
+         </effect>
+      </ImageView>
+   </children>
+</AnchorPane>

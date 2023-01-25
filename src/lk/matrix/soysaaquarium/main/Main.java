@@ -1,10 +1,14 @@
 package lk.matrix.soysaaquarium.main;
 
-import lk.matrix.soysaaquarium.Controller.mainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import lk.matrix.soysaaquarium.Controller.DashboardPageController;
+import lk.matrix.soysaaquarium.Controller.TankDetailForm;
+import lk.matrix.soysaaquarium.Controller.mainController;
 
 import java.io.IOException;
 
@@ -12,7 +16,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException{
 
-//        FXMLLoader fxmlLoader= new FXMLLoader(mainController.class.getResource("/View/login.fxml"));
+//        FXMLLoader fxmlLoader= new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/login.fxml"));
 //        Scene scene = new Scene(fxmlLoader.load());
 //        scene.setFill(Color.TRANSPARENT);
 //        stage.setScene(scene);
@@ -20,14 +24,19 @@ public class Main extends Application {
 //        stage.show();
 
 
-        FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
+//        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load());
+//        Stage stage2 =new Stage();
+//        stage2.setScene(scene);
+//        stage2.setResizable(false);
+//        stage2.show();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(TankDetailForm.class.getResource("/lk/matrix/soysaaquarium/View/TankDetailForm.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage2 =new Stage();
         stage2.setScene(scene);
         stage2.setResizable(false);
         stage2.show();
-
-
     }
 
     public static void main(String[] args) {
