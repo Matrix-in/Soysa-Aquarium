@@ -25,6 +25,8 @@ Open CMD **inside** the project directory.
 
 *To add your changes* 
 
+> it's always a good practice to do a `git fetch` and `git pull` before pushing
+
 `git add .`
 
 `git commit -m "a-comment-describing-what-you-did"`
