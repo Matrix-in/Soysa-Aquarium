@@ -1,15 +1,11 @@
-package Controller;
+package lk.matrix.soysaaquarium.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.animation.TranslateTransition;
@@ -55,7 +51,7 @@ public class mainController implements Initializable {
         transition.play();
         transition.setOnFinished((e) ->{
             try{
-                fxml = FXMLLoader.load(getClass().getResource("/View/secWin.fxml"));
+                fxml = FXMLLoader.load(getClass().getResource("/lk/matrix/soysaaquarium/View/secWin.fxml"));
                 vbox.getChildren().removeAll();
                 vbox.getChildren().setAll(fxml);
             }catch(IOException ex){
@@ -73,7 +69,7 @@ public class mainController implements Initializable {
         transition.play();
         transition.setOnFinished((e) ->{
             try{
-                fxml = FXMLLoader.load(getClass().getResource("/View/defaultWin.fxml"));
+                fxml = FXMLLoader.load(getClass().getResource("/lk/matrix/soysaaquarium/View/defaultWin.fxml"));
                 vbox.getChildren().removeAll();
                 vbox.getChildren().setAll(fxml);
             }catch(IOException ex){
@@ -95,7 +91,7 @@ public class mainController implements Initializable {
         if((email.equals("ADMIN"))&&(password.equals("ADMIN"))){
             Stage stage = (Stage) emailField.getScene().getWindow();
             stage.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/View/DashboardPage.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
 //            scene.setFill(Color.TRANSPARENT);
             Stage stage2 =new Stage();
@@ -105,7 +101,7 @@ public class mainController implements Initializable {
             stage2.show();
 
         }else {
-            FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/View/err.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/err.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();

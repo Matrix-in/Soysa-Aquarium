@@ -1,4 +1,4 @@
-package Controller;
+package lk.matrix.soysaaquarium.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

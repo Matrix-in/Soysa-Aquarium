@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="209.0" prefWidth="410.0" style="-fx-background-radius: 30px; -fx-border-radius: 30px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.err">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="209.0" prefWidth="410.0" style="-fx-background-radius: 30px; -fx-border-radius: 30px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.err">
    <children>
       <Button fx:id="okBtn" layoutX="302.0" layoutY="161.0" mnemonicParsing="false" onAction="#closeWin" prefHeight="36.0" prefWidth="82.0" style="-fx-background-color: #2196f3; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-text-fill: whitesmoke;" text="ok">
          <cursor>

@@ -1,16 +1,12 @@
-import Controller.mainController;
+package lk.matrix.soysaaquarium.main;
+
+import lk.matrix.soysaaquarium.Controller.mainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class Main extends Application {
     @Override
@@ -23,9 +19,8 @@ public class Main extends Application {
 //        stage.initStyle(StageStyle.TRANSPARENT);
 //        stage.show();
 
-//tgdr
 
-        FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/View/DashboardPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage2 =new Stage();
         stage2.setScene(scene);

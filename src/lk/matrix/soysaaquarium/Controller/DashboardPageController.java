@@ -1,8 +1,5 @@
-package Controller;
+package lk.matrix.soysaaquarium.Controller;
 
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,14 +13,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
-import java.awt.*;
+
 import java.io.IOException;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Random;
+
 import javafx.scene.control.Label;
 
 public class DashboardPageController  {
@@ -250,7 +246,7 @@ public class DashboardPageController  {
         Stage thiStage = (Stage)((Node) event.getSource()).getScene().getWindow();
         thiStage.close();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/View/login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.setFill(Color.TRANSPARENT);
         Stage outStage =new Stage();
