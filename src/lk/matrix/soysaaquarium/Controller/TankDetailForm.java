@@ -6,17 +6,25 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import java.io.IOException;
 import java.sql.*;
 
 public class TankDetailForm {
     public JFXComboBox tankComboBox;
     public JFXButton addTankButton;
     public ImageView imageId;
+    public Label fishCountLabel;
     @FXML
     private TextField fishCountTextField;
     @FXML
@@ -41,16 +49,23 @@ public class TankDetailForm {
     private int fishId;
 
     private Connection con;
-    {
+    static int count;
+    public void initialize() throws SQLException {
+        System.out.println("initialize method ran!");
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+        }catch (ClassNotFoundException e) {
+            System.out.println("Class not found!");
         }
-    }   //connect database
+        Statement statement = con.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM fish");
+        ObservableList data = FXCollections.observableArrayList();
+        while(rs.next()){
+            data.add(new String(rs.getString("name")));
+            fishTypeComboBox.setItems(data);
+        }
+    }  //connect database
     public void fishTypeComboBoxOnAction(ActionEvent actionEvent) throws SQLException{
         String selected = fishTypeComboBox.getSelectionModel().getSelectedItem().toString();
         Statement statement = con.createStatement();
@@ -75,49 +90,68 @@ public class TankDetailForm {
         }
     }   //autofill text-fields
 
-    public void fishTypeComboBoxOnMouseClicked(MouseEvent mouseEvent) throws SQLException {
-        Statement statement = con.createStatement();
-        ResultSet rs = statement.executeQuery("SELECT * FROM fish");
-        ObservableList data = FXCollections.observableArrayList();
-        while(rs.next()){
-            data.add(new String(rs.getString("name")));
-            fishTypeComboBox.setItems(data);
-        }
-    }   //set-up fishType combo box
-
-
     public void tankComboBoxOnMouseClicked(MouseEvent mouseEvent) throws SQLException {
-        Statement statement = con.createStatement();
-        ResultSet rs = statement.executeQuery("SELECT *\n" +
-                "FROM tank\n" +
-                "LEFT JOIN tankDetail\n" +
-                "ON tank.tankId = tankDetail.tankId\n" +
-                "WHERE tankDetail.tankId is NULL");
-        ObservableList data = FXCollections.observableArrayList();
-        while(rs.next()){
-            data.add(rs.getString("tankId"));
+        count = 0;
+        ResultSet rs1 = con.createStatement().executeQuery("SELECT COUNT(tank.tankId)\n" +
+                "FROM tank \n" +
+                "LEFT JOIN tankDetail ON tank.tankId = tankDetail.tankId\n" +
+                "WHERE tankDetail.tankId is NULL;");
+        while(rs1.next()) count += rs1.getInt(1);
+
+        if(count != 0) {
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT *\n" +
+                    "FROM tank\n" +
+                    "LEFT JOIN tankDetail\n" +
+                    "ON tank.tankId = tankDetail.tankId\n" +
+                    "WHERE tankDetail.tankId is NULL");
+            ObservableList data = FXCollections.observableArrayList();
+            while (rs.next()) {
+                data.add(rs.getString("tankId"));
+                tankComboBox.setItems(data);
+            }
+        }else{
+            ObservableList data = FXCollections.observableArrayList();
+            data.add("No tanks to add!");
             tankComboBox.setItems(data);
         }
     }   //set-up tankId combo box
 
     public void addTankButtonOnAction(ActionEvent actionEvent) throws SQLException {
-        String query = "INSERT INTO tankDetail (tankId,fishId,fishQty,minTemp,maxTemp,minpH,maxpH,minAmo,maxAmo)" + "VALUES(?,?,?,?,?,?,?,?,?)";
-        try {
-            PreparedStatement statement = con.prepareStatement(query);
-            statement.setInt(1, Integer.parseInt(tankComboBox.getSelectionModel().getSelectedItem().toString()));
-            statement.setInt(2,fishId);
-            statement.setInt(3,Integer.parseInt(fishCountTextField.getText()));
-            statement.setDouble(4,Double.parseDouble(minTempTextField.getText()));
-            statement.setDouble(5,Double.parseDouble(maxTempTextField.getText()));
-            statement.setDouble(6,Double.parseDouble(minpHTextField.getText()));
-            statement.setDouble(7,Double.parseDouble(maxpHTextField.getText()));
-            statement.setDouble(8,Double.parseDouble(minAmoTextField.getText()));
-            statement.setDouble(9,Double.parseDouble(maxAmoTextField.getText()));
-            statement.execute();
-            System.out.println("New Tank Added!");
-            imageId.setVisible(false);
-        }catch (Exception ex){
-            System.out.println("add new tankdetails failed");
+        if(fishCountTextField.getLength() == 0 || minpHTextField.getLength() == 0 || tankComboBox.getValue() == null || count == 0){
+            fishCountLabel.setText("*fields are empty!");
+        }else {
+            String query = "INSERT INTO tankDetail (tankId,fishId,fishQty,minTemp,maxTemp,minpH,maxpH,minAmo,maxAmo)" + "VALUES(?,?,?,?,?,?,?,?,?)";
+            try {
+                PreparedStatement statement = con.prepareStatement(query);
+                statement.setInt(1, Integer.parseInt(tankComboBox.getSelectionModel().getSelectedItem().toString()));
+                statement.setInt(2, fishId);
+                statement.setInt(3, Integer.parseInt(fishCountTextField.getText()));
+                statement.setDouble(4, Double.parseDouble(minTempTextField.getText()));
+                statement.setDouble(5, Double.parseDouble(maxTempTextField.getText()));
+                statement.setDouble(6, Double.parseDouble(minpHTextField.getText()));
+                statement.setDouble(7, Double.parseDouble(maxpHTextField.getText()));
+                statement.setDouble(8, Double.parseDouble(minAmoTextField.getText()));
+                statement.setDouble(9, Double.parseDouble(maxAmoTextField.getText()));
+                statement.execute();
+                imageId.setVisible(false);
+                fishCountLabel.setText("");
+
+                showMassage();
+            } catch (Exception ex) {
+                System.out.println("add new tankdetails failed");
+            }
         }
     }   //new tank-detail adding
+    public void showMassage() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(AddNewTankMassageForm.class.getResource("/lk/matrix/soysaaquarium/View/addNewTankMassageForm.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.setFill(Color.TRANSPARENT);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setResizable(false);
+        stage.show();
+    }
+
 }

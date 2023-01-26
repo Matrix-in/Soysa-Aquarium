@@ -244,7 +244,7 @@ public class DashboardPageController  {
     void logoutClick(MouseEvent event) throws IOException {
         System.out.println("logout");
         Stage thiStage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        thiStage.close();
+        thiStage.hide();
 
         FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
