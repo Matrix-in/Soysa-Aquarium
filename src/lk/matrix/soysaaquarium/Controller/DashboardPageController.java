@@ -1,5 +1,6 @@
 package lk.matrix.soysaaquarium.Controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -51,40 +52,26 @@ public class DashboardPageController  {
     private PieChart amoPieChart;
 
     @FXML
-    private Pane logoutPane;
+    private JFXButton logoutPane;
 
     @FXML
-    private Pane vcPane;
+    private JFXButton vcPane;
 
     @FXML
-    private Pane wchPane;
+    private JFXButton wchPane;
 
     @FXML
-    private Pane getReportPane;
+    private JFXButton getReportPane;
 
     @FXML
-    private Pane infoPane;
+    private JFXButton infoPane;
 
     @FXML
-    private Pane fishPane;
+    private JFXButton fishPane;
 
     @FXML
-    private Pane manageTanksPane;
+    private JFXButton manageTanksPane;
 
-    @FXML
-    private Label manageTanksLabel;
-    @FXML
-    private Label getReportLabel;
-    @FXML
-    private Label wchLabel;
-    @FXML
-    private Label fishLabel;
-    @FXML
-    private Label vcLabel;
-    @FXML
-    private Label infoLabel;
-    @FXML
-    private Label logoutLabel;
     @FXML
     private JFXToggleButton modeToggleBtn;
 
@@ -279,35 +266,24 @@ public class DashboardPageController  {
     public void onActionToggleBtn(ActionEvent actionEvent) {
         System.out.println(modeToggleBtn.isSelected());
         if (modeToggleBtn.isSelected()){
-            manageTanksPane.setStyle("-fx-background-color:white;-fx-background-radius:5px");
-            manageTanksLabel.setStyle("-fx-text-fill:black");
-            getReportPane.setStyle("-fx-background-color:white;-fx-background-radius:5px");
-            getReportLabel.setStyle("-fx-text-fill:black");
-            wchPane.setStyle("-fx-background-color:white;-fx-background-radius:5px");
-            wchLabel.setStyle("-fx-text-fill:black");
-            fishPane.setStyle("-fx-background-color:white;-fx-background-radius:5px");
-            fishLabel.setStyle("-fx-text-fill:black");
-            vcPane.setStyle("-fx-background-color:white;-fx-background-radius:5px");
-            vcLabel.setStyle("-fx-text-fill:black");
-            infoPane.setStyle("-fx-background-color:white;-fx-background-radius:5px");
-            infoLabel.setStyle("-fx-text-fill:black");
-            logoutPane.setStyle("-fx-background-color:white;-fx-background-radius:5px");
-            logoutLabel.setStyle("-fx-text-fill:black");
+
+            manageTanksPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
+            getReportPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
+            wchPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
+            fishPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
+            vcPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
+            infoPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
+            logoutPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
+
         }else{
-            manageTanksPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px");
-            manageTanksLabel.setStyle("-fx-text-fill:white");
-            getReportPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px");
-            getReportLabel.setStyle("-fx-text-fill:white");
-            wchPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px");
-            wchLabel.setStyle("-fx-text-fill:white");
-            fishPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px");
-            fishLabel.setStyle("-fx-text-fill:white");
-            vcPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px");
-            vcLabel.setStyle("-fx-text-fill:white");
-            infoPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px");
-            infoLabel.setStyle("-fx-text-fill:white");
-            logoutPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px");
-            logoutLabel.setStyle("-fx-text-fill:white");
+            manageTanksPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+            getReportPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+            wchPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+            fishPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+            vcPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+            infoPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+            logoutPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+
         }
     }
 }

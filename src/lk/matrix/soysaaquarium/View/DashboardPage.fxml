@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
@@ -45,65 +46,13 @@
                      </children></Pane>
                   <Pane layoutX="5.0" layoutY="138.0" prefHeight="491.0" prefWidth="240.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
                      <children>
-                        <Pane fx:id="manageTanksPane" layoutX="5.0" layoutY="9.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
-                           <children>
-                              <Label fx:id="manageTanksLabel" layoutX="27.0" layoutY="16.0" text="Manage Tanks" textFill="WHITE">
-                                 <font>
-                                    <Font size="13.5" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane fx:id="getReportPane" layoutX="5.0" layoutY="66.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
-                           <children>
-                              <Label fx:id="getReportLabel" layoutX="28.0" layoutY="15.0" text="Get Report" textFill="WHITE">
-                                 <font>
-                                    <Font size="13.5" />
-                                 </font>
-                              </Label>
-                           </children></Pane>
-                        <Pane fx:id="wchPane" layoutX="5.0" layoutY="122.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
-                           <children>
-                              <Label fx:id="wchLabel" layoutX="27.0" layoutY="16.0" text="Water change history" textFill="WHITE">
-                                 <font>
-                                    <Font size="13.5" />
-                                 </font>
-                              </Label>
-                           </children></Pane>
-                        <Pane fx:id="fishPane" layoutX="5.0" layoutY="178.0" prefHeight="53.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
-                           <children>
-                              <Label fx:id="fishLabel" layoutX="29.0" layoutY="15.0" text="Fishes" textFill="WHITE">
-                                 <font>
-                                    <Font size="13.5" />
-                                 </font>
-                              </Label>
-                           </children></Pane>
-                        <Pane fx:id="logoutPane" layoutX="5.0" layoutY="432.0" onMouseClicked="#logoutClick" prefHeight="46.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px; -fx-background-image: url(&quot;./Assets/logout.png&quot;); -fx-background-repeat: no-repeat; -fx-background-size: 30px;; -fx-background-position: 10%;">
-                           <children>
-                              <Label fx:id="logoutLabel" layoutX="69.0" layoutY="11.0" text="Logout" textFill="WHITE">
-                                 <font>
-                                    <Font size="13.5" />
-                                 </font>
-                              </Label>
-                           </children></Pane>
-                        <Pane fx:id="vcPane" layoutX="5.0" layoutY="235.0" prefHeight="53.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
-                           <children>
-                              <Label fx:id="vcLabel" layoutX="29.0" layoutY="15.0" text="View Cameras" textFill="WHITE">
-                                 <font>
-                                    <Font size="13.5" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane fx:id="infoPane" layoutX="5.0" layoutY="292.0" prefHeight="53.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
-                           <children>
-                              <Label fx:id="infoLabel" layoutX="29.0" layoutY="15.0" text="Info" textFill="WHITE">
-                                 <font>
-                                    <Font size="13.5" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
+                        <JFXButton fx:id="manageTanksPane" alignment="CENTER" layoutX="5.0" layoutY="9.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Manage Tanks" textFill="WHITE" />
+                        <JFXButton fx:id="getReportPane" alignment="CENTER" layoutX="5.0" layoutY="66.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Get Report" textFill="WHITE" />
+                        <JFXButton fx:id="wchPane" alignment="CENTER" layoutX="5.0" layoutY="122.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Water Change History" textFill="WHITE" />
+                        <JFXButton fx:id="fishPane" alignment="CENTER" layoutX="5.0" layoutY="178.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Fishes" textFill="WHITE" />
+                        <JFXButton fx:id="vcPane" alignment="CENTER" layoutX="5.0" layoutY="235.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="View Cameras" textFill="WHITE" />
+                        <JFXButton fx:id="infoPane" alignment="CENTER" layoutX="5.0" layoutY="292.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Info" textFill="WHITE" />
+                        <JFXButton fx:id="logoutPane" alignment="CENTER" layoutX="5.0" layoutY="432.0" onMouseClicked="#logoutClick" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Logout" textFill="WHITE" />
                      </children>
                   </Pane>
                </children>

@@ -16,15 +16,14 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException{
 
-//       FXMLLoader fxmlLoader= new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/login.fxml"));
-//       Scene scene = new Scene(fxmlLoader.load());
-//       scene.setFill(Color.TRANSPARENT);
-//       stage.setScene(scene);
-//       stage.initStyle(StageStyle.TRANSPARENT);
-//       stage.show();
+      FXMLLoader fxmlLoader= new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/login.fxml"));
+      Scene scene = new Scene(fxmlLoader.load());
+      scene.setFill(Color.TRANSPARENT);
+      stage.setScene(scene);
+      stage.initStyle(StageStyle.TRANSPARENT);
+      stage.show();
 
-<<<<<<< HEAD
-=======
+
 
 //        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
 //        Scene scene = new Scene(fxmlLoader.load());
@@ -33,13 +32,12 @@ public class Main extends Application {
 //        stage2.setResizable(false);
 //        stage2.show();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(TankDetailForm.class.getResource("/lk/matrix/soysaaquarium/View/TankDetailForm.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage2 =new Stage();
-        stage2.setScene(scene);
-        stage2.setResizable(false);
-        stage2.show();
->>>>>>> 5524149b3edff37c870ebd62b63919420ec904d5
+//        FXMLLoader fxmlLoader = new FXMLLoader(TankDetailForm.class.getResource("/lk/matrix/soysaaquarium/View/TankDetailForm.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load());
+//        Stage stage2 =new Stage();
+//        stage2.setScene(scene);
+//        stage2.setResizable(false);
+//        stage2.show();
     }
 
     public static void main(String[] args) {
