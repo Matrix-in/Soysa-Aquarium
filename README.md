@@ -4,7 +4,7 @@
 
 ### prerequisities -
 install git bash -  [git-Windows](https://github.com/git-for-windows/git/releases/download/v2.39.1.windows.1/Git-2.39.1-64-bit.exe) <br />
-configured your Database with these queries - [SQL](https://docs.google.com/document/d/1me-R8GTyIGUQ4DQOmFUtMmjxN7g2ibS6ASZRPdGfM78/edit)
+configure your Database with these queries - [SQL](https://docs.google.com/document/d/1me-R8GTyIGUQ4DQOmFUtMmjxN7g2ibS6ASZRPdGfM78/edit)
 
 ### If you don't have the project yet - follow these steps -> 
 

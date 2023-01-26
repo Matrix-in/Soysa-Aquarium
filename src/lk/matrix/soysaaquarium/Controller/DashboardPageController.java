@@ -1,7 +1,10 @@
 package lk.matrix.soysaaquarium.Controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -51,25 +54,28 @@ public class DashboardPageController  {
     private PieChart amoPieChart;
 
     @FXML
-    private Pane logoutPane;
+    private JFXButton logoutPane;
 
     @FXML
-    private Pane vcPane;
+    private JFXButton vcPane;
 
     @FXML
-    private Pane wchPane;
+    private JFXButton wchPane;
 
     @FXML
-    private Pane getReportPane;
+    private JFXButton getReportPane;
 
     @FXML
-    private Pane infoPane;
+    private JFXButton infoPane;
 
     @FXML
-    private Pane fishPane;
+    private JFXButton fishPane;
 
     @FXML
-    private Pane manageTanksPane;
+    private JFXButton manageTanksPane;
+
+    @FXML
+    private JFXToggleButton modeToggleBtn;
 
     private int[] tankIdArr = new int[0];
     private double[] temperatureData = new double[0];
@@ -246,7 +252,7 @@ public class DashboardPageController  {
     void logoutClick(MouseEvent event) throws IOException {
         System.out.println("logout");
         Stage thiStage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        thiStage.close();
+        thiStage.hide();
 
         FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -258,72 +264,28 @@ public class DashboardPageController  {
         outStage.show();
     }
 
-    @FXML
-    void logOutMouseEnter(MouseEvent event) {
-        //logoutPane.setStyle("-fx-background-color:#424242;");
-    }
 
-    @FXML
-    void logOutMouseExit(MouseEvent event) {
-        //logoutPane.setStyle("-fx-background-color:#323232;");
-    }
-    @FXML
-    void sidepane1MouseEnter(MouseEvent event) {
-        manageTanksPane.setStyle("-fx-background-color:#424242;");
-    }
+    public void onActionToggleBtn(ActionEvent actionEvent) {
+        System.out.println(modeToggleBtn.isSelected());
+        if (modeToggleBtn.isSelected()){
 
-    @FXML
-    void sidepane1MouseExit(MouseEvent event) {
-        manageTanksPane.setStyle("-fx-background-color:#323232;");
-    }
+            manageTanksPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
+            getReportPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
+            wchPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
+            fishPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
+            vcPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
+            infoPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
+            logoutPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
 
-    @FXML
-    void sidepane2MouseEnter(MouseEvent event) {
-        getReportPane.setStyle("-fx-background-color:#424242;");
-    }
+        }else{
+            manageTanksPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+            getReportPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+            wchPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+            fishPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+            vcPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+            infoPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+            logoutPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
 
-    @FXML
-    void sidepane2MouseExit(MouseEvent event) {
-        getReportPane.setStyle("-fx-background-color:#323232;");
-    }
-
-    @FXML
-    void sidepane3MouseEnter(MouseEvent event) {
-        wchPane.setStyle("-fx-background-color:#424242;");
-    }
-
-    @FXML
-    void sidepane3MouseExit(MouseEvent event) {
-        wchPane.setStyle("-fx-background-color:#323232;");
-    }
-
-    @FXML
-    void sidepane4MouseEnter(MouseEvent event) {
-        fishPane.setStyle("-fx-background-color:#424242;");
-    }
-
-    @FXML
-    void sidepane4MouseExit(MouseEvent event) {
-        fishPane.setStyle("-fx-background-color:#323232;");
-    }
-
-    @FXML
-    void sidepane5MouseEnter(MouseEvent event) {
-        vcPane.setStyle("-fx-background-color:#424242;");
-    }
-
-    @FXML
-    void sidepane5MouseExit(MouseEvent event) {
-        vcPane.setStyle("-fx-background-color:#323232;");
-    }
-
-    @FXML
-    void sidepane6MouseEnter(MouseEvent event) {
-        infoPane.setStyle("-fx-background-color:#424242;");
-    }
-
-    @FXML
-    void sidepane6MouseExit(MouseEvent event) {
-        infoPane.setStyle("-fx-background-color:#323232;");
+        }
     }
 }
