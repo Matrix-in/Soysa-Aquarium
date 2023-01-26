@@ -29,6 +29,7 @@ public class DashboardPageController  {
 
     @FXML
     private Label timeLabel;
+
     @FXML
     private LineChart<?, ?> fxLinechart;
 
@@ -42,6 +43,7 @@ public class DashboardPageController  {
 
     @FXML
     private PieChart tempPieChart;
+
     @FXML
     private PieChart phPieChart;
 
