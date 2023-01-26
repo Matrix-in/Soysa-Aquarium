@@ -23,6 +23,8 @@ public class Main extends Application {
 //       stage.initStyle(StageStyle.TRANSPARENT);
 //       stage.show();
 
+<<<<<<< HEAD
+=======
 
 //        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
 //        Scene scene = new Scene(fxmlLoader.load());
@@ -37,6 +39,7 @@ public class Main extends Application {
         stage2.setScene(scene);
         stage2.setResizable(false);
         stage2.show();
+>>>>>>> 5524149b3edff37c870ebd62b63919420ec904d5
     }
 
     public static void main(String[] args) {
