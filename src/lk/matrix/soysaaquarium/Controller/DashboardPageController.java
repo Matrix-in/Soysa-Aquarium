@@ -30,8 +30,7 @@ import javafx.scene.control.Label;
 public class DashboardPageController  {
 
     @FXML
-<<<<<<< HEAD
-=======
+
     private ComboBox tankComboBox;
 
     @FXML
@@ -113,11 +112,13 @@ public class DashboardPageController  {
     @FXML
     private Button setBtn;
 
+
     private int[] tankIdArr = new int[0];
     private double[] temperatureData = new double[0];
     private String[] timeStampData = new String[0];
+
     @FXML
->>>>>>> 371773efb00735a172bbd61fa55955c271982529
+
     public void initialize() {
 
         try{
@@ -373,57 +374,5 @@ public class DashboardPageController  {
         }
     }
 
-    @FXML
-    private ComboBox tankComboBox;
 
-    @FXML
-    private Label timeLabel;
-
-    @FXML
-    private LineChart<?, ?> fxLinechart;
-
-    @FXML
-    private CategoryAxis x;
-
-    @FXML
-    private NumberAxis y;
-
-    private int timer = 0;
-
-    @FXML
-    private PieChart tempPieChart;
-
-    @FXML
-    private PieChart phPieChart;
-
-    @FXML
-    private PieChart amoPieChart;
-
-    @FXML
-    private JFXButton logoutPane;
-
-    @FXML
-    private JFXButton vcPane;
-
-    @FXML
-    private JFXButton wchPane;
-
-    @FXML
-    private JFXButton getReportPane;
-
-    @FXML
-    private JFXButton infoPane;
-
-    @FXML
-    private JFXButton fishPane;
-
-    @FXML
-    private JFXButton manageTanksPane;
-
-    @FXML
-    private JFXToggleButton modeToggleBtn;
-
-    private int[] tankIdArr = new int[0];
-    private double[] temperatureData = new double[0];
-    private String[] timeStampData = new String[0];
 }
