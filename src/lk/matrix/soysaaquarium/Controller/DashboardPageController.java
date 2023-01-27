@@ -28,59 +28,6 @@ import javafx.scene.control.Label;
 public class DashboardPageController  {
 
     @FXML
-    private ComboBox tankComboBox;
-
-    @FXML
-    private Label timeLabel;
-
-    @FXML
-    private LineChart<?, ?> fxLinechart;
-
-    @FXML
-    private CategoryAxis x;
-
-    @FXML
-    private NumberAxis y;
-
-    private int timer = 0;
-
-    @FXML
-    private PieChart tempPieChart;
-
-    @FXML
-    private PieChart phPieChart;
-
-    @FXML
-    private PieChart amoPieChart;
-
-    @FXML
-    private JFXButton logoutPane;
-
-    @FXML
-    private JFXButton vcPane;
-
-    @FXML
-    private JFXButton wchPane;
-
-    @FXML
-    private JFXButton getReportPane;
-
-    @FXML
-    private JFXButton infoPane;
-
-    @FXML
-    private JFXButton fishPane;
-
-    @FXML
-    private JFXButton manageTanksPane;
-
-    @FXML
-    private JFXToggleButton modeToggleBtn;
-
-    private int[] tankIdArr = new int[0];
-    private double[] temperatureData = new double[0];
-    private String[] timeStampData = new String[0];
-    @FXML
     public void initialize() {
 
         try{
@@ -97,6 +44,33 @@ public class DashboardPageController  {
                 tempArray[tempArray.length-1] = Integer.parseInt(resultSet.getString("tankId"));
                 tankIdArr = tempArray;
                 System.out.println(Integer.parseInt(resultSet.getString("tankId")));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        try{
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from tempRecords ORDER BY id DESC LIMIT 4");
+            while (resultSet.next()){
+                double[] tempArray = new double[temperatureData.length+1];
+                for (int i = 0; i < temperatureData.length; i++){
+                    tempArray[i] = temperatureData[i];
+                }
+                tempArray[tempArray.length-1] = Double.parseDouble(resultSet.getString("temperature"));
+                temperatureData = tempArray;
+                System.out.println(Double.parseDouble(resultSet.getString("temperature")));
+
+                String[] tempArray2 = new String[timeStampData.length+1];
+                for (int i = 0; i < timeStampData.length; i++){
+                    tempArray2[i] = timeStampData[i];
+                }
+                tempArray2[tempArray2.length-1] = resultSet.getString("timeStampTemp");
+                timeStampData = tempArray2;
+                System.out.println(resultSet.getString("timeStampTemp"));
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -174,32 +148,6 @@ public class DashboardPageController  {
         x.setTickLabelGap(4);
         x.setTickMarkVisible(false);
 
-        try{
-
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from tempRecords ORDER BY id DESC LIMIT 4");
-            while (resultSet.next()){
-                double[] tempArray = new double[temperatureData.length+1];
-                for (int i = 0; i < temperatureData.length; i++){
-                    tempArray[i] = temperatureData[i];
-                 }
-                tempArray[tempArray.length-1] = Double.parseDouble(resultSet.getString("temperature"));
-                temperatureData = tempArray;
-                System.out.println(Double.parseDouble(resultSet.getString("temperature")));
-
-                String[] tempArray2 = new String[timeStampData.length+1];
-                for (int i = 0; i < timeStampData.length; i++){
-                    tempArray2[i] = timeStampData[i];
-                }
-                tempArray2[tempArray2.length-1] = resultSet.getString("timeStampTemp");
-                timeStampData = tempArray2;
-                System.out.println(resultSet.getString("timeStampTemp"));
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
 
         XYChart.Series series = new XYChart.Series();
         series.setName("Temperature");
@@ -288,4 +236,58 @@ public class DashboardPageController  {
 
         }
     }
+
+    @FXML
+    private ComboBox tankComboBox;
+
+    @FXML
+    private Label timeLabel;
+
+    @FXML
+    private LineChart<?, ?> fxLinechart;
+
+    @FXML
+    private CategoryAxis x;
+
+    @FXML
+    private NumberAxis y;
+
+    private int timer = 0;
+
+    @FXML
+    private PieChart tempPieChart;
+
+    @FXML
+    private PieChart phPieChart;
+
+    @FXML
+    private PieChart amoPieChart;
+
+    @FXML
+    private JFXButton logoutPane;
+
+    @FXML
+    private JFXButton vcPane;
+
+    @FXML
+    private JFXButton wchPane;
+
+    @FXML
+    private JFXButton getReportPane;
+
+    @FXML
+    private JFXButton infoPane;
+
+    @FXML
+    private JFXButton fishPane;
+
+    @FXML
+    private JFXButton manageTanksPane;
+
+    @FXML
+    private JFXToggleButton modeToggleBtn;
+
+    private int[] tankIdArr = new int[0];
+    private double[] temperatureData = new double[0];
+    private String[] timeStampData = new String[0];
 }
