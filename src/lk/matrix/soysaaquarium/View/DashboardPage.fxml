@@ -31,15 +31,15 @@
             </LineChart>
             <Pane layoutX="6.0" layoutY="6.0" prefHeight="642.0" prefWidth="252.0" style="-fx-background-color: #2f2f2f;">
                <children>
-                  <Pane layoutX="5.0" layoutY="8.0" prefHeight="122.0" prefWidth="240.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
+                  <Pane fx:id="adminPane" layoutX="5.0" layoutY="8.0" prefHeight="122.0" prefWidth="240.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
                      <children>
-                        <Pane layoutX="27.0" layoutY="25.0" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 50px; -fx-background-image: url(&quot;./Assets/user.png&quot;); -fx-background-size: 40px; -fx-background-position: 50%; -fx-background-repeat: no-repeat; -fx-border-color: #78E08F; -fx-border-radius: 100px;" />
-                        <Label layoutX="87.0" layoutY="28.0" text="Admin" textFill="WHITE">
+                        <Pane fx:id="profilePic" layoutX="27.0" layoutY="25.0" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 50px; -fx-background-image: url(&quot;/Assets/user.png&quot;); -fx-background-size: 40px; -fx-background-position: 50%; -fx-background-repeat: no-repeat; -fx-border-color: #78E08F; -fx-border-radius: 100px;" />
+                        <Label fx:id="adminLabel" layoutX="87.0" layoutY="28.0" text="Admin" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="87.0" layoutY="48.0" text="You are an Admin user" textFill="WHITE">
+                        <Label fx:id="adminLabel2" layoutX="87.0" layoutY="48.0" text="You are an Admin user" textFill="WHITE">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -79,9 +79,9 @@
                   </Pane>
                </children>
             </Pane>
-            <Pane layoutX="268.0" layoutY="71.0" prefHeight="214.0" prefWidth="736.0" style="-fx-background-color: #2f2f2f;">
+            <Pane fx:id="fullPane" layoutX="268.0" layoutY="71.0" prefHeight="214.0" prefWidth="736.0" style="-fx-background-color: #2f2f2f;">
                <children>
-                  <Pane layoutX="178.0" layoutY="13.0" prefHeight="190.0" prefWidth="169.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
+                  <Pane fx:id="piePane1" layoutX="178.0" layoutY="13.0" prefHeight="190.0" prefWidth="169.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
                      <children>
                         <PieChart fx:id="tempPieChart" labelsVisible="false" layoutX="-18.0" layoutY="2.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 90deg; -fx-region-border: none; -fx-border-color: #4C4C4C;">
                            <opaqueInsets>
@@ -89,11 +89,11 @@
                            </opaqueInsets>
                         </PieChart>
                         <Circle fill="#4c4c4c" layoutX="88.0" layoutY="82.0" radius="53.0" stroke="WHITE" strokeType="INSIDE" />
-                        <Label layoutX="58.0" layoutY="158.0" text="Temperatue" textFill="WHITE" />
+                        <Label fx:id="pl1" layoutX="58.0" layoutY="158.0" text="Temperatue" textFill="WHITE" />
                         <Label layoutX="75.0" layoutY="74.0" text="30°C" textFill="WHITE" />
                      </children>
                   </Pane>
-                  <Pane layoutX="359.0" layoutY="13.0" prefHeight="190.0" prefWidth="169.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
+                  <Pane fx:id="piePane2" layoutX="359.0" layoutY="13.0" prefHeight="190.0" prefWidth="169.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
                      <children>
                         <PieChart fx:id="phPieChart" labelsVisible="false" layoutX="-18.0" layoutY="2.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 90deg;;">
                            <opaqueInsets>
@@ -101,11 +101,11 @@
                            </opaqueInsets>
                         </PieChart>
                         <Circle fill="#4c4c4c" layoutX="88.0" layoutY="82.0" radius="53.0" stroke="WHITE" strokeType="INSIDE" />
-                        <Label layoutX="80.0" layoutY="157.0" text="pH" textFill="WHITE" />
+                        <Label fx:id="pl2" layoutX="80.0" layoutY="157.0" text="pH" textFill="WHITE" />
                         <Label layoutX="75.0" layoutY="74.0" text="7pH" textFill="WHITE" />
                      </children>
                   </Pane>
-                  <Pane layoutX="538.0" layoutY="13.0" prefHeight="190.0" prefWidth="169.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
+                  <Pane fx:id="piePane3" layoutX="538.0" layoutY="13.0" prefHeight="190.0" prefWidth="169.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
                      <children>
                         <PieChart fx:id="amoPieChart" labelsVisible="false" layoutX="-18.0" layoutY="2.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 90deg;;">
                            <opaqueInsets>
@@ -113,7 +113,7 @@
                            </opaqueInsets>
                         </PieChart>
                         <Circle fill="#4c4c4c" layoutX="88.0" layoutY="82.0" radius="53.0" stroke="WHITE" strokeType="INSIDE" />
-                        <Label layoutX="68.0" layoutY="155.0" text="Amonia" textFill="WHITE" />
+                        <Label fx:id="pl3" layoutX="68.0" layoutY="155.0" text="Amonia" textFill="WHITE" />
                         <Label layoutX="75.0" layoutY="74.0" text="0.5ppm" textFill="WHITE" />
                      </children>
                   </Pane>
@@ -121,11 +121,11 @@
                   <ComboBox fx:id="tankComboBox" layoutX="25.0" layoutY="85.0" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #c8c8c8;" />
                </children>
             </Pane>
-            <Pane layoutX="268.0" layoutY="6.0" prefHeight="61.0" prefWidth="737.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
+            <Pane fx:id="buttonPane2" layoutX="268.0" layoutY="6.0" prefHeight="61.0" prefWidth="737.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
                <children>
-                  <TextField layoutX="39.0" layoutY="14.0" prefHeight="34.0" prefWidth="309.0" style="-fx-background-color: #4c4c4c;" />
-                  <Button layoutX="514.0" layoutY="18.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" style="-fx-background-image: url(&quot;./Assets/notification.png&quot;); -fx-background-size: 20px; -fx-background-position: 55%; -fx-background-repeat: no-repeat; -fx-background-color: #4C4C4C;" />
-                  <Button layoutX="554.0" layoutY="18.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" style="-fx-background-image: url(&quot;./Assets/settings.png&quot;); -fx-background-size: 20px; -fx-background-position: 55%; -fx-background-repeat: no-repeat; -fx-background-color: #4C4C4C;" />
+                  <TextField fx:id="searchText" layoutX="39.0" layoutY="14.0" prefHeight="34.0" prefWidth="309.0" promptText="Search Here" style="-fx-background-color: #4c4c4c;" />
+                  <Button fx:id="notBtn" layoutX="514.0" layoutY="18.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" style="-fx-background-image: url(&quot;./Assets/notification.png&quot;); -fx-background-size: 20px; -fx-background-position: 55%; -fx-background-repeat: no-repeat; -fx-background-color: #4C4C4C;" />
+                  <Button fx:id="setBtn" layoutX="554.0" layoutY="18.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" style="-fx-background-image: url(&quot;./Assets/settings.png&quot;); -fx-background-size: 20px; -fx-background-position: 55%; -fx-background-repeat: no-repeat; -fx-background-color: #4C4C4C;" />
                   <Label fx:id="timeLabel" layoutX="599.0" layoutY="22.0" text="YYYY-MM-DD HH:MM:SS" textFill="WHITE" />
                   <JFXToggleButton fx:id="modeToggleBtn" layoutX="354.0" layoutY="2.0" onAction="#onActionToggleBtn" text="Dark Mode" textFill="WHITE" toggleColor="#1b99c3" toggleLineColor="#09c6ff">
                      <cursor>
@@ -135,11 +135,5 @@
             </Pane>
          </children>
       </Pane>
-      <PieChart fx:id="fxPieChart1" labelsVisible="false" layoutX="620.0" layoutY="-216.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </PieChart>
-      <Circle fill="#4c4c4c" layoutX="726.0" layoutY="-136.0" radius="53.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" />
    </children>
 </AnchorPane>
