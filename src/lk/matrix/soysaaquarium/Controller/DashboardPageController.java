@@ -28,6 +28,64 @@ import javafx.scene.control.Label;
 public class DashboardPageController  {
 
     @FXML
+<<<<<<< HEAD
+=======
+    private ComboBox tankComboBox;
+
+    @FXML
+    private Label timeLabel;
+    @FXML
+    private LineChart<?, ?> fxLinechart;
+
+    @FXML
+    private CategoryAxis x;
+
+    @FXML
+    private NumberAxis y;
+
+    private int timer = 0;
+
+    @FXML
+    private PieChart tempPieChart;
+    @FXML
+    private PieChart phPieChart;
+
+    @FXML
+    private PieChart amoPieChart;
+
+    @FXML
+    private JFXButton logoutPane;
+
+    @FXML
+    private JFXButton vcPane;
+
+    @FXML
+    private JFXButton wchPane;
+
+    @FXML
+    private JFXButton getReportPane;
+
+    @FXML
+    private JFXButton infoPane;
+
+    @FXML
+    private JFXButton fishPane;
+
+    @FXML
+    private JFXButton manageTanksPane;
+
+    @FXML
+    private JFXToggleButton modeToggleBtn;
+    @FXML
+    private Pane buttonPane;
+    @FXML
+    private Pane bgPane;
+
+    private int[] tankIdArr = new int[0];
+    private double[] temperatureData = new double[0];
+    private String[] timeStampData = new String[0];
+    @FXML
+>>>>>>> 371773efb00735a172bbd61fa55955c271982529
     public void initialize() {
 
         try{
@@ -217,13 +275,18 @@ public class DashboardPageController  {
         System.out.println(modeToggleBtn.isSelected());
         if (modeToggleBtn.isSelected()){
 
-            manageTanksPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
-            getReportPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
-            wchPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
-            fishPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
-            vcPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
-            infoPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
-            logoutPane.setStyle("-fx-background-color:white;-fx-background-radius:5px;-fx-text-fill:black");
+            manageTanksPane.setStyle("-fx-background-color: #4c4c4c;-fx-background-radius:5px;-fx-text-fill:white");
+            getReportPane.setStyle("-fx-background-color: #4c4c4c;-fx-background-radius:5px;-fx-text-fill:white");
+            wchPane.setStyle("-fx-background-color: #4c4c4c;-fx-background-radius:5px;-fx-text-fill:white");
+            fishPane.setStyle("-fx-background-color: #4c4c4c;-fx-background-radius:5px;-fx-text-fill:white");
+            vcPane.setStyle("-fx-background-color: #4c4c4c;-fx-background-radius:5px;-fx-text-fill:white");
+            infoPane.setStyle("-fx-background-color: #4c4c4c;-fx-background-radius:5px;-fx-text-fill:white");
+            logoutPane.setStyle("-fx-background-color: #4c4c4c;-fx-background-radius:5px;-fx-text-fill:white");
+            buttonPane.setStyle("-fx-background-color:white;-fx-background-radius:10px");
+            bgPane.setStyle("-fx-background-color:white");
+            x.setStyle("-fx-tick-label-fill:black");
+            y.setStyle("-fx-tick-label-fill:black");
+            modeToggleBtn.setText("Ligt Mode");
 
         }else{
             manageTanksPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
@@ -233,7 +296,11 @@ public class DashboardPageController  {
             vcPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
             infoPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
             logoutPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
-
+            buttonPane.setStyle("-fx-background-color:#4c4c4c;-fx-background-radius:10px");
+           bgPane.setStyle("-fx-background-color:#1f1f1f");
+           x.setStyle("-fx-tick-label-fill:white");
+           y.setStyle("-fx-tick-label-fill:white");
+            modeToggleBtn.setText("Dark Mode");
         }
     }
 

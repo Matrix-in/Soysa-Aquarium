@@ -92,9 +92,7 @@ public class mainController implements Initializable {
 
     public void getLogin (ActionEvent actionEvent) throws IOException {
         username = userName.getText();
-        System.out.println(username);
         password=passwordField.getText();
-        System.out.println(password);
         int count = 0;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -110,7 +108,7 @@ public class mainController implements Initializable {
             }
 
         } catch (Exception e) {
-            System.out.println("Error");
+            System.out.println("Error : "+e);
         }
 
         if(count == 1){
@@ -153,14 +151,11 @@ public class mainController implements Initializable {
 
     public void onActionGetEmail(ActionEvent actionEvent) {
         username = userName.getText();
-        System.out.println(username);
-
     }
 
 
     public void onActionGetPassword(ActionEvent actionEvent) {
         password=passwordField.getText();
-        System.out.println(password);
         loginBtn.fire();
     }
 }

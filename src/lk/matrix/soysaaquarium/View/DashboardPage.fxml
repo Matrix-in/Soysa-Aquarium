@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -18,9 +19,9 @@
 <?import com.jfoenix.controls.JFXToggleButton?>
 <AnchorPane minHeight="655.0" minWidth="1024.0" prefHeight="655.0" prefWidth="1024.0" scaleShape="false" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.DashboardPageController">
    <children>
-      <Pane prefHeight="657.0" prefWidth="1024.0" style="-fx-background-color: #1f1f1f;">
+      <Pane fx:id="bgPane" prefHeight="657.0" prefWidth="1024.0" style="-fx-background-color: #1f1f1f;" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <LineChart id="lineChartFx" fx:id="fxLinechart" layoutX="275.0" layoutY="293.0" prefHeight="325.0" prefWidth="732.0" style="-fx-background-color: #fff; -fx-region-background: #fff;">
+            <LineChart id="lineChartFx" fx:id="fxLinechart" layoutX="275.0" layoutY="293.0" prefHeight="325.0" prefWidth="732.0" style="-fx-background-color: #ffffff; -fx-region-background: #ffffff;">
               <xAxis>
                 <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" fx:id="x" />
               </xAxis>
@@ -44,15 +45,36 @@
                            </font>
                         </Label>
                      </children></Pane>
-                  <Pane layoutX="5.0" layoutY="138.0" prefHeight="491.0" prefWidth="240.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
+                  <Pane fx:id="buttonPane" layoutX="5.0" layoutY="138.0" prefHeight="491.0" prefWidth="240.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
                      <children>
-                        <JFXButton fx:id="manageTanksPane" alignment="CENTER" layoutX="5.0" layoutY="9.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Manage Tanks" textFill="WHITE" />
-                        <JFXButton fx:id="getReportPane" alignment="CENTER" layoutX="5.0" layoutY="66.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Get Report" textFill="WHITE" />
-                        <JFXButton fx:id="wchPane" alignment="CENTER" layoutX="5.0" layoutY="122.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Water Change History" textFill="WHITE" />
-                        <JFXButton fx:id="fishPane" alignment="CENTER" layoutX="5.0" layoutY="178.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Fishes" textFill="WHITE" />
-                        <JFXButton fx:id="vcPane" alignment="CENTER" layoutX="5.0" layoutY="235.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="View Cameras" textFill="WHITE" />
-                        <JFXButton fx:id="infoPane" alignment="CENTER" layoutX="5.0" layoutY="292.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Info" textFill="WHITE" />
-                        <JFXButton fx:id="logoutPane" alignment="CENTER" layoutX="5.0" layoutY="432.0" onMouseClicked="#logoutClick" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Logout" textFill="WHITE" />
+                        <JFXButton fx:id="manageTanksPane" alignment="CENTER" layoutX="5.0" layoutY="9.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Manage Tanks" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></JFXButton>
+                        <JFXButton fx:id="getReportPane" alignment="CENTER" layoutX="5.0" layoutY="66.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Get Report" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></JFXButton>
+                        <JFXButton fx:id="wchPane" alignment="CENTER" layoutX="5.0" layoutY="122.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Water Change History" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></JFXButton>
+                        <JFXButton fx:id="fishPane" alignment="CENTER" layoutX="5.0" layoutY="178.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Fishes" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></JFXButton>
+                        <JFXButton fx:id="vcPane" alignment="CENTER" layoutX="5.0" layoutY="235.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="View Cameras" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></JFXButton>
+                        <JFXButton fx:id="infoPane" alignment="CENTER" layoutX="5.0" layoutY="292.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Info" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></JFXButton>
+                        <JFXButton fx:id="logoutPane" alignment="CENTER" layoutX="5.0" layoutY="432.0" onMouseClicked="#logoutClick" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Logout" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></JFXButton>
                      </children>
                   </Pane>
                </children>
@@ -105,7 +127,10 @@
                   <Button layoutX="514.0" layoutY="18.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" style="-fx-background-image: url(&quot;./Assets/notification.png&quot;); -fx-background-size: 20px; -fx-background-position: 55%; -fx-background-repeat: no-repeat; -fx-background-color: #4C4C4C;" />
                   <Button layoutX="554.0" layoutY="18.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" style="-fx-background-image: url(&quot;./Assets/settings.png&quot;); -fx-background-size: 20px; -fx-background-position: 55%; -fx-background-repeat: no-repeat; -fx-background-color: #4C4C4C;" />
                   <Label fx:id="timeLabel" layoutX="599.0" layoutY="22.0" text="YYYY-MM-DD HH:MM:SS" textFill="WHITE" />
-                  <JFXToggleButton fx:id="modeToggleBtn" layoutX="354.0" layoutY="2.0" onAction="#onActionToggleBtn" text="Dark/light" textFill="WHITE" />
+                  <JFXToggleButton fx:id="modeToggleBtn" layoutX="354.0" layoutY="2.0" onAction="#onActionToggleBtn" text="Dark Mode" textFill="WHITE" toggleColor="#1b99c3" toggleLineColor="#09c6ff">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></JFXToggleButton>
                </children>
             </Pane>
          </children>
