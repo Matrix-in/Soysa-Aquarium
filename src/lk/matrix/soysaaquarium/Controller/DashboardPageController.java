@@ -30,6 +30,8 @@ import javafx.scene.control.Label;
 public class DashboardPageController  {
 
     @FXML
+    private JFXButton addFirstTankBtn;
+    @FXML
     private ComboBox tankComboBox;
 
     @FXML
@@ -110,6 +112,8 @@ public class DashboardPageController  {
     private Button notBtn;
     @FXML
     private Button setBtn;
+    static Stage stage;
+    static Stage stage2;
 
 
     private int[] tankIdArr = new int[0];
@@ -240,92 +244,91 @@ public class DashboardPageController  {
             latestTemp = temperatureData[temperatureData.length-1];
         }
 
-        tankComboBox.setPromptText("Tank 001");
+//        tankIdArr = new int[0];
+        if(tankIdArr.length > 0){
+            addFirstTankBtn.setVisible(false);
+            tankComboBox.setPromptText("Tank 001");
 //        tankComboBox.setStyle("-fx-prompt-text-fill : #000000;");
 
 
-        ObservableList<String> tanksCB =
-                FXCollections.observableArrayList();
+            ObservableList<String> tanksCB =
+                    FXCollections.observableArrayList();
 
-        System.out.println(Arrays.toString(tankIdArr));
-        for (int id: tankIdArr){
-            System.out.println(id);
-            tanksCB.add("Tank 00"+id);
-        }
-
-
-        tankComboBox.setItems(tanksCB);
-
-        String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
-        timeLabel.setText(timeStamp);
-
-
-        ObservableList<PieChart.Data> tempPieChartData = FXCollections.observableArrayList(
-                new PieChart.Data("Filled", latestTemp),
-                new PieChart.Data("free", 100-latestTemp));
-
-        tempPieChart.getData().addAll(tempPieChartData);
-        // Iterate through the chart's data and set the color for each segment
-        for (PieChart.Data data : tempPieChart.getData()) {
-            if(data.getName().equals("Filled")){
-                data.getNode().setStyle("-fx-pie-color: #78E08F;");
+            System.out.println(Arrays.toString(tankIdArr));
+            for (int id: tankIdArr){
+                System.out.println(id);
+                tanksCB.add("Tank 00"+id);
             }
-            if(data.getName().equals("free")){
-                data.getNode().setStyle("-fx-pie-color: #4c4c4c;");
+
+
+            tankComboBox.setItems(tanksCB);
+
+            ObservableList<PieChart.Data> tempPieChartData = FXCollections.observableArrayList(
+                    new PieChart.Data("Filled", latestTemp),
+                    new PieChart.Data("free", 100-latestTemp));
+
+            tempPieChart.getData().addAll(tempPieChartData);
+            // Iterate through the chart's data and set the color for each segment
+            for (PieChart.Data data : tempPieChart.getData()) {
+                if(data.getName().equals("Filled")){
+                    data.getNode().setStyle("-fx-pie-color: #78E08F;");
+                }
+                if(data.getName().equals("free")){
+                    data.getNode().setStyle("-fx-pie-color: #4c4c4c;");
+                }
             }
-        }
 
-        ObservableList<PieChart.Data> phPieChartData = FXCollections.observableArrayList(
-                new PieChart.Data("Filled", 70),
-                new PieChart.Data("free", 30));
+            ObservableList<PieChart.Data> phPieChartData = FXCollections.observableArrayList(
+                    new PieChart.Data("Filled", 70),
+                    new PieChart.Data("free", 30));
 
-        phPieChart.getData().addAll(phPieChartData);
-        // Iterate through the chart's data and set the color for each segment
-        for (PieChart.Data data : phPieChart.getData()) {
-            if(data.getName().equals("Filled")){
-                data.getNode().setStyle("-fx-pie-color: #F14647;");
+            phPieChart.getData().addAll(phPieChartData);
+            // Iterate through the chart's data and set the color for each segment
+            for (PieChart.Data data : phPieChart.getData()) {
+                if(data.getName().equals("Filled")){
+                    data.getNode().setStyle("-fx-pie-color: #F14647;");
+                }
+                if(data.getName().equals("free")){
+                    data.getNode().setStyle("-fx-pie-color: #4c4c4c;");
+                }
             }
-            if(data.getName().equals("free")){
-                data.getNode().setStyle("-fx-pie-color: #4c4c4c;");
+
+            ObservableList<PieChart.Data> amoPieChartData = FXCollections.observableArrayList(
+                    new PieChart.Data("Filled", 30),
+                    new PieChart.Data("free", 70));
+
+            amoPieChart.getData().addAll(amoPieChartData);
+            // Iterate through the chart's data and set the color for each segment
+            for (PieChart.Data data : amoPieChart.getData()) {
+                if(data.getName().equals("Filled")){
+                    data.getNode().setStyle("-fx-pie-color: #78E08F;");
+                }
+                if(data.getName().equals("free")){
+                    data.getNode().setStyle("-fx-pie-color: #4c4c4c;");
+                }
             }
-        }
 
-        ObservableList<PieChart.Data> amoPieChartData = FXCollections.observableArrayList(
-                new PieChart.Data("Filled", 30),
-                new PieChart.Data("free", 70));
+            //line chart codes starts
 
-        amoPieChart.getData().addAll(amoPieChartData);
-        // Iterate through the chart's data and set the color for each segment
-        for (PieChart.Data data : amoPieChart.getData()) {
-            if(data.getName().equals("Filled")){
-                data.getNode().setStyle("-fx-pie-color: #78E08F;");
+            fxLinechart.setCreateSymbols(false);
+            fxLinechart.lookup(".chart-plot-background").setStyle("-fx-background-color: transparent;");
+            x.setTickLabelGap(4);
+            x.setTickMarkVisible(false);
+
+
+            XYChart.Series series = new XYChart.Series();
+            series.setName("Temperature");
+            //populating the series with data
+            for(int i = timeStampData.length; i > 0; i--){
+
+                series.getData().add(new XYChart.Data(timeStampData[i-1], temperatureData[i-1]));
             }
-            if(data.getName().equals("free")){
-                data.getNode().setStyle("-fx-pie-color: #4c4c4c;");
-            }
-        }
-
-        //line chart codes starts
-
-        fxLinechart.setCreateSymbols(false);
-        fxLinechart.lookup(".chart-plot-background").setStyle("-fx-background-color: transparent;");
-        x.setTickLabelGap(4);
-        x.setTickMarkVisible(false);
-
-
-        XYChart.Series series = new XYChart.Series();
-        series.setName("Temperature");
-        //populating the series with data
-        for(int i = timeStampData.length; i > 0; i--){
-
-            series.getData().add(new XYChart.Data(timeStampData[i-1], temperatureData[i-1]));
-        }
 
 //        series.getData().add(new XYChart.Data("1", 23));
 //        series.getData().add(new XYChart.Data("2", 14));
 
 
-        fxLinechart.getData().add(series);
+            fxLinechart.getData().add(series);
 
 //        //tl1
 //        XYChart.Series seriesTemp = new XYChart.Series<>();
@@ -357,6 +360,18 @@ public class DashboardPageController  {
 //        fxLinechart.getData().add(seriesPH);
 //        timeline2.setCycleCount(Animation.INDEFINITE);
 //        timeline2.play();
+
+
+
+        }else {
+            tankComboBox.setVisible(false);
+
+        }
+
+
+        String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
+        timeLabel.setText(timeStamp);
+
 
 
     }
@@ -447,5 +462,20 @@ public class DashboardPageController  {
         }
     }
 
-
+    public void onActiontankDetailForm(ActionEvent actionEvent) throws IOException {
+        if(stage2 == null) {
+            stage = (Stage) fullPane.getScene().getWindow();
+            stage.hide();
+            FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/TankDetailForm.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage2 = new Stage();
+            stage2.setScene(scene);
+            stage2.setResizable(false);
+            stage2.show();
+        }else{
+            stage = (Stage) fullPane.getScene().getWindow();
+            stage.hide();
+            stage2.show();
+        }
+    }
 }

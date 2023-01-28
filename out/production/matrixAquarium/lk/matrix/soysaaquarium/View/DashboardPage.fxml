@@ -21,7 +21,7 @@
 
 <AnchorPane minHeight="655.0" minWidth="1024.0" prefHeight="655.0" prefWidth="1024.0" scaleShape="false" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.DashboardPageController">
    <children>
-      <Pane fx:id="bgPane" layoutX="-5.0" prefHeight="657.0" prefWidth="1024.0" style="-fx-background-color: #1f1f1f;" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+      <Pane fx:id="bgPane" prefHeight="657.0" prefWidth="1024.0" style="-fx-background-color: #1f1f1f;" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <LineChart id="lineChartFx" fx:id="fxLinechart" layoutX="275.0" layoutY="293.0" prefHeight="325.0" prefWidth="732.0" style="-fx-background-color: #ffffff; -fx-region-background: #ffffff;">
               <xAxis>
@@ -56,7 +56,7 @@
                      </children></Pane>
                   <Pane fx:id="buttonPane" layoutX="5.0" layoutY="138.0" prefHeight="491.0" prefWidth="240.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
                      <children>
-                        <JFXButton fx:id="manageTanksPane" alignment="CENTER" layoutX="5.0" layoutY="9.0" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Manage Tanks" textFill="WHITE">
+                        <JFXButton fx:id="manageTanksPane" alignment="CENTER" layoutX="5.0" layoutY="9.0" onAction="#onActiontankDetailForm" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Manage Tanks" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></JFXButton>
@@ -135,6 +135,7 @@
                   </Pane>
                   <Label layoutX="26.0" layoutY="114.0" text="parameters &gt;&gt;" textFill="WHITE" />
                   <ComboBox fx:id="tankComboBox" layoutX="25.0" layoutY="85.0" onAction="#tankChanged" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #c8c8c8;" />
+                  <JFXButton fx:id="addFirstTankBtn" layoutX="25.0" layoutY="69.0" prefHeight="39.0" prefWidth="136.0" style="-fx-background-color: #4c4c4c;" text="Add a Tank First" textFill="WHITE" />
                </children>
             </Pane>
             <Pane fx:id="buttonPane2" layoutX="268.0" layoutY="6.0" prefHeight="61.0" prefWidth="737.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
