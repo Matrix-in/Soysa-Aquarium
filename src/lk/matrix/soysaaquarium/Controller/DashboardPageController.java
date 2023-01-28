@@ -30,7 +30,6 @@ import javafx.scene.control.Label;
 public class DashboardPageController  {
 
     @FXML
-
     private ComboBox tankComboBox;
 
     @FXML
@@ -117,9 +116,79 @@ public class DashboardPageController  {
     private double[] temperatureData = new double[0];
     private String[] timeStampData = new String[0];
 
+    private double latestTemp= 0.0;
+    @FXML
+    void tankChanged(ActionEvent event) {
+        System.out.println(tankComboBox.getSelectionModel().getSelectedIndex());
+
+        try{
+            temperatureData = new double[0];
+            timeStampData = new String[0];
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = "+tankIdArr[tankComboBox.getSelectionModel().getSelectedIndex()]+" ORDER BY id DESC LIMIT 5");
+            while (resultSet.next()){
+                double[] tempArray = new double[temperatureData.length+1];
+                for (int i = 0; i < temperatureData.length; i++){
+                    tempArray[i] = temperatureData[i];
+                }
+                tempArray[tempArray.length-1] = Double.parseDouble(resultSet.getString("temperature"));
+                temperatureData = tempArray;
+                System.out.println(Double.parseDouble(resultSet.getString("temperature")));
+
+                String[] tempArray2 = new String[timeStampData.length+1];
+                for (int i = 0; i < timeStampData.length; i++){
+                    tempArray2[i] = timeStampData[i];
+                }
+                tempArray2[tempArray2.length-1] = resultSet.getString("timeStampTemp");
+                timeStampData = tempArray2;
+                System.out.println(resultSet.getString("timeStampTemp"));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        if(temperatureData.length>0){
+            latestTemp = temperatureData[temperatureData.length-1];
+        }
+
+        XYChart.Series series = new XYChart.Series();
+        series.setName("Temperature");
+        //populating the series with data
+        for(int i = timeStampData.length; i > 0; i--){
+
+            series.getData().add(new XYChart.Data(timeStampData[i-1], temperatureData[i-1]));
+        }
+
+//        series.getData().add(new XYChart.Data("1", 23));
+//        series.getData().add(new XYChart.Data("2", 14));
+
+
+        fxLinechart.getData().clear();
+        fxLinechart.getData().add(series);
+
+        ObservableList<PieChart.Data> tempPieChartData = FXCollections.observableArrayList(
+                new PieChart.Data("Filled", latestTemp),
+                new PieChart.Data("free", 100-latestTemp));
+
+        tempPieChart.getData().clear();
+        tempPieChart.getData().addAll(tempPieChartData);
+        // Iterate through the chart's data and set the color for each segment
+        for (PieChart.Data data : tempPieChart.getData()) {
+            if(data.getName().equals("Filled")){
+                data.getNode().setStyle("-fx-pie-color: #78E08F;");
+            }
+            if(data.getName().equals("free")){
+                data.getNode().setStyle("-fx-pie-color: #4c4c4c;");
+            }
+        }
+    }
+
     @FXML
 
     public void initialize() {
+
 
         try{
 
@@ -145,7 +214,7 @@ public class DashboardPageController  {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from tempRecords ORDER BY id DESC LIMIT 4");
+            ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = "+tankIdArr[0]+" ORDER BY id DESC LIMIT 5");
             while (resultSet.next()){
                 double[] tempArray = new double[temperatureData.length+1];
                 for (int i = 0; i < temperatureData.length; i++){
@@ -165,6 +234,10 @@ public class DashboardPageController  {
             }
         }catch (Exception e){
             e.printStackTrace();
+        }
+
+        if(temperatureData.length>0){
+            latestTemp = temperatureData[temperatureData.length-1];
         }
 
         tankComboBox.setPromptText("Tank 001");
@@ -188,8 +261,8 @@ public class DashboardPageController  {
 
 
         ObservableList<PieChart.Data> tempPieChartData = FXCollections.observableArrayList(
-                new PieChart.Data("Filled", 40),
-                new PieChart.Data("free", 60));
+                new PieChart.Data("Filled", latestTemp),
+                new PieChart.Data("free", 100-latestTemp));
 
         tempPieChart.getData().addAll(tempPieChartData);
         // Iterate through the chart's data and set the color for each segment

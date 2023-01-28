@@ -35,7 +35,14 @@
                <children>
                   <Pane fx:id="adminPane" layoutX="5.0" layoutY="8.0" prefHeight="122.0" prefWidth="240.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
                      <children>
-                        <Pane fx:id="profilePic" layoutX="27.0" layoutY="25.0" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 50px; -fx-background-image: url(&quot;/Assets/user.png&quot;); -fx-background-size: 40px; -fx-background-position: 50%; -fx-background-repeat: no-repeat; -fx-border-color: #78E08F; -fx-border-radius: 100px;" />
+                        <Pane fx:id="profilePic" layoutX="27.0" layoutY="25.0" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 50px; -fx-background-image: url(&quot;/Assets/user.png&quot;); -fx-background-size: 40px; -fx-background-position: 50%; -fx-background-repeat: no-repeat; -fx-border-color: #78E08F; -fx-border-radius: 100px;">
+                           <children>
+                              <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="2.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/user.png" />
+                                 </image>
+                              </ImageView>
+                           </children></Pane>
                         <Label fx:id="adminLabel" layoutX="87.0" layoutY="28.0" text="Admin" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
@@ -127,7 +134,7 @@
                      </children>
                   </Pane>
                   <Label layoutX="26.0" layoutY="114.0" text="parameters &gt;&gt;" textFill="WHITE" />
-                  <ComboBox fx:id="tankComboBox" layoutX="25.0" layoutY="85.0" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #c8c8c8;" />
+                  <ComboBox fx:id="tankComboBox" layoutX="25.0" layoutY="85.0" onAction="#tankChanged" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #c8c8c8;" />
                </children>
             </Pane>
             <Pane fx:id="buttonPane2" layoutX="268.0" layoutY="6.0" prefHeight="61.0" prefWidth="737.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
