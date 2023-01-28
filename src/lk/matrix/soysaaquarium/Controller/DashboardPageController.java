@@ -112,6 +112,8 @@ public class DashboardPageController  {
     private Button notBtn;
     @FXML
     private Button setBtn;
+    static Stage stage;
+    static Stage stage2;
 
 
     private int[] tankIdArr = new int[0];
@@ -460,5 +462,20 @@ public class DashboardPageController  {
         }
     }
 
-
+    public void onActiontankDetailForm(ActionEvent actionEvent) throws IOException {
+        if(stage2 == null) {
+            stage = (Stage) fullPane.getScene().getWindow();
+            stage.hide();
+            FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/TankDetailForm.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage2 = new Stage();
+            stage2.setScene(scene);
+            stage2.setResizable(false);
+            stage2.show();
+        }else{
+            stage = (Stage) fullPane.getScene().getWindow();
+            stage.hide();
+            stage2.show();
+        }
+    }
 }

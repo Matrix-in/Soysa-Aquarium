@@ -23,21 +23,6 @@ public class Main extends Application {
       stage.initStyle(StageStyle.TRANSPARENT);
       stage.show();
 
-
-//
-//        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        Stage stage2 =new Stage();
-//        stage2.setScene(scene);
-//        stage2.setResizable(false);
-//        stage2.show();
-
-//        FXMLLoader fxmlLoader = new FXMLLoader(TankDetailForm.class.getResource("/lk/matrix/soysaaquarium/View/TankDetailForm.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load());
-//        Stage stage2 =new Stage();
-//        stage2.setScene(scene);
-//        stage2.setResizable(false);
-//        stage2.show();
     }
 
     public static void main(String[] args) {
