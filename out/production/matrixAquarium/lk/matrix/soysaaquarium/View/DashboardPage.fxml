@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.CategoryAxis?>
@@ -10,16 +12,16 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXToggleButton?>
 <AnchorPane minHeight="655.0" minWidth="1024.0" prefHeight="655.0" prefWidth="1024.0" scaleShape="false" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.DashboardPageController">
    <children>
-      <Pane fx:id="bgPane" prefHeight="657.0" prefWidth="1024.0" style="-fx-background-color: #1f1f1f;" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane fx:id="bgPane" layoutX="-5.0" prefHeight="657.0" prefWidth="1024.0" style="-fx-background-color: #1f1f1f;" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
          <children>
             <LineChart id="lineChartFx" fx:id="fxLinechart" layoutX="275.0" layoutY="293.0" prefHeight="325.0" prefWidth="732.0" style="-fx-background-color: #ffffff; -fx-region-background: #ffffff;">
               <xAxis>
@@ -71,10 +73,17 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></JFXButton>
-                        <JFXButton fx:id="logoutPane" alignment="CENTER" layoutX="5.0" layoutY="432.0" onMouseClicked="#logoutClick" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Logout" textFill="WHITE">
+                        <JFXButton fx:id="logoutPane" alignment="CENTER" layoutX="6.0" layoutY="432.0" onMouseClicked="#logoutClick" prefHeight="52.0" prefWidth="228.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;" text="Logout" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
-                           </cursor></JFXButton>
+                           </cursor>
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/logout.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></JFXButton>
                      </children>
                   </Pane>
                </children>
@@ -124,8 +133,22 @@
             <Pane fx:id="buttonPane2" layoutX="268.0" layoutY="6.0" prefHeight="61.0" prefWidth="737.0" style="-fx-background-color: #323232; -fx-background-radius: 5px;">
                <children>
                   <TextField fx:id="searchText" layoutX="39.0" layoutY="14.0" prefHeight="34.0" prefWidth="309.0" promptText="Search Here" style="-fx-background-color: #4c4c4c;" />
-                  <Button fx:id="notBtn" layoutX="514.0" layoutY="18.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" style="-fx-background-image: url(&quot;./Assets/notification.png&quot;); -fx-background-size: 20px; -fx-background-position: 55%; -fx-background-repeat: no-repeat; -fx-background-color: #4C4C4C;" />
-                  <Button fx:id="setBtn" layoutX="554.0" layoutY="18.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" style="-fx-background-image: url(&quot;./Assets/settings.png&quot;); -fx-background-size: 20px; -fx-background-position: 55%; -fx-background-repeat: no-repeat; -fx-background-color: #4C4C4C;" />
+                  <Button fx:id="notBtn" layoutX="514.0" layoutY="18.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" style="-fx-background-size: 20px; -fx-background-color: #4C4C4C;">
+                     <graphic>
+                        <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Assets/notification.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="setBtn" layoutX="554.0" layoutY="18.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" style="-fx-background-color: #4C4C4C;">
+                     <graphic>
+                        <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Assets/settings.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                   <Label fx:id="timeLabel" layoutX="599.0" layoutY="22.0" text="YYYY-MM-DD HH:MM:SS" textFill="WHITE" />
                   <JFXToggleButton fx:id="modeToggleBtn" layoutX="354.0" layoutY="2.0" onAction="#onActionToggleBtn" text="Dark Mode" textFill="WHITE" toggleColor="#1b99c3" toggleLineColor="#09c6ff">
                      <cursor>
