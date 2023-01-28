@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="657.0" prefWidth="1024.0" style="-fx-background-color: #1f1f1f;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.TankDetailForm">
    <children>
-      <Pane layoutX="14.0" layoutY="12.0" prefHeight="630.0" prefWidth="376.0" style="-fx-background-color: #2f2f2f; -fx-background-radius: 20px; -fx-border-color: white; -fx-border-radius: 20px;">
+      <Pane layoutX="14.0" layoutY="74.0" prefHeight="568.0" prefWidth="376.0" style="-fx-background-color: #2f2f2f; -fx-background-radius: 20px; -fx-border-color: white; -fx-border-radius: 20px;">
          <children>
             <Label layoutX="14.0" layoutY="213.0" prefHeight="33.0" prefWidth="87.0" text="Min Temp : " textFill="WHITE">
                <font>
@@ -56,7 +56,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="fishCountTextField" layoutX="99.0" layoutY="361.0" prefHeight="33.0" prefWidth="258.0" promptText="Fish Count" style="-fx-background-radius: 10px;" />
+            <TextField fx:id="fishCountTextField" layoutX="99.0" layoutY="361.0" prefHeight="33.0" prefWidth="258.0" promptText="Enter Fish Count" style="-fx-background-radius: 10px;" />
             <Label layoutX="14.0" layoutY="361.0" prefHeight="33.0" prefWidth="87.0" text="Fish Count :" textFill="WHITE">
                <font>
                   <Font size="15.0" />
@@ -81,9 +81,9 @@
                   <Font name="Arial Bold" size="30.0" />
                </font>
             </Label>
-            <JFXButton fx:id="addTankButton" layoutX="98.0" layoutY="550.0" onAction="#addTankButtonOnAction" prefHeight="53.0" prefWidth="181.0" style="-fx-background-color: #323232; -fx-background-radius: 10px; -fx-border-color: #1569C7; -fx-border-radius: 10px;" text="Add Tank" textFill="WHITE">
+            <JFXButton fx:id="addTankButton" layoutX="94.0" layoutY="446.0" onAction="#addTankButtonOnAction" prefHeight="58.0" prefWidth="196.0" style="-fx-background-color: #72FF5B; -fx-background-radius: 10px; -fx-border-color: #19FF05; -fx-border-radius: 10px; -fx-border-width: 2;" text="Add Tank" textFill="#2f2f2f">
                <font>
-                  <Font name="Bauhaus 93" size="31.0" />
+                  <Font name="Arial Bold" size="31.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -102,5 +102,10 @@
             <Reflection />
          </effect>
       </ImageView>
+      <JFXButton fx:id="backButton" layoutX="14.0" layoutY="8.0" onAction="#backButtonOnAction" prefHeight="53.0" prefWidth="172.0" style="-fx-background-color: #2f2f2f; -fx-background-radius: 15;" text="Go Back" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

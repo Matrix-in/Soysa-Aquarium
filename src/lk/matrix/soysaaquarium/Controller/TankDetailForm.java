@@ -19,12 +19,14 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.regex.Pattern;
 
 public class TankDetailForm {
     public JFXComboBox tankComboBox;
     public JFXButton addTankButton;
     public ImageView imageId;
     public Label fishCountLabel;
+    public JFXButton backButton;
     @FXML
     private TextField fishCountTextField;
     @FXML
@@ -51,7 +53,6 @@ public class TankDetailForm {
     private Connection con;
     static int count;
     public void initialize() throws SQLException {
-        System.out.println("initialize method ran!");
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
@@ -66,6 +67,7 @@ public class TankDetailForm {
             fishTypeComboBox.setItems(data);
         }
     }  //connect database
+
     public void fishTypeComboBoxOnAction(ActionEvent actionEvent) throws SQLException{
         String selected = fishTypeComboBox.getSelectionModel().getSelectedItem().toString();
         Statement statement = con.createStatement();
@@ -120,27 +122,34 @@ public class TankDetailForm {
     public void addTankButtonOnAction(ActionEvent actionEvent) throws SQLException {
         if(fishCountTextField.getLength() == 0 || minpHTextField.getLength() == 0 || tankComboBox.getValue() == null || count == 0){
             fishCountLabel.setText("*fields are empty!");
-        }else {
-            String query = "INSERT INTO tankDetail (tankId,fishId,fishQty,minTemp,maxTemp,minpH,maxpH,minAmo,maxAmo)" + "VALUES(?,?,?,?,?,?,?,?,?)";
-            try {
-                PreparedStatement statement = con.prepareStatement(query);
-                statement.setInt(1, Integer.parseInt(tankComboBox.getSelectionModel().getSelectedItem().toString()));
-                statement.setInt(2, fishId);
-                statement.setInt(3, Integer.parseInt(fishCountTextField.getText()));
-                statement.setDouble(4, Double.parseDouble(minTempTextField.getText()));
-                statement.setDouble(5, Double.parseDouble(maxTempTextField.getText()));
-                statement.setDouble(6, Double.parseDouble(minpHTextField.getText()));
-                statement.setDouble(7, Double.parseDouble(maxpHTextField.getText()));
-                statement.setDouble(8, Double.parseDouble(minAmoTextField.getText()));
-                statement.setDouble(9, Double.parseDouble(maxAmoTextField.getText()));
-                statement.execute();
-                imageId.setVisible(false);
-                fishCountLabel.setText("");
+        }else{
+            try{
+                Integer.parseInt(fishCountTextField.getText());
+                String query = "INSERT INTO tankDetail (tankId,fishId,fishQty,minTemp,maxTemp,minpH,maxpH,minAmo,maxAmo)" + "VALUES(?,?,?,?,?,?,?,?,?)";
+                try {
+                    PreparedStatement statement = con.prepareStatement(query);
+                    statement.setInt(1, Integer.parseInt(tankComboBox.getSelectionModel().getSelectedItem().toString()));
+                    statement.setInt(2, fishId);
+                    statement.setInt(3, Integer.parseInt(fishCountTextField.getText()));
+                    statement.setDouble(4, Double.parseDouble(minTempTextField.getText()));
+                    statement.setDouble(5, Double.parseDouble(maxTempTextField.getText()));
+                    statement.setDouble(6, Double.parseDouble(minpHTextField.getText()));
+                    statement.setDouble(7, Double.parseDouble(maxpHTextField.getText()));
+                    statement.setDouble(8, Double.parseDouble(minAmoTextField.getText()));
+                    statement.setDouble(9, Double.parseDouble(maxAmoTextField.getText()));
+                    statement.execute();
+                    imageId.setVisible(false);
+                    fishCountLabel.setText("");
 
-                showMassage();
-            } catch (Exception ex) {
-                System.out.println("add new tankdetails failed");
+                    showMassage();
+                    clearFields();
+                } catch (Exception ex) {
+                    System.out.println("add new tankdetails failed");
+                }
+            }catch (NumberFormatException e){
+                fishCountLabel.setText("Wrong input in fish count");
             }
+
         }
     }   //new tank-detail adding
     public void showMassage() throws IOException {
@@ -153,5 +162,19 @@ public class TankDetailForm {
         stage.setResizable(false);
         stage.show();
     }
+    public void clearFields(){
+        tankComboBox.setValue(null);
+        fishTypeComboBox.setValue(null);
+        minTempTextField.setText(null);
+        maxTempTextField.setText(null);
+        minpHTextField.setText(null);
+        maxpHTextField.setText(null);
+        minAmoTextField.setText(null);
+        maxAmoTextField.setText(null);
+        fishCountTextField.setText(null);
+    }
 
+    public void backButtonOnAction(ActionEvent actionEvent) {
+        System.out.println("Back button pressed");
+    }
 }
