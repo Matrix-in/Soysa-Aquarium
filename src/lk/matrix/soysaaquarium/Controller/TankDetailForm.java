@@ -174,7 +174,14 @@ public class TankDetailForm {
         fishCountTextField.setText(null);
     }
 
-    public void backButtonOnAction(ActionEvent actionEvent) {
-        System.out.println("Back button pressed");
+    public void backButtonOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        stage.hide();
+        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+       Stage  stage2 = new Stage();
+        stage2.setScene(scene);
+        stage2.setResizable(false);
+        stage2.show();
     }
 }
