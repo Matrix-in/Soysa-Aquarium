@@ -114,7 +114,7 @@ public class DashboardPageController  {
     private Button setBtn;
     static Stage stage;
     static Stage stage2;
-
+    public static boolean isSelected;
 
     private int[] tankIdArr = new int[0];
     private double[] temperatureData = new double[0];
@@ -398,8 +398,12 @@ public class DashboardPageController  {
     }
 
     void setMode(){
-        if (modeToggleBtn.isSelected()){
-
+        if (modeToggleBtn.isSelected()) {
+            isSelected = false;
+        }else{
+            isSelected =true;
+        }
+            if(!isSelected){
             manageTanksPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-color:black;-fx-border-radius:5px");
             getReportPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-color:black;-fx-border-radius:5px");
             wchPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-color:black;-fx-border-radius:5px");
@@ -429,37 +433,37 @@ public class DashboardPageController  {
             modeToggleBtn.setText("Ligt Mode");
             modeToggleBtn.setStyle("-fx-text-fill: black");
             timeLabel.setStyle("-fx-text-fill:black");
-        }else{
-            manageTanksPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
-            getReportPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
-            wchPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
-            fishPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
-            vcPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
-            infoPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
-            logoutPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
-            searchText.setStyle("-fx-background-color:#4c4c4c;-fx-border-color: transparent");
-            buttonPane.setStyle("-fx-background-color:#4c4c4c;-fx-background-radius:10px");
-            buttonPane2.setStyle("-fx-background-color: #323232;-fx-background-radius:10px;-fx-border-color:transparent;-fx-border-radius: 5px");
-            adminPane.setStyle("-fx-background-color: #4c4c4c;-fx-background-radius: 10px");
-            profilePic.setStyle("-fx-background-color:  #4c4c4c;-fx-background-radius:  50px;-fx-background-size:40px;-fx-background-position:50%;-fx-background-repeat:  no-repeat;-fx-border-color:  #78E08F;-fx-border-radius:  100px");
-            piePane1.setStyle("-fx-background-color:  #4c4c4c;-fx-background-radius: 10px");
-            piePane2.setStyle("-fx-background-color:  #4c4c4c;-fx-background-radius: 10px");
-            piePane3.setStyle("-fx-background-color:  #4c4c4c;-fx-background-radius: 10px");
-            fullPane.setStyle("-fx-background-color: 4c4c4c;-fx-border-color: black");
-            pl1.setStyle("-fx-text-fill:white");
-            pl2.setStyle("-fx-text-fill:white");
-            pl3.setStyle("-fx-text-fill:white");
-            adminLabel.setStyle("-fx-text-fill:white");
-            adminLabel2.setStyle("-fx-text-fill:white");
-            bgPane.setStyle("-fx-background-color:#1f1f1f");
-            x.setStyle("-fx-tick-label-fill:white");
-            y.setStyle("-fx-tick-label-fill:white");
-            modeToggleBtn.setText("Dark Mode");
-            modeToggleBtn.setStyle("-fx-text-fill:white");
-            timeLabel.setStyle("-fx-text-fill: white");
-            notBtn.setStyle("-fx-background-color:#4c4c4c");
-            setBtn.setStyle("-fx-background-color:#4c4c4c");
-        }
+        }else if(isSelected) {
+                manageTanksPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+                getReportPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+                wchPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+                fishPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+                vcPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+                infoPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+                logoutPane.setStyle("-fx-background-color:#323232;-fx-background-radius:5px;-fx-text-fill:white");
+                searchText.setStyle("-fx-background-color:#4c4c4c;-fx-border-color: transparent");
+                buttonPane.setStyle("-fx-background-color:#4c4c4c;-fx-background-radius:10px");
+                buttonPane2.setStyle("-fx-background-color: #323232;-fx-background-radius:10px;-fx-border-color:transparent;-fx-border-radius: 5px");
+                adminPane.setStyle("-fx-background-color: #4c4c4c;-fx-background-radius: 10px");
+                profilePic.setStyle("-fx-background-color:  #4c4c4c;-fx-background-radius:  50px;-fx-background-size:40px;-fx-background-position:50%;-fx-background-repeat:  no-repeat;-fx-border-color:  #78E08F;-fx-border-radius:  100px");
+                piePane1.setStyle("-fx-background-color:  #4c4c4c;-fx-background-radius: 10px");
+                piePane2.setStyle("-fx-background-color:  #4c4c4c;-fx-background-radius: 10px");
+                piePane3.setStyle("-fx-background-color:  #4c4c4c;-fx-background-radius: 10px");
+                fullPane.setStyle("-fx-background-color: 4c4c4c;-fx-border-color: black");
+                pl1.setStyle("-fx-text-fill:white");
+                pl2.setStyle("-fx-text-fill:white");
+                pl3.setStyle("-fx-text-fill:white");
+                adminLabel.setStyle("-fx-text-fill:white");
+                adminLabel2.setStyle("-fx-text-fill:white");
+                bgPane.setStyle("-fx-background-color:#1f1f1f");
+                x.setStyle("-fx-tick-label-fill:white");
+                y.setStyle("-fx-tick-label-fill:white");
+                modeToggleBtn.setText("Dark Mode");
+                modeToggleBtn.setStyle("-fx-text-fill:white");
+                timeLabel.setStyle("-fx-text-fill: white");
+                notBtn.setStyle("-fx-background-color:#4c4c4c");
+                setBtn.setStyle("-fx-background-color:#4c4c4c");
+            }
     }
 
     public void onActiontankDetailForm(ActionEvent actionEvent) throws IOException {

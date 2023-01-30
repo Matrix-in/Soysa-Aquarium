@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -49,7 +50,8 @@ public class TankDetailForm {
     @FXML
     private JFXComboBox<?> fishTypeComboBox;
     private int fishId;
-
+    @FXML
+    private AnchorPane bgPaneTdf;
     private Connection con;
     static int count;
     public void initialize() throws SQLException {
@@ -66,6 +68,11 @@ public class TankDetailForm {
             data.add(new String(rs.getString("name")));
             fishTypeComboBox.setItems(data);
         }
+//        if(!(DashboardPageController.isSelected)){
+//            bgPaneTdf.setStyle("-fx-background-color: black");
+//        } else if(DashboardPageController.isSelected){
+//            bgPaneTdf.setStyle("-fx-background-color: white");
+//        }
     }  //connect database
 
     public void fishTypeComboBoxOnAction(ActionEvent actionEvent) throws SQLException{
@@ -177,11 +184,10 @@ public class TankDetailForm {
     public void backButtonOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-       Stage  stage2 = new Stage();
-        stage2.setScene(scene);
-        stage2.setResizable(false);
-        stage2.show();
+        Stage outStage =new Stage();
+        outStage.setScene(scene);
+        outStage.show();
     }
 }
