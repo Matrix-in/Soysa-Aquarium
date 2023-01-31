@@ -454,7 +454,7 @@ public class DashboardPageController {
 //            modeToggleBtn.setStyle("-fx-text-fill: black");
 //            timeLabel.setStyle("-fx-text-fill:black");
 
-<<<<<<< HEAD
+
                 manageTanksPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black; -fx-border-radius:5px");
                 getReportPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black; -fx-border-radius:5px");
                 wchPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-radius:5px");
@@ -485,7 +485,7 @@ public class DashboardPageController {
                 modeToggleBtn.setText("Ligt Mode");
                 modeToggleBtn.setStyle("-fx-text-fill: black");
                 timeLabel.setStyle("-fx-text-fill:black");
-=======
+
             manageTanksPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black; -fx-border-radius:5px");
             getReportPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black; -fx-border-radius:5px");
             wchPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-radius:5px");
@@ -516,7 +516,7 @@ public class DashboardPageController {
             modeToggleBtn.setText("Ligt Mode");
             modeToggleBtn.setStyle("-fx-text-fill: black");
             timeLabel.setStyle("-fx-text-fill:black");
->>>>>>> 436f2843228849b6a37f087de234d1df26c075e8
+
 
             pieCircle1.setStyle("-fx-fill: #E2E2E2;");
             pieCircle2.setStyle("-fx-fill: #E2E2E2;");

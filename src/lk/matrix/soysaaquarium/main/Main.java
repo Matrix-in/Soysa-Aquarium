@@ -14,11 +14,11 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException{
 
-      FXMLLoader fxmlLoader= new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/manage_tank_form.fxml"));
+      FXMLLoader fxmlLoader= new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/login_form.fxml"));
       Scene scene = new Scene(fxmlLoader.load());
-//      scene.setFill(Color.TRANSPARENT);
+      scene.setFill(Color.TRANSPARENT);
       stage.setScene(scene);
-//      stage.initStyle(StageStyle.TRANSPARENT);
+     stage.initStyle(StageStyle.TRANSPARENT);
       stage.show();
 
     }
