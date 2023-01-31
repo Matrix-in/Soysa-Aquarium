@@ -102,7 +102,7 @@
                   <PieChart fx:id="phPieChart" labelsVisible="false" layoutX="-18.0" layoutY="2.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 180deg;" />
                   <Circle fx:id="pieCircle2" fill="#0abde3" layoutX="88.0" layoutY="82.0" radius="55.0" stroke="WHITE" strokeType="INSIDE" style="-fx-fill: #FFB168;" />
                   <Label fx:id="pieLabel11" layoutX="71.0" layoutY="72.0" style="-fx-rotate: 270;" text="30 C" textFill="WHITE" />
-                  <Label fx:id="pl11" layoutX="147.0" layoutY="67.0" style="-fx-rotate: 270;" text="Temp" textFill="WHITE">
+                  <Label fx:id="pl11" layoutX="163.0" layoutY="61.0" style="-fx-rotate: 270;" text="ph" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>

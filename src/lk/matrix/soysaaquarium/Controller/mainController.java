@@ -119,6 +119,7 @@ public class mainController implements Initializable {
                 Scene scene = new Scene(fxmlLoader.load());
                 stage2 = new Stage();
                 stage2.setScene(scene);
+                stage2.setFullScreen(true);
                 //stage2.setResizable(false);
                 stage2.show();
             }else{
