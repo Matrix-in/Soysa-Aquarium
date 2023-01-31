@@ -6,8 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import lk.matrix.soysaaquarium.Controller.DashboardPageController;
-import lk.matrix.soysaaquarium.Controller.TankDetailForm;
 import lk.matrix.soysaaquarium.Controller.mainController;
 
 import java.io.IOException;
