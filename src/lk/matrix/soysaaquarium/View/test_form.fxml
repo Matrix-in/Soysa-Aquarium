@@ -15,11 +15,9 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<<<<<<< HEAD:src/lk/matrix/soysaaquarium/View/newview.fxml
-<AnchorPane prefHeight="657.0" prefWidth="1024.0" style="-fx-background-radius: 30px; -fx-border-radius: 30px; -fx-background-color: linear-gradient(to top,#7C97DC, #FFFFFF);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.newview">
-=======
-<AnchorPane prefHeight="657.0" prefWidth="1024.0" style="-fx-background-radius: 30px; -fx-border-radius: 30px; -fx-background-color: #dcdde1;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.TestController">
->>>>>>> e8d6bdbe953968d3caed42eabe5a7b2d5c0d27c5:src/lk/matrix/soysaaquarium/View/test_form.fxml
+
+<AnchorPane prefHeight="657.0" prefWidth="1024.0" style="-fx-background-radius: 30px; -fx-border-radius: 30px; -fx-background-color: linear-gradient(to top,#7C97DC, #FFFFFF);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.TestController">
+
    <children>
       <Pane layoutX="14.0" layoutY="134.0" prefHeight="509.0" prefWidth="253.0" style="-fx-background-color: FEFEFE; -fx-background-radius: 20px; -fx-border-radius: 20px;">
          <children>
