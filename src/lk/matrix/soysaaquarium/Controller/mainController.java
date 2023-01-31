@@ -115,11 +115,11 @@ public class mainController implements Initializable {
             if(stage2 == null) {
                 stage = (Stage) userName.getScene().getWindow();
                 stage.hide();
-                FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/dashboard_page_form.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/dashboard_page.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 stage2 = new Stage();
                 stage2.setScene(scene);
-                stage2.setResizable(false);
+                //stage2.setResizable(false);
                 stage2.show();
             }else{
                 stage = (Stage) userName.getScene().getWindow();
