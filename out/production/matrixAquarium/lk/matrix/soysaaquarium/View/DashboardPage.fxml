@@ -31,7 +31,7 @@
                 <NumberAxis fx:id="y" side="LEFT" tickLabelFill="WHITE" />
               </yAxis>
             </LineChart>
-            <Pane layoutX="6.0" layoutY="6.0" prefHeight="642.0" prefWidth="252.0" style="-fx-background-color: #2f2f2f;">
+            <Pane fx:id="sidePaneDashBoard" layoutX="6.0" layoutY="6.0" prefHeight="642.0" prefWidth="252.0" style="-fx-background-color: #2f2f2f;">
                <children>
                   <Pane fx:id="adminPane" layoutX="5.0" layoutY="8.0" prefHeight="122.0" prefWidth="240.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
                      <children>
@@ -104,9 +104,9 @@
                               <Insets />
                            </opaqueInsets>
                         </PieChart>
-                        <Circle fill="#4c4c4c" layoutX="88.0" layoutY="82.0" radius="53.0" stroke="WHITE" strokeType="INSIDE" />
+                        <Circle fx:id="pieCircle1" fill="#4c4c4c" layoutX="88.0" layoutY="82.0" radius="53.0" stroke="WHITE" strokeType="INSIDE" />
                         <Label fx:id="pl1" layoutX="58.0" layoutY="158.0" text="Temperatue" textFill="WHITE" />
-                        <Label layoutX="75.0" layoutY="74.0" text="30°C" textFill="WHITE" />
+                        <Label fx:id="pieLabel1" layoutX="75.0" layoutY="74.0" text="30°C" textFill="WHITE" />
                      </children>
                   </Pane>
                   <Pane fx:id="piePane2" layoutX="359.0" layoutY="13.0" prefHeight="190.0" prefWidth="169.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
@@ -116,9 +116,9 @@
                               <Insets />
                            </opaqueInsets>
                         </PieChart>
-                        <Circle fill="#4c4c4c" layoutX="88.0" layoutY="82.0" radius="53.0" stroke="WHITE" strokeType="INSIDE" />
+                        <Circle fx:id="pieCircle2" fill="#4c4c4c" layoutX="88.0" layoutY="82.0" radius="53.0" stroke="WHITE" strokeType="INSIDE" />
                         <Label fx:id="pl2" layoutX="80.0" layoutY="157.0" text="pH" textFill="WHITE" />
-                        <Label layoutX="75.0" layoutY="74.0" text="7pH" textFill="WHITE" />
+                        <Label fx:id="pieLabel2" layoutX="75.0" layoutY="74.0" text="7pH" textFill="WHITE" />
                      </children>
                   </Pane>
                   <Pane fx:id="piePane3" layoutX="538.0" layoutY="13.0" prefHeight="190.0" prefWidth="169.0" style="-fx-background-color: #4c4c4c; -fx-background-radius: 10px;">
@@ -128,9 +128,9 @@
                               <Insets />
                            </opaqueInsets>
                         </PieChart>
-                        <Circle fill="#4c4c4c" layoutX="88.0" layoutY="82.0" radius="53.0" stroke="WHITE" strokeType="INSIDE" />
+                        <Circle fx:id="pieCircle3" fill="#4c4c4c" layoutX="88.0" layoutY="82.0" radius="53.0" stroke="WHITE" strokeType="INSIDE" />
                         <Label fx:id="pl3" layoutX="68.0" layoutY="155.0" text="Amonia" textFill="WHITE" />
-                        <Label layoutX="75.0" layoutY="74.0" text="0.5ppm" textFill="WHITE" />
+                        <Label fx:id="pieLabel3" layoutX="75.0" layoutY="74.0" text="0.5ppm" textFill="WHITE" />
                      </children>
                   </Pane>
                   <Label layoutX="26.0" layoutY="114.0" text="parameters &gt;&gt;" textFill="WHITE" />
