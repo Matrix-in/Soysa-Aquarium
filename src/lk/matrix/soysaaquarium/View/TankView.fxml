@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="655.0" minWidth="1024.0" prefHeight="655.0" prefWidth="1024.0" style="-fx-background-color: #1E1F23;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.TankController">
+<AnchorPane minHeight="655.0" minWidth="1024.0" prefHeight="655.0" prefWidth="1024.0" style="-fx-background-color: #1E1F23;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.TankController">
    <children>
       <ImageView fitHeight="32.0" fitWidth="36.0" layoutX="340.0" layoutY="51.0">
          <image>
@@ -19,7 +19,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <JFXButton layoutX="395.0" layoutY="353.0" onAction="#SendB" prefHeight="39.0" prefWidth="192.0" style="-fx-background-color: #1A8BCC;" text="Add New Tank" textFill="WHITE">
+      <JFXButton layoutX="521.0" layoutY="462.0" onAction="#SendB" prefHeight="39.0" prefWidth="192.0" style="-fx-background-color: #1A8BCC;" text="Add New Tank" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
