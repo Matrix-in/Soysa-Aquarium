@@ -466,7 +466,7 @@ public class DashboardPageController  {
         if(stage2 == null) {
             stage = (Stage) fullPane.getScene().getWindow();
             stage.hide();
-            FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/TankDetailForm.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/TankView.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage2 = new Stage();
             stage2.setScene(scene);

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="488.0" prefWidth="679.0" style="-fx-background-color: #1E1F23;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.TankController">
+   <children>
+      <ImageView fitHeight="32.0" fitWidth="36.0" layoutX="340.0" layoutY="51.0">
+         <image>
+            <Image url="@../Assets/settings.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="45.0" layoutY="51.0" prefHeight="32.0" prefWidth="482.0" text="Tank 001" textFill="#d7d7d7">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="395.0" layoutY="353.0" onAction="#SendB" prefHeight="39.0" prefWidth="192.0" style="-fx-background-color: #1A8BCC;" text="Add New Tank" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btn1" layoutX="451.0" layoutY="55.0" text="Default" textFill="#fff2f2" />
+   </children>
+</AnchorPane>

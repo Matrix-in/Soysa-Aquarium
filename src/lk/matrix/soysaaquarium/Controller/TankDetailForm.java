@@ -177,7 +177,7 @@ public class TankDetailForm {
     public void backButtonOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
         stage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/TankView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
        Stage  stage2 = new Stage();
         stage2.setScene(scene);
