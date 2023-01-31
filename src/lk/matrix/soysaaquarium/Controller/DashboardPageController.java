@@ -478,7 +478,7 @@ public class DashboardPageController  {
                 pl1.setStyle("-fx-text-fill:black");
                 pl2.setStyle("-fx-text-fill:black");
                 pl3.setStyle("-fx-text-fill:black");
-                bgPane.setStyle("-fx-background-color:#E2E2E2");
+                bgPane.setStyle("-fx-background-color:radial-gradient(circle, rgba(161,213,235,1) 0%, rgba(255,255,255,1) 100%);");
                 x.setStyle("-fx-tick-label-fill:black");
                 y.setStyle("-fx-tick-label-fill:black");
                 modeToggleBtn.setText("Ligt Mode");
