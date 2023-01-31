@@ -9,12 +9,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Scanner;
 
-import static lk.matrix.soysaaquarium.Controller.DashboardPageController.stage;
-import static lk.matrix.soysaaquarium.Controller.DashboardPageController.stage2;
-
-public class TankController {
+public class ManageTankController {
 
   @FXML
   private JFXButton btn1;
@@ -24,13 +20,13 @@ Stage stag2;
     public void SendB(ActionEvent event) throws IOException {
 
         Stage thisStage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/TankDetailForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/add_new_tank_form.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         thisStage.setScene(scene);
 
 //            stage = (Stage) btn1.getScene().getWindow();
 //            stage.hide();
-//           FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/TankDetailForm.fxml"));
+//           FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/add_new_tank_form.fxml"));
 //           Scene scene = new Scene(fxmlLoader.load());
 //           stage2 = new Stage();
 //           stage2.setScene(scene);

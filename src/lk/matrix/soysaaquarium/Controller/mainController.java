@@ -59,7 +59,7 @@ public class mainController implements Initializable {
         transition.play();
         transition.setOnFinished((e) ->{
             try{
-                fxml = FXMLLoader.load(getClass().getResource("/lk/matrix/soysaaquarium/View/secWin.fxml"));
+                fxml = FXMLLoader.load(getClass().getResource("/lk/matrix/soysaaquarium/View/login_sec_win.fxml"));
                 vbox.getChildren().removeAll();
                 vbox.getChildren().setAll(fxml);
             }catch(IOException ex){
@@ -77,7 +77,7 @@ public class mainController implements Initializable {
         transition.play();
         transition.setOnFinished((e) ->{
             try{
-                fxml = FXMLLoader.load(getClass().getResource("/lk/matrix/soysaaquarium/View/defaultWin.fxml"));
+                fxml = FXMLLoader.load(getClass().getResource("/lk/matrix/soysaaquarium/View/login_default_win.fxml"));
                 vbox.getChildren().removeAll();
                 vbox.getChildren().setAll(fxml);
             }catch(IOException ex){
@@ -115,7 +115,7 @@ public class mainController implements Initializable {
             if(stage2 == null) {
                 stage = (Stage) userName.getScene().getWindow();
                 stage.hide();
-                FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/dashboard_page_form.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 stage2 = new Stage();
                 stage2.setScene(scene);
@@ -128,7 +128,7 @@ public class mainController implements Initializable {
             }
 
         }else {
-            FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/err.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/popup_login_err.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();

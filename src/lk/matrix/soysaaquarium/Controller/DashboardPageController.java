@@ -401,7 +401,7 @@ public class DashboardPageController  {
         Stage thiStage = (Stage)((Node) event.getSource()).getScene().getWindow();
         thiStage.hide();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/login_form.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.setFill(Color.TRANSPARENT);
         Stage outStage =new Stage();
@@ -537,13 +537,13 @@ public class DashboardPageController  {
 
     public void onActiontankDetailForm(ActionEvent actionEvent) throws IOException {
         Stage thisStage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/TankView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/manage_tank_form.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         thisStage.setScene(scene);
 //        if(stage2 == null) {
 //            stage = (Stage) fullPane.getScene().getWindow();
 //            stage.hide();
-//            FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/TankView.fxml"));
+//            FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/manage_tank_form.fxml"));
 //            Scene scene = new Scene(fxmlLoader.load());
 //            stage2 = new Stage();
 //            stage2.setScene(scene);

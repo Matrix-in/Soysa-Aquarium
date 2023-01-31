@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.stage.Stage;
 
-public class AddNewTankMassageForm {
+public class AddNewTankPopUpController {
 
     @FXML
     private JFXButton okButton;
