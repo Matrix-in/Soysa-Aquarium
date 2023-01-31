@@ -17,7 +17,7 @@
 
 <AnchorPane prefHeight="657.0" prefWidth="1024.0" style="-fx-background-radius: 30px; -fx-border-radius: 30px; -fx-background-color: #dcdde1;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.newview">
    <children>
-      <Pane layoutX="14.0" layoutY="134.0" prefHeight="509.0" prefWidth="253.0" style="-fx-background-color: #2747bb; -fx-background-radius: 20px; -fx-border-radius: 20px;">
+      <Pane layoutX="14.0" layoutY="134.0" prefHeight="509.0" prefWidth="253.0" style="-fx-background-color: linear-gradient(to bottom,#61D8DE, #E839F6); -fx-background-radius: 20px; -fx-border-radius: 20px;">
          <children>
             <JFXButton layoutX="13.0" layoutY="97.0" prefHeight="52.0" prefWidth="228.0" style="-fx-text-fill: white;" text="Get Report" />
             <JFXButton layoutX="13.0" layoutY="159.0" prefHeight="52.0" prefWidth="228.0" style="-fx-text-fill: white;" text="Water change History" />
@@ -28,7 +28,7 @@
             <JFXButton layoutX="13.0" layoutY="45.0" prefHeight="52.0" prefWidth="228.0" text="Manage Tanks" textFill="WHITE" />
          </children>
       </Pane>
-      <Pane layoutX="14.0" layoutY="14.0" prefHeight="105.0" prefWidth="253.0" style="-fx-background-color: #2747bb; -fx-background-radius: 20px; -fx-border-radius: 20px;">
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="105.0" prefWidth="253.0" style="-fx-background-color: linear-gradient(to right,#61D8DE, #E839F6); -fx-background-radius: 20px; -fx-border-radius: 20px;">
          <children>
             <Label layoutX="108.0" layoutY="20.0" text="ADMIN" textFill="WHITE">
                <font>
@@ -50,8 +50,8 @@
                   <Image url="@../Assets/notification.png" />
                </image>
             </ImageView>
-            <JFXTextField labelFloat="true" layoutX="444.0" layoutY="14.0" prefHeight="28.0" prefWidth="199.0" promptText="          Search Here" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #f5f6fa;" unFocusColor="#dcdde1" />
-            <Label layoutX="239.0" layoutY="14.0" prefHeight="28.0" prefWidth="199.0" style="-fx-background-color: #f5f6fa; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="          YYYY-MM-DD HH:MM:SS" />
+            <JFXTextField focusColor="#4d6be1" labelFloat="true" layoutX="444.0" layoutY="14.0" prefHeight="28.0" prefWidth="199.0" promptText="          Search Here" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: linear-gradient(to right,#61D8DE, #E839F6);;" unFocusColor="#dcdde1" />
+            <Label layoutX="239.0" layoutY="14.0" prefHeight="28.0" prefWidth="199.0" style="-fx-background-color: linear-gradient(to right,#61D8DE, #E839F6);; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="          YYYY-MM-DD HH:MM:SS" />
          </children>
       </Pane>
       <Pane layoutX="274.0" layoutY="350.0" prefHeight="293.0" prefWidth="736.0" style="-fx-background-color: #f5f6fa; -fx-background-radius: 20px; -fx-border-radius: 20px;">
@@ -65,7 +65,7 @@
               </yAxis>
             </LineChart>
          </children></Pane>
-      <Pane layoutX="274.0" layoutY="134.0" prefHeight="200.0" prefWidth="736.0" style="-fx-background-color: #0abde3; -fx-border-radius: 20px; -fx-background-radius: 20px;">
+      <Pane layoutX="274.0" layoutY="134.0" prefHeight="200.0" prefWidth="736.0" style="-fx-background-color: linear-gradient(to right,#61D8DE, #E839F6); -fx-border-radius: 20px; -fx-background-radius: 20px;">
          <children>
             <Pane layoutX="131.0" layoutY="5.0" prefHeight="190.0" prefWidth="190.0" style="-fx-background-color: #f5f6fa; -fx-background-radius: 20px; -fx-border-radius: 20px;">
                <children>
