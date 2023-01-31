@@ -22,7 +22,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.sql.*;
 
-public class TankDetailFormController {
+public class AddNewTankController {
     public JFXComboBox tankComboBox;
     public JFXButton addTankButton;
     public ImageView imageId;
@@ -160,7 +160,7 @@ public class TankDetailFormController {
         }
     }   //new tank-detail adding
     public void showMassage() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(AddNewTankMassageForm.class.getResource("/lk/matrix/soysaaquarium/View/addNewTankMassageForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(AddNewTankPopUpController.class.getResource("/lk/matrix/soysaaquarium/View/popup_added_new_tank.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.setFill(Color.TRANSPARENT);
         Stage stage = new Stage();
@@ -184,16 +184,16 @@ public class TankDetailFormController {
     public void backButtonOnAction(ActionEvent actionEvent) throws IOException {
 
         Stage thisStage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/dashboard_page_form.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         thisStage.setScene(scene);
 
 //        Stage stage = (Stage) backButton.getScene().getWindow();
 //        stage.hide();
 //
-//        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/TankView.fxml"));
+//        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/manage_tank_form.fxml"));
 //
-//        FXMLLoader fxmlLoader1 = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
+//        FXMLLoader fxmlLoader1 = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/dashboard_page_form.fxml"));
 //
 //        Scene scene = new Scene(fxmlLoader1.load());
 //        Stage outStage =new Stage();
