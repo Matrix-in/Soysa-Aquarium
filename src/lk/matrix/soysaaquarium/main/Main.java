@@ -18,7 +18,11 @@ public class Main extends Application {
       Scene scene = new Scene(fxmlLoader.load());
       scene.setFill(Color.TRANSPARENT);
       stage.setScene(scene);
+<<<<<<< HEAD
       stage.initStyle(StageStyle.TRANSPARENT);
+=======
+     stage.initStyle(StageStyle.TRANSPARENT);
+>>>>>>> cc5f3f1d30ba6603125a41d7090a61daf6a5bdca
       stage.show();
 
     }

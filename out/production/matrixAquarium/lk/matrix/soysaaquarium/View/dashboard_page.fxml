@@ -70,8 +70,8 @@
          <children>
             <Pane fx:id="piePane1" layoutX="169.0" layoutY="45.0" prefHeight="161.0" prefWidth="212.0" style="-fx-background-color: #A5C9FF; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-rotate: 90;">
                <children>
-                  <PieChart fx:id="tempPieChart" layoutX="-18.0" layoutY="2.0" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 180deg;" />
-                  <Circle fx:id="pieCircle1" fill="#0abde3" layoutX="88.0" layoutY="82.0" radius="53.0" stroke="WHITE" strokeType="INSIDE" style="-fx-fill: #A5C9FF;" />
+                  <PieChart fx:id="tempPieChart" labelsVisible="false" layoutX="-18.0" layoutY="2.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 180deg;" />
+                  <Circle fx:id="pieCircle1" fill="#0abde3" layoutX="88.0" layoutY="82.0" radius="55.0" stroke="WHITE" strokeType="INSIDE" style="-fx-fill: #A5C9FF;" />
                   <Label fx:id="pieLabel1" layoutX="71.0" layoutY="72.0" style="-fx-rotate: 270;" text="30 C" textFill="WHITE" />
                   <Label fx:id="pl1" layoutX="147.0" layoutY="67.0" style="-fx-rotate: 270;" text="Temp" textFill="WHITE">
                      <font>
@@ -83,8 +83,8 @@
             <JFXComboBox fx:id="tankComboBox" labelFloat="true" layoutX="22.0" layoutY="24.0" onAction="#tankChanged" prefHeight="30.0" prefWidth="160.0" promptText="tanks" unFocusColor="WHITE" />
             <Pane fx:id="piePane3" layoutX="511.0" layoutY="45.0" prefHeight="161.0" prefWidth="212.0" style="-fx-background-color: FFF1A5; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-rotate: 90;">
                <children>
-                  <PieChart fx:id="amoPieChart" layoutX="-18.0" layoutY="2.0" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 180deg;" />
-                  <Circle fx:id="pieCircle3" fill="#0abde3" layoutX="88.0" layoutY="82.0" radius="53.0" stroke="WHITE" strokeType="INSIDE" style="-fx-fill: FFF1A5;" />
+                  <PieChart fx:id="amoPieChart" labelLineLength="0.0" labelsVisible="false" layoutX="-18.0" layoutY="2.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 180deg;" />
+                  <Circle fx:id="pieCircle3" fill="#0abde3" layoutX="88.0" layoutY="82.0" radius="55.0" stroke="WHITE" strokeType="INSIDE" style="-fx-fill: FFF1A5;" />
                   <Label fx:id="pieLabel3" layoutX="61.0" layoutY="68.0" style="-fx-rotate: 270;" text="0.5 ppm" textFill="WHITE" />
                   <Label fx:id="pl3" layoutX="128.0" layoutY="56.0" style="-fx-rotate: 270;" text="Ammonia" textFill="WHITE">
                      <font>
@@ -93,19 +93,27 @@
                   </Label>
                </children>
             </Pane>
+<<<<<<< HEAD
             <Pane fx:id="piePane2" layoutX="340.0" layoutY="45.0" prefHeight="161.0" prefWidth="212.0" style="-fx-background-color: #FFB168; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-rotate: 90;">
+=======
+            <JFXButton fx:id="addFirstTankBtn" layoutX="81.0" layoutY="96.0" prefHeight="31.0" prefWidth="161.0" style="-fx-border-color: white;" text="add" textFill="WHITE" />
+            <Pane fx:id="piePane2" layoutX="616.0" layoutY="76.0" prefHeight="161.0" prefWidth="212.0" style="-fx-background-color: #FFB168; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-rotate: 90;">
+>>>>>>> cc5f3f1d30ba6603125a41d7090a61daf6a5bdca
                <children>
-                  <PieChart fx:id="phPieChart" layoutX="-17.0" layoutY="-3.0" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 180deg;" />
-                  <Circle fx:id="pieCircle2" fill="#0abde3" layoutX="88.0" layoutY="82.0" radius="53.0" stroke="WHITE" strokeType="INSIDE" style="-fx-fill: #FFB168;" />
-                  <Label fx:id="pieLabel2" layoutX="75.0" layoutY="71.0" style="-fx-rotate: 270;" text="4 ph" textFill="WHITE" />
-                  <Label fx:id="pl2" layoutX="169.0" layoutY="65.0" style="-fx-rotate: 270;" text="ph" textFill="WHITE">
+                  <PieChart fx:id="phPieChart" labelsVisible="false" layoutX="-18.0" layoutY="2.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 180deg;" />
+                  <Circle fx:id="pieCircle2" fill="#0abde3" layoutX="88.0" layoutY="82.0" radius="55.0" stroke="WHITE" strokeType="INSIDE" style="-fx-fill: #FFB168;" />
+                  <Label fx:id="pieLabel11" layoutX="71.0" layoutY="72.0" style="-fx-rotate: 270;" text="30 C" textFill="WHITE" />
+                  <Label fx:id="pl11" layoutX="147.0" layoutY="67.0" style="-fx-rotate: 270;" text="Temp" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
+<<<<<<< HEAD
             <JFXButton fx:id="addFirstTankBtn" layoutX="50.0" layoutY="77.0" prefHeight="35.0" prefWidth="105.0" style="-fx-border-color: white;" text="add" textFill="WHITE" />
+=======
+>>>>>>> cc5f3f1d30ba6603125a41d7090a61daf6a5bdca
          </children>
       </Pane>
       <Label layoutX="281.0" layoutY="63.0" prefHeight="67.0" prefWidth="318.0" text="Dashboard" textFill="#7c7a7a">
