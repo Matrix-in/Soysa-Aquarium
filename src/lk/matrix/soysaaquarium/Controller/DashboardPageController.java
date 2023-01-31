@@ -555,4 +555,18 @@ public class DashboardPageController {
 //            stage2.show();
 //        }
     }
+    public void onActioninfo(ActionEvent actionEvent) throws IOException {
+        Stage thisStage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+
+        Stage stage = (Stage) infoPane.getScene().getWindow();
+        stage.hide();
+
+        FXMLLoader fxmlLoader1 = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/info_window_form.fxml"));
+
+        Scene scene = new Scene(fxmlLoader1.load());
+        Stage outStage =new Stage();
+        outStage.setScene(scene);
+        outStage.show();
+
+    }
 }

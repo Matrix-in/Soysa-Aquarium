@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="655.0" minWidth="1024.0" prefHeight="655.0" prefWidth="1024.0" style="-fx-background-color: #FEFEFE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.InfoWindowFormController">
+   <children>
+      <Label alignment="CENTER" layoutX="422.0" layoutY="34.0" prefHeight="37.0" prefWidth="181.0" text="INFO">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <JFXTextArea editable="false" layoutX="88.0" layoutY="146.0" prefHeight="400.0" prefWidth="850.0" text="Introducing the Smart IoT Aquarium Automation project a revolutionary system that allows you to remotely monitor and control your aquarium's temperature, pH levels, and lighting with the help of IoT technology. Enjoy a stress-free and convenient aquarium experience with this cuttingedge technology">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXTextArea>
+      <JFXButton fx:id="backBtn" layoutX="36.0" layoutY="40.0" onAction="#backBtnOnAction" prefHeight="37.0" prefWidth="88.0" style="-fx-background-color: #C7DDFF;" text="Back" />
+   </children>
+</AnchorPane>
