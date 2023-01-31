@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="bgPaneTdf" prefHeight="657.0" prefWidth="1024.0" style="-fx-background-color: #1f1f1f;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.TankDetailFormController">
+<AnchorPane fx:id="bgPaneTdf" minHeight="655.0" minWidth="1024.0" prefHeight="655.0" prefWidth="1024.0" style="-fx-background-color: #1f1f1f;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.TankDetailFormController">
    <children>
       <Pane layoutX="14.0" layoutY="74.0" prefHeight="568.0" prefWidth="376.0" style="-fx-background-color: #2f2f2f; -fx-background-radius: 20px; -fx-border-color: white; -fx-border-radius: 20px;">
          <children>

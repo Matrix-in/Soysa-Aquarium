@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -181,16 +182,22 @@ public class TankDetailFormController {
     }
 
     public void backButtonOnAction(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        stage.hide();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/TankView.fxml"));
+        Stage thisStage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        thisStage.setScene(scene);
 
-        FXMLLoader fxmlLoader1 = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
-
-        Scene scene = new Scene(fxmlLoader1.load());
-        Stage outStage =new Stage();
-        outStage.setScene(scene);
-        outStage.show();
+//        Stage stage = (Stage) backButton.getScene().getWindow();
+//        stage.hide();
+//
+//        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/TankView.fxml"));
+//
+//        FXMLLoader fxmlLoader1 = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/DashboardPage.fxml"));
+//
+//        Scene scene = new Scene(fxmlLoader1.load());
+//        Stage outStage =new Stage();
+//        outStage.setScene(scene);
+//        outStage.show();
     }
 }
