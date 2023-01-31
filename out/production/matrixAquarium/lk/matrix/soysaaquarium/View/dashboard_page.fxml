@@ -93,12 +93,11 @@
                   </Label>
                </children>
             </Pane>
-<<<<<<< HEAD
+
+
+
+            <JFXButton fx:id="addFirstTankBtn" layoutX="22.0" layoutY="94.0" prefHeight="31.0" prefWidth="161.0" style="-fx-border-color: white;" text="add" textFill="WHITE" />
             <Pane fx:id="piePane2" layoutX="340.0" layoutY="45.0" prefHeight="161.0" prefWidth="212.0" style="-fx-background-color: #FFB168; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-rotate: 90;">
-=======
-            <JFXButton fx:id="addFirstTankBtn" layoutX="81.0" layoutY="96.0" prefHeight="31.0" prefWidth="161.0" style="-fx-border-color: white;" text="add" textFill="WHITE" />
-            <Pane fx:id="piePane2" layoutX="616.0" layoutY="76.0" prefHeight="161.0" prefWidth="212.0" style="-fx-background-color: #FFB168; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-rotate: 90;">
->>>>>>> cc5f3f1d30ba6603125a41d7090a61daf6a5bdca
                <children>
                   <PieChart fx:id="phPieChart" labelsVisible="false" layoutX="-18.0" layoutY="2.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 180deg;" />
                   <Circle fx:id="pieCircle2" fill="#0abde3" layoutX="88.0" layoutY="82.0" radius="55.0" stroke="WHITE" strokeType="INSIDE" style="-fx-fill: #FFB168;" />
@@ -110,10 +109,7 @@
                   </Label>
                </children>
             </Pane>
-<<<<<<< HEAD
-            <JFXButton fx:id="addFirstTankBtn" layoutX="50.0" layoutY="77.0" prefHeight="35.0" prefWidth="105.0" style="-fx-border-color: white;" text="add" textFill="WHITE" />
-=======
->>>>>>> cc5f3f1d30ba6603125a41d7090a61daf6a5bdca
+
          </children>
       </Pane>
       <Label layoutX="281.0" layoutY="63.0" prefHeight="67.0" prefWidth="318.0" text="Dashboard" textFill="#7c7a7a">
