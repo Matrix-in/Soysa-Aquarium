@@ -401,7 +401,7 @@ public class DashboardPageController {
         Stage thiStage = (Stage)((Node) event.getSource()).getScene().getWindow();
         thiStage.hide();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/login_form.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/login_form.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.setFill(Color.TRANSPARENT);
         Stage outStage =new Stage();
@@ -593,7 +593,7 @@ public class DashboardPageController {
         Stage stage = (Stage) infoPane.getScene().getWindow();
         stage.hide();
 
-        FXMLLoader fxmlLoader1 = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/info_window_form.fxml"));
+        FXMLLoader fxmlLoader1 = new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/info_window_form.fxml"));
 
         Scene scene = new Scene(fxmlLoader1.load());
         Stage outStage =new Stage();

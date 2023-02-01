@@ -25,7 +25,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class mainController implements Initializable {
+public class loginController implements Initializable {
     public PasswordField passwordField;
     public Button loginBtn;
     @FXML
@@ -129,7 +129,7 @@ public class mainController implements Initializable {
             }
 
         }else {
-            FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/popup_login_err.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/popup_login_err.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();

@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import lk.matrix.soysaaquarium.Controller.mainController;
+import lk.matrix.soysaaquarium.Controller.loginController;
 
 import java.io.IOException;
 
@@ -14,7 +14,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException{
 
-      FXMLLoader fxmlLoader= new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/login_form.fxml"));
+      FXMLLoader fxmlLoader= new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/login_form.fxml"));
       Scene scene = new Scene(fxmlLoader.load());
       scene.setFill(Color.TRANSPARENT);
       stage.setScene(scene);

@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,7 +21,7 @@ public class InfoWindowFormController {
         Stage stage = (Stage) backBtn.getScene().getWindow();
         stage.hide();
 
-        FXMLLoader fxmlLoader1 = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/dashboard_page.fxml"));
+        FXMLLoader fxmlLoader1 = new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/dashboard_page.fxml"));
 
         Scene scene = new Scene(fxmlLoader1.load());
         Stage outStage =new Stage();

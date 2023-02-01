@@ -112,9 +112,9 @@
 
          </children>
       </Pane>
-      <Label layoutX="281.0" layoutY="63.0" prefHeight="67.0" prefWidth="318.0" text="Dashboard" textFill="#7c7a7a">
+      <Label layoutX="282.0" layoutY="78.0" prefHeight="35.0" prefWidth="135.0" text="Dashboard" textFill="#a8a4a4">
          <font>
-            <Font name="Calibri" size="48.0" />
+            <Font name="Calibri" size="30.0" />
          </font>
       </Label>
       <Pane layoutX="1003.0" layoutY="86.0" prefHeight="620.0" prefWidth="265.0" style="-fx-background-radius: 20px; -fx-border-radius: 20px; -fx-background-color: linear-gradient(to bottom,#7C97DC, #5AD7FF);" />
