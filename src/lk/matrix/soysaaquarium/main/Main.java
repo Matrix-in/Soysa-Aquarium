@@ -7,6 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lk.matrix.soysaaquarium.Controller.loginController;
+import lk.matrix.soysaaquarium.Services.ArduinoToSql;
 
 import java.io.IOException;
 
@@ -41,7 +42,10 @@ public class Main extends Application {
 //        }catch (Exception e){
 //            e.printStackTrace();
 //        }
+        new ArduinoToSql();
         launch();
+
+
     }
 
 

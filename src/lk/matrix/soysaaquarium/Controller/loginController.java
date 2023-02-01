@@ -127,7 +127,7 @@ public class loginController implements Initializable {
                 stage2.setMaximized(true);
                 stage2.setWidth(width);
                 stage2.setHeight(height);
-                
+
                 //stage2.setResizable(false);
                 stage2.show();
             }else{
