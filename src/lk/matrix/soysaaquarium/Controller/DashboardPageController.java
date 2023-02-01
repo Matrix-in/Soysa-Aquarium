@@ -17,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -572,6 +573,14 @@ public class DashboardPageController {
         FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/manage_tank_form.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         thisStage.setScene(scene);
+//        thisStage.setFullScreen(true);
+
+//        int width = (int) Screen.getPrimary().getBounds().getWidth();
+//        int height = (int) Screen.getPrimary().getBounds().getHeight();
+//
+//        thisStage.setMaximized(true);
+//        thisStage.setWidth(width);
+//        thisStage.setHeight(height);
 //        if(stage2 == null) {
 //            stage = (Stage) fullPane.getScene().getWindow();
 //            stage.hide();

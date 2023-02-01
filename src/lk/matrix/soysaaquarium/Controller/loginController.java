@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -119,7 +120,14 @@ public class loginController implements Initializable {
                 Scene scene = new Scene(fxmlLoader.load());
                 stage2 = new Stage();
                 stage2.setScene(scene);
-                stage2.setFullScreen(true);
+//                stage2.setFullScreen(true);
+                int width = (int) Screen.getPrimary().getBounds().getWidth();
+                int height = (int) Screen.getPrimary().getBounds().getHeight();
+
+                stage2.setMaximized(true);
+                stage2.setWidth(width);
+                stage2.setHeight(height);
+                
                 //stage2.setResizable(false);
                 stage2.show();
             }else{
