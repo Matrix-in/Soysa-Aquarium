@@ -4,26 +4,31 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="report" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.getReportFormController">
+<AnchorPane minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.getReportFormController">
    <children>
-      <JFXButton fx:id="generateReportBtn" layoutX="1139.0" layoutY="667.0" onAction="#generateReportBtnOnAction" style="-fx-border-color: blue;" text="Generate Report" />
-      <JFXComboBox fx:id="tankComboBox" layoutX="22.0" layoutY="46.0" onAction="#comboBoxOnAction" prefHeight="25.0" prefWidth="174.0" />
-      <Label fx:id="tankId" layoutX="48.0" layoutY="184.0" prefHeight="42.0" prefWidth="406.0" text="Tank id : ">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="48.0" layoutY="226.0" prefHeight="35.0" prefWidth="704.0" text="fish type in the tank : ">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="48.0" layoutY="270.0" prefHeight="35.0" prefWidth="704.0" text="Current date/time : ">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
+      <Pane fx:id="report" prefHeight="720.0" prefWidth="1280.0">
+         <children>
+            <Label layoutX="342.0" layoutY="167.0" prefHeight="35.0" prefWidth="704.0" text="Current date/time : ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="generateReportBtn" layoutX="1070.0" layoutY="647.0" onAction="#generateReportBtnOnAction" style="-fx-border-color: blue;" text="Generate Report" />
+            <JFXComboBox fx:id="tankComboBox" layoutX="67.0" layoutY="47.0" onAction="#comboBoxOnAction" prefHeight="25.0" prefWidth="174.0" />
+            <Label fx:id="tankId" layoutX="342.0" layoutY="202.0" prefHeight="42.0" prefWidth="406.0" text="Tank id : ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="342.0" layoutY="244.0" prefHeight="35.0" prefWidth="704.0" text="fish type in the tank : ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -40,7 +40,7 @@ public class getReportFormController {
     @FXML
     private Label tankId;
     @FXML
-    private AnchorPane report;
+    private Pane report;
 
     public void initialize(){
         try{
