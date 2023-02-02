@@ -25,6 +25,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class loginController implements Initializable {
     public PasswordField passwordField;
@@ -91,7 +93,7 @@ public class loginController implements Initializable {
     }
     @FXML
 
-    public void getLogin (ActionEvent actionEvent) throws IOException {
+    public void getLogin (ActionEvent actionEvent) throws Exception {
         username = userName.getText();
         password=passwordField.getText();
         int count = 0;
@@ -114,6 +116,7 @@ public class loginController implements Initializable {
 
         if(count == 1){
             if(stage2 == null) {
+
                 stage = (Stage) userName.getScene().getWindow();
                 stage.hide();
                 FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/dashboard_page.fxml"));
@@ -130,10 +133,36 @@ public class loginController implements Initializable {
 
                 //stage2.setResizable(false);
                 stage2.show();
+                ExecutorService executor = Executors.newSingleThreadExecutor();
+                executor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            eMailController.sendMail("matrixsolutionsinsoftware@gmail.com");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                executor.shutdown();
+
             }else{
+
                 stage = (Stage) userName.getScene().getWindow();
                 stage.hide();
                 stage2.show();
+                ExecutorService executor = Executors.newSingleThreadExecutor();
+                executor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            eMailController.sendMail("matrixsolutionsinsoftware@gmail.com");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                executor.shutdown();
             }
 
         }else {

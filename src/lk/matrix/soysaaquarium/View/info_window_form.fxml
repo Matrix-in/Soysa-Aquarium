@@ -12,7 +12,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <JFXButton fx:id="backBtn" layoutX="36.0" layoutY="40.0" onAction="#backBtnOnAction" prefHeight="37.0" prefWidth="88.0" style="-fx-background-color: transparent; -fx-border-radius: 15px; -fx-background-radius: 15px; -fx-border-color: #2196f3;" text="Back" />
+      <JFXButton fx:id="backBtn" layoutX="36.0" layoutY="40.0" onAction="#backBtnOnAction" prefHeight="27.0" prefWidth="67.0" style="-fx-background-color: transparent; -fx-border-radius: 15px; -fx-background-radius: 15px; -fx-border-color: #2196f3;" text="Back" />
       <JFXButton layoutX="207.0" layoutY="155.0" style="-fx-background-color: white;" text="Copyright © Matrix PVT LTD" />
       <Label layoutX="207.0" layoutY="224.0" prefHeight="164.0" prefWidth="865.0" text="Introducing the Smart IoT Aquarium Automation project a revolutionary system that allows you to remotely monitor and control your aquarium's temperature, pH levels, and lighting with the help of IoT technology. Enjoy a stress-free and convenient aquarium experience with this cuttingedge technology" wrapText="true">
          <font>
