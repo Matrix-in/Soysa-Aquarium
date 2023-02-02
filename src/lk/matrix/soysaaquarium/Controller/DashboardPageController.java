@@ -137,8 +137,7 @@ public class DashboardPageController {
     @FXML
     private Circle pieCircle1;
 
-    static Stage stage;
-    static Stage stage2;
+    static Stage dashBoardStage;
     public static boolean isSelected;
 
     private int[] tankIdArr = new int[0];
@@ -677,5 +676,18 @@ public class DashboardPageController {
         outStage.setScene(scene);
         outStage.show();
 
+    }
+
+    @FXML
+    void fishesBtnOnAction(ActionEvent event) throws IOException {
+        dashBoardStage = (Stage) infoPane.getScene().getWindow();
+        dashBoardStage.hide();
+
+        FXMLLoader fxmlLoader1 = new FXMLLoader(FishTypeWindowFormController.class.getResource("/lk/matrix/soysaaquarium/View/fish_type_window_form.fxml"));
+
+        Scene scene = new Scene(fxmlLoader1.load());
+        Stage outStage =new Stage();
+        outStage.setScene(scene);
+        outStage.show();
     }
 }

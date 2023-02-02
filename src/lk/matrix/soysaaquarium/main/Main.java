@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import lk.matrix.soysaaquarium.Controller.FishTypeWindowFormController;
 import lk.matrix.soysaaquarium.Controller.loginController;
 import lk.matrix.soysaaquarium.Services.ArduinoToSql;
 
@@ -22,10 +23,9 @@ public class Main extends Application {
 
       stage.initStyle(StageStyle.TRANSPARENT);
 
-     stage.initStyle(StageStyle.TRANSPARENT);
+      stage.initStyle(StageStyle.TRANSPARENT);
 
       stage.show();
-
     }
 
     public static void main(String[] args) {

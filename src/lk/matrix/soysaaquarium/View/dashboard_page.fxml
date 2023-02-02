@@ -22,7 +22,7 @@
          <children>
             <JFXButton fx:id="getReportPane" layoutX="25.0" layoutY="93.0" prefHeight="50.0" prefWidth="200.0" style="-fx-text-fill: black; -fx-background-color: #C7DDFF;" text="Get Report" />
             <JFXButton fx:id="wchPane" layoutX="25.0" layoutY="153.0" prefHeight="50.0" prefWidth="200.0" style="-fx-text-fill: black; -fx-background-color: #C7DDFF;" text="Water change History" />
-            <JFXButton fx:id="fishPane" layoutX="25.0" layoutY="213.0" prefHeight="50.0" prefWidth="200.0" style="-fx-text-fill: black; -fx-background-color: #C7DDFF;" text="Fishes" />
+            <JFXButton fx:id="fishPane" layoutX="25.0" layoutY="213.0" onAction="#fishesBtnOnAction" prefHeight="50.0" prefWidth="200.0" style="-fx-text-fill: black; -fx-background-color: #C7DDFF;" text="Fishes" />
             <JFXButton fx:id="vcPane" layoutX="25.0" layoutY="273.0" prefHeight="50.0" prefWidth="200.0" style="-fx-text-fill: black; -fx-background-color: #C7DDFF;" text="View Camera" />
             <JFXButton fx:id="infoPane" layoutX="25.0" layoutY="333.0" onAction="#onActioninfo" prefHeight="50.0" prefWidth="200.0" style="-fx-text-fill: black; -fx-background-color: #C7DDFF;" text="info" />
             <JFXButton fx:id="logoutPane" layoutX="25.0" layoutY="494.0" onMouseClicked="#logoutClick" prefHeight="50.0" prefWidth="200.0" style="-fx-text-fill: black; -fx-background-color: #FFB168;" text="Logout" />
