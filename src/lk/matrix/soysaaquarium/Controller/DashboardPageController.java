@@ -690,4 +690,13 @@ public class DashboardPageController {
         outStage.setScene(scene);
         outStage.show();
     }
+
+    public void onActionGetReport(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader= new FXMLLoader(getReportFormController.class.getResource("/lk/matrix/soysaaquarium/View/getreportForm.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+
+    }
 }
