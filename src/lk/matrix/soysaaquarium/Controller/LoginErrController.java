@@ -14,4 +14,3 @@ private Button okBtn;
         stage.close();
     }
 }
-0
