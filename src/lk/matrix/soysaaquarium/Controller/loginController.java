@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -24,8 +25,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-public class mainController implements Initializable {
+public class loginController implements Initializable {
     public PasswordField passwordField;
     public Button loginBtn;
     @FXML
@@ -90,7 +93,7 @@ public class mainController implements Initializable {
     }
     @FXML
 
-    public void getLogin (ActionEvent actionEvent) throws IOException {
+    public void getLogin (ActionEvent actionEvent) throws Exception {
         username = userName.getText();
         password=passwordField.getText();
         int count = 0;
@@ -113,23 +116,57 @@ public class mainController implements Initializable {
 
         if(count == 1){
             if(stage2 == null) {
+
                 stage = (Stage) userName.getScene().getWindow();
                 stage.hide();
                 FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/dashboard_page.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 stage2 = new Stage();
                 stage2.setScene(scene);
-                stage2.setFullScreen(true);
+//                stage2.setFullScreen(true);
+                int width = (int) Screen.getPrimary().getBounds().getWidth();
+                int height = (int) Screen.getPrimary().getBounds().getHeight();
+
+                stage2.setMaximized(true);
+                stage2.setWidth(width);
+                stage2.setHeight(height);
+
                 //stage2.setResizable(false);
                 stage2.show();
+                ExecutorService executor = Executors.newSingleThreadExecutor();
+                executor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            eMailController.sendMail("matrixsolutionsinsoftware@gmail.com");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                executor.shutdown();
+
             }else{
+
                 stage = (Stage) userName.getScene().getWindow();
                 stage.hide();
                 stage2.show();
+                ExecutorService executor = Executors.newSingleThreadExecutor();
+                executor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            eMailController.sendMail("matrixsolutionsinsoftware@gmail.com");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                executor.shutdown();
             }
 
         }else {
-            FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/popup_login_err.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/popup_login_err.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();

@@ -2,6 +2,9 @@ package lk.matrix.soysaaquarium.Controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXToggleButton;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,6 +20,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -27,6 +31,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 
 import javafx.scene.control.Label;
+import javafx.util.Duration;
 
 public class DashboardPageController {
 
@@ -132,8 +137,7 @@ public class DashboardPageController {
     @FXML
     private Circle pieCircle1;
 
-    static Stage stage;
-    static Stage stage2;
+    static Stage dashBoardStage;
     public static boolean isSelected;
 
     private int[] tankIdArr = new int[0];
@@ -207,6 +211,38 @@ public class DashboardPageController {
                 data.getNode().setStyle("-fx-pie-color: #4c4c4c;");
             }
         }
+
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), e -> {
+            double tempLast = 0;
+            String timeStampLast = "";
+            try{
+                temperatureData = new double[0];
+                timeStampData = new String[0];
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = "+tankIdArr[tankComboBox.getSelectionModel().getSelectedIndex()]+" ORDER BY id DESC LIMIT 1");
+                while (resultSet.next()){
+                    tempLast= Double.parseDouble(resultSet.getString("temperature"));
+                    timeStampLast = resultSet.getString("timeStampTemp");
+                }
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
+            series.getData().add(new XYChart.Data<>(timeStampLast, tempLast));
+            if(series.getData().size() > 5){
+                series.getData().remove(0);
+            }
+            ObservableList<PieChart.Data> tempPieChartDataInTimeLine = FXCollections.observableArrayList(
+                    new PieChart.Data("Filled", tempLast),
+                    new PieChart.Data("free", 100-tempLast));
+
+            tempPieChart.getData().clear();
+            tempPieChart.getData().addAll(tempPieChartDataInTimeLine);
+            pieLabel1.setText(Double.toString(tempLast));
+        }));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
     }
 
     @FXML
@@ -381,11 +417,43 @@ public class DashboardPageController {
 //        timeline2.setCycleCount(Animation.INDEFINITE);
 //        timeline2.play();
 
+            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), e -> {
+                double tempLast = 0;
+                String timeStampLast = "";
+                try{
+                    temperatureData = new double[0];
+                    timeStampData = new String[0];
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
+                    Statement statement = connection.createStatement();
+                    ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = "+tankIdArr[0]+" ORDER BY id DESC LIMIT 1");
+                    while (resultSet.next()){
+                        tempLast= Double.parseDouble(resultSet.getString("temperature"));
+                        timeStampLast = resultSet.getString("timeStampTemp");
+                    }
+                }catch (Exception ex){
+                    ex.printStackTrace();
+                }
+
+                series.getData().add(new XYChart.Data<>(timeStampLast, tempLast));
+                if(series.getData().size() > 5){
+                    series.getData().remove(0);
+                }
+                ObservableList<PieChart.Data> tempPieChartDataInTimeLine = FXCollections.observableArrayList(
+                        new PieChart.Data("Filled", tempLast),
+                        new PieChart.Data("free", 100-tempLast));
+
+                tempPieChart.getData().clear();
+                tempPieChart.getData().addAll(tempPieChartDataInTimeLine);
+                pieLabel1.setText(Double.toString(tempLast));
+            }));
+
+            timeline.setCycleCount(Animation.INDEFINITE);
+            timeline.play();
 
 
         }else {
             tankComboBox.setVisible(false);
-
         }
 
 
@@ -401,7 +469,7 @@ public class DashboardPageController {
         Stage thiStage = (Stage)((Node) event.getSource()).getScene().getWindow();
         thiStage.hide();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/login_form.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/login_form.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.setFill(Color.TRANSPARENT);
         Stage outStage =new Stage();
@@ -572,6 +640,14 @@ public class DashboardPageController {
         FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/manage_tank_form.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         thisStage.setScene(scene);
+//        thisStage.setFullScreen(true);
+
+//        int width = (int) Screen.getPrimary().getBounds().getWidth();
+//        int height = (int) Screen.getPrimary().getBounds().getHeight();
+//
+//        thisStage.setMaximized(true);
+//        thisStage.setWidth(width);
+//        thisStage.setHeight(height);
 //        if(stage2 == null) {
 //            stage = (Stage) fullPane.getScene().getWindow();
 //            stage.hide();
@@ -593,12 +669,34 @@ public class DashboardPageController {
         Stage stage = (Stage) infoPane.getScene().getWindow();
         stage.hide();
 
-        FXMLLoader fxmlLoader1 = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/info_window_form.fxml"));
+        FXMLLoader fxmlLoader1 = new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/info_window_form.fxml"));
 
         Scene scene = new Scene(fxmlLoader1.load());
         Stage outStage =new Stage();
         outStage.setScene(scene);
         outStage.show();
+
+    }
+
+    @FXML
+    void fishesBtnOnAction(ActionEvent event) throws IOException {
+        dashBoardStage = (Stage) infoPane.getScene().getWindow();
+        dashBoardStage.hide();
+
+        FXMLLoader fxmlLoader1 = new FXMLLoader(FishTypeWindowFormController.class.getResource("/lk/matrix/soysaaquarium/View/fish_type_window_form.fxml"));
+
+        Scene scene = new Scene(fxmlLoader1.load());
+        Stage outStage =new Stage();
+        outStage.setScene(scene);
+        outStage.show();
+    }
+
+    public void onActionGetReport(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader= new FXMLLoader(getReportFormController.class.getResource("/lk/matrix/soysaaquarium/View/getreportForm.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
 
     }
 }
