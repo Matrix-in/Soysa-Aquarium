@@ -2,6 +2,8 @@ package lk.matrix.soysaaquarium.Controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXToggleButton;
+import eu.hansolo.medusa.Gauge;
+import eu.hansolo.medusa.skins.BarSkin;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -10,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
@@ -18,6 +21,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Screen;
@@ -29,12 +33,16 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Random;
 
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 
 public class DashboardPageController {
 
+    public VBox vBox2;
+    public VBox vBox1;
+    public VBox vBox;
     @FXML
     private JFXButton addFirstTankBtn;
     @FXML
@@ -145,6 +153,12 @@ public class DashboardPageController {
     private String[] timeStampData = new String[0];
 
     private double latestTemp= 0.0;
+    private double latestpH = 0.0;
+    private double latestAmmo = 0.0;
+
+    Gauge tempMeter = new Gauge();
+    Gauge pHMeter = new Gauge();
+    Gauge ammoMeter = new Gauge();
     @FXML
     void tankChanged(ActionEvent event) {
         System.out.println(tankComboBox.getSelectionModel().getSelectedIndex());
@@ -199,6 +213,10 @@ public class DashboardPageController {
         ObservableList<PieChart.Data> tempPieChartData = FXCollections.observableArrayList(
                 new PieChart.Data("Filled", latestTemp),
                 new PieChart.Data("free", 100-latestTemp));
+
+        tempMeter.setValue(latestTemp);
+        pHMeter.setValue(latestpH);
+        ammoMeter.setValue(latestAmmo);
 
         tempPieChart.getData().clear();
         tempPieChart.getData().addAll(tempPieChartData);
@@ -323,6 +341,51 @@ public class DashboardPageController {
                     new PieChart.Data("Filled", latestTemp),
                     new PieChart.Data("free", 100-latestTemp));
 
+            Random r = new Random();
+            new Thread(){
+                public void run(){
+                    while(true){
+                        latestTemp = r.nextInt(101);
+                        latestpH = r.nextInt(101);
+                        latestAmmo = r.nextInt(101);
+                    }
+                }
+            }.start();
+
+            tempMeter.setSkin(new BarSkin(tempMeter));
+            tempMeter.setTitle("Temp");
+            tempMeter.setValue(10);
+            tempMeter.setAnimated(true);
+            tempMeter.setValueColor(Color.RED);
+            tempMeter.setTitleColor(Color.BLACK);
+            tempMeter.setBarColor(Color.rgb(255,165,0));
+            tempMeter.setValue(latestTemp);
+
+            pHMeter.setSkin(new BarSkin(pHMeter));
+            pHMeter.setTitle("pH");
+            pHMeter.setValue(10);
+            pHMeter.setAnimated(true);
+            pHMeter.setValueColor(Color.RED);
+            pHMeter.setTitleColor(Color.BLACK);
+            pHMeter.setBarColor(Color.rgb(255,165,0));
+            pHMeter.setValue(latestpH);
+
+            ammoMeter.setSkin(new BarSkin(ammoMeter));
+            ammoMeter.setTitle("Ammonia");
+            ammoMeter.setValue(10);
+            ammoMeter.setAnimated(true);
+            ammoMeter.setValueColor(Color.RED);
+            ammoMeter.setTitleColor(Color.BLACK);
+            ammoMeter.setBarColor(Color.rgb(255,165,0));
+            ammoMeter.setValue(latestAmmo);
+
+            vBox.setPadding(new Insets(40,20,20,20));
+            vBox.getChildren().add(tempMeter);
+            vBox1.setPadding(new Insets(40,20,20,20));
+            vBox1.getChildren().add(pHMeter);
+            vBox2.setPadding(new Insets(40,20,20,20));
+            vBox2.getChildren().add(ammoMeter);
+
             tempPieChart.getData().addAll(tempPieChartData);
             // Iterate through the chart's data and set the color for each segment
             for (PieChart.Data data : tempPieChart.getData()) {
@@ -442,6 +505,10 @@ public class DashboardPageController {
                 ObservableList<PieChart.Data> tempPieChartDataInTimeLine = FXCollections.observableArrayList(
                         new PieChart.Data("Filled", tempLast),
                         new PieChart.Data("free", 100-tempLast));
+
+                tempMeter.setValue(latestTemp);
+                pHMeter.setValue(latestpH);
+                ammoMeter.setValue(latestAmmo);
 
                 tempPieChart.getData().clear();
                 tempPieChart.getData().addAll(tempPieChartDataInTimeLine);

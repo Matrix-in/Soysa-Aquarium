@@ -33,5 +33,6 @@
     </orderEntry>
     <orderEntry type="library" name="javax.mail" level="project" />
     <orderEntry type="library" name="iText-2.1.7.js2" level="project" />
+    <orderEntry type="library" name="Medusa-8.0" level="project" />
   </component>
 </module>

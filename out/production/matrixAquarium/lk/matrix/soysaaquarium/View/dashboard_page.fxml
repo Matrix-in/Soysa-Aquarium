@@ -12,6 +12,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
@@ -58,17 +59,17 @@
       <Pane layoutX="281.0" layoutY="387.0" prefHeight="318.0" prefWidth="710.0" style="-fx-background-color: #f5f6fa; -fx-background-radius: 20px; -fx-border-radius: 20px;">
          <children>
             <LineChart fx:id="fxLinechart" layoutX="15.0" layoutY="15.0" prefHeight="289.0" prefWidth="685.0">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" fx:id="x" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis fx:id="y" side="LEFT" />
-              </yAxis>
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" fx:id="x" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis fx:id="y" side="LEFT" />
+               </yAxis>
             </LineChart>
          </children></Pane>
       <Pane fx:id="fullPane" layoutX="282.0" layoutY="118.0" prefHeight="250.0" prefWidth="710.0" style="-fx-background-color: linear-gradient(to right,#7C97DC, #5AD7FF); -fx-border-radius: 20px; -fx-background-radius: 20px;">
          <children>
-            <Pane fx:id="piePane1" layoutX="169.0" layoutY="45.0" prefHeight="161.0" prefWidth="212.0" style="-fx-background-color: #A5C9FF; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-rotate: 90;">
+            <Pane fx:id="piePane1" layoutX="169.0" layoutY="45.0" prefHeight="161.0" prefWidth="212.0" style="-fx-background-color: #A5C9FF; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-rotate: 90;" visible="false">
                <children>
                   <PieChart fx:id="tempPieChart" labelsVisible="false" layoutX="-18.0" layoutY="2.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 180deg;" />
                   <Circle fx:id="pieCircle1" fill="#0abde3" layoutX="88.0" layoutY="82.0" radius="55.0" stroke="WHITE" strokeType="INSIDE" style="-fx-fill: #A5C9FF;" />
@@ -81,7 +82,7 @@
                </children>
             </Pane>
             <JFXComboBox fx:id="tankComboBox" labelFloat="true" layoutX="22.0" layoutY="24.0" onAction="#tankChanged" prefHeight="30.0" prefWidth="160.0" promptText="tanks" unFocusColor="WHITE" />
-            <Pane fx:id="piePane3" layoutX="511.0" layoutY="45.0" prefHeight="161.0" prefWidth="212.0" style="-fx-background-color: FFF1A5; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-rotate: 90;">
+            <Pane fx:id="piePane3" layoutX="511.0" layoutY="45.0" prefHeight="161.0" prefWidth="212.0" style="-fx-background-color: FFF1A5; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-rotate: 90;" visible="false">
                <children>
                   <PieChart fx:id="amoPieChart" labelLineLength="0.0" labelsVisible="false" layoutX="-18.0" layoutY="2.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 180deg;" />
                   <Circle fx:id="pieCircle3" fill="#0abde3" layoutX="88.0" layoutY="82.0" radius="55.0" stroke="WHITE" strokeType="INSIDE" style="-fx-fill: FFF1A5;" />
@@ -97,7 +98,7 @@
 
 
             <JFXButton fx:id="addFirstTankBtn" layoutX="22.0" layoutY="94.0" prefHeight="31.0" prefWidth="161.0" style="-fx-border-color: white;" text="add" textFill="WHITE" />
-            <Pane fx:id="piePane2" layoutX="340.0" layoutY="45.0" prefHeight="161.0" prefWidth="212.0" style="-fx-background-color: #FFB168; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-rotate: 90;">
+            <Pane fx:id="piePane2" layoutX="340.0" layoutY="45.0" prefHeight="161.0" prefWidth="212.0" style="-fx-background-color: #FFB168; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-rotate: 90;" visible="false">
                <children>
                   <PieChart fx:id="phPieChart" labelsVisible="false" layoutX="-18.0" layoutY="2.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 180deg;" />
                   <Circle fx:id="pieCircle2" fill="#0abde3" layoutX="88.0" layoutY="82.0" radius="55.0" stroke="WHITE" strokeType="INSIDE" style="-fx-fill: #FFB168;" />
@@ -109,6 +110,9 @@
                   </Label>
                </children>
             </Pane>
+            <VBox fx:id="vBox" layoutX="145.0" layoutY="12.0" prefHeight="226.0" prefWidth="238.0" />
+            <VBox fx:id="vBox2" layoutX="482.0" layoutY="12.0" prefHeight="226.0" prefWidth="263.0" />
+            <VBox fx:id="vBox1" layoutX="306.0" layoutY="12.0" prefHeight="226.0" prefWidth="265.0" />
 
          </children>
       </Pane>
