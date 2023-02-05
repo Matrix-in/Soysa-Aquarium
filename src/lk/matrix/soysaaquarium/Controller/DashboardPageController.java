@@ -59,6 +59,9 @@ public class DashboardPageController {
     @FXML
     private Label timeLabel;
     @FXML
+    private Label dateLabel;
+
+    @FXML
     private LineChart<?, ?> fxLinechart;
 
     @FXML
@@ -531,11 +534,16 @@ public class DashboardPageController {
             tankComboBox.setVisible(false);
         }
 
-        timeLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss a")));
+        timeLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("     hh:mm:ss a")));
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> timeLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss a")))));
+        dateLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("     yyyy-MM-dd")));
+
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> timeLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("     hh:mm:ss a")))));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+        Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(1), event -> dateLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("     yyyy-MM-dd")))));
+        timeline2.setCycleCount(Animation.INDEFINITE);
+        timeline2.play();
 
     }
 
