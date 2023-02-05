@@ -6,8 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import lk.matrix.soysaaquarium.Controller.eMailController;
-import lk.matrix.soysaaquarium.Controller.loginController;
+import lk.matrix.soysaaquarium.Controller.*;
 import lk.matrix.soysaaquarium.Services.ArduinoToSql;
 
 import java.io.IOException;
@@ -16,16 +15,22 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException{
 
-      FXMLLoader fxmlLoader= new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/login_form.fxml"));
-      Scene scene = new Scene(fxmlLoader.load());
-      scene.setFill(Color.TRANSPARENT);
-      stage.setScene(scene);
+//      FXMLLoader fxmlLoader= new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/login_form.fxml"));
+//      Scene scene = new Scene(fxmlLoader.load());
+//      scene.setFill(Color.TRANSPARENT);
+//      stage.setScene(scene);
+//
+//      stage.initStyle(StageStyle.TRANSPARENT);
+//
+//      stage.initStyle(StageStyle.TRANSPARENT);
+//
+//      stage.show();
 
-      stage.initStyle(StageStyle.TRANSPARENT);
+        FXMLLoader fxmlLoader= new FXMLLoader(ManageTankController.class.getResource("/lk/matrix/soysaaquarium/View/manage_tank_form.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
 
-      stage.initStyle(StageStyle.TRANSPARENT);
-
-      stage.show();
+        stage.show();
     }
 
     public static void main(String[] args) throws Exception {

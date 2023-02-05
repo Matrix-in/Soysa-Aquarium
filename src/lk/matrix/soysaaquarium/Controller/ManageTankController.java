@@ -46,10 +46,10 @@ public class ManageTankController {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT tankDetail.tankId , fish.name FROM tankDetail INNER JOIN fish ON tankDetail.tankId = fish.fishId;");
+            ResultSet resultSet = statement.executeQuery("SELECT tankDetail.tankId , fish.name FROM tankDetail INNER JOIN fish ON tankDetail.fishId = fish.fishId;");
             while (resultSet.next()){
                 System.out.println(resultSet.getString("tankId")+" - "+resultSet.getString("name"));
-                data.add(new Tank("Tank 00"+resultSet.getString("tankId"), resultSet.getString("name")));
+                data.add(new Tank(resultSet.getString("tankId"), resultSet.getString("name")));
             }
 
         }catch (Exception e){

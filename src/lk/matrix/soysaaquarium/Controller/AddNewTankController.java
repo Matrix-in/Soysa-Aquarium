@@ -49,7 +49,7 @@ public class AddNewTankController {
     private TextField minpHTextField;
     @FXML
     private JFXComboBox<?> fishTypeComboBox;
-    private int fishId;
+    private String fishId;
     @FXML
     private AnchorPane bgPaneTdf;
     private Connection con;
@@ -81,7 +81,7 @@ public class AddNewTankController {
         ResultSet rs = statement.executeQuery("SELECT * FROM fish WHERE name = '" + selected + "'");
         while (rs.next()){
             try{
-                fishId = Integer.parseInt(rs.getString("fishId"));
+                fishId = rs.getString("fishId");
                 minTempTextField.setText(String.valueOf(rs.getDouble("minTemp")));
                 maxTempTextField.setText(String.valueOf(rs.getDouble("maxTemp")));
                 minpHTextField.setText(String.valueOf(rs.getDouble("minPH")));
@@ -132,11 +132,12 @@ public class AddNewTankController {
         }else{
             try{
                 Integer.parseInt(fishCountTextField.getText());
-                String query = "INSERT INTO tankDetail (tankId,fishId,fishQty,minTemp,maxTemp,minpH,maxpH,minAmo,maxAmo)" + "VALUES(?,?,?,?,?,?,?,?,?)";
+                String query = "INSERT INTO tankDetail (tankId,fishId,fishQty,minTemp,maxTemp,minpH,maxpH,minAmo,maxAmo,addedDate)"
+                        + "VALUES(?,?,?,?,?,?,?,?,?,?)";
                 try {
                     PreparedStatement statement = con.prepareStatement(query);
-                    statement.setInt(1, Integer.parseInt(tankComboBox.getSelectionModel().getSelectedItem().toString()));
-                    statement.setInt(2, fishId);
+                    statement.setString(1, tankComboBox.getSelectionModel().getSelectedItem().toString());
+                    statement.setString(2, fishId);
                     statement.setInt(3, Integer.parseInt(fishCountTextField.getText()));
                     statement.setDouble(4, Double.parseDouble(minTempTextField.getText()));
                     statement.setDouble(5, Double.parseDouble(maxTempTextField.getText()));
@@ -144,6 +145,7 @@ public class AddNewTankController {
                     statement.setDouble(7, Double.parseDouble(maxpHTextField.getText()));
                     statement.setDouble(8, Double.parseDouble(minAmoTextField.getText()));
                     statement.setDouble(9, Double.parseDouble(maxAmoTextField.getText()));
+                    statement.setTimestamp(10,new Timestamp(System.currentTimeMillis()));
                     statement.execute();
                     imageId.setVisible(false);
                     fishCountLabel.setText("");

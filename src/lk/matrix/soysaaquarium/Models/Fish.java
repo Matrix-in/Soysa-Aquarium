@@ -1,19 +1,31 @@
 package lk.matrix.soysaaquarium.Models;
 
-public class Fish {
-    private int tankId;
-    private int fishQty;
+import java.sql.Timestamp;
 
-    public Fish(int tankId, int fishQty){
+public class Fish {
+    private String tankId;
+    private int fishQty;
+    private String timeStamp;
+
+    public Fish(String tankId, int fishQty,String timeStamp){
         this.setTankId(tankId);
         this.setFishQty(fishQty);
+        this.setTimeStamp(timeStamp);
     }
 
-    public int getTankId() {
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+    public String getTankId() {
         return tankId;
     }
 
-    public void setTankId(int tankId) {
+    public void setTankId(String tankId) {
         this.tankId = tankId;
     }
 

@@ -7,7 +7,6 @@ import javafx.scene.image.ImageView;
 public class Tank {
 
 
-    private String tankId;
 
     public String getTankId() {
         return tankId;
@@ -33,6 +32,7 @@ public class Tank {
         this.bin = bin;
     }
 
+    private String tankId;
     private String fishType;
     private JFXButton bin;
 
