@@ -15,22 +15,16 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException{
 
-//      FXMLLoader fxmlLoader= new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/login_form.fxml"));
-//      Scene scene = new Scene(fxmlLoader.load());
-//      scene.setFill(Color.TRANSPARENT);
-//      stage.setScene(scene);
-//
-//      stage.initStyle(StageStyle.TRANSPARENT);
-//
-//      stage.initStyle(StageStyle.TRANSPARENT);
-//
-//      stage.show();
+      FXMLLoader fxmlLoader= new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/login_form.fxml"));
+      Scene scene = new Scene(fxmlLoader.load());
+      scene.setFill(Color.TRANSPARENT);
+      stage.setScene(scene);
 
-        FXMLLoader fxmlLoader= new FXMLLoader(ManageTankController.class.getResource("/lk/matrix/soysaaquarium/View/manage_tank_form.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setScene(scene);
+      stage.initStyle(StageStyle.TRANSPARENT);
 
-        stage.show();
+      stage.initStyle(StageStyle.TRANSPARENT);
+
+      stage.show();
     }
 
     public static void main(String[] args) throws Exception {

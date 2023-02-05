@@ -148,7 +148,7 @@ public class DashboardPageController {
     static Stage dashBoardStage;
     public static boolean isSelected;
 
-    private int[] tankIdArr = new int[0];
+    private String[] tankIdArr = new String[0];
     private double[] temperatureData = new double[0];
     private String[] timeStampData = new String[0];
 
@@ -169,7 +169,7 @@ public class DashboardPageController {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = "+tankIdArr[tankComboBox.getSelectionModel().getSelectedIndex()]+" ORDER BY id DESC LIMIT 5");
+            ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = '"+tankIdArr[tankComboBox.getSelectionModel().getSelectedIndex()]+"' ORDER BY id DESC LIMIT 5");
             while (resultSet.next()){
                 double[] tempArray = new double[temperatureData.length+1];
                 for (int i = 0; i < temperatureData.length; i++){
@@ -239,7 +239,7 @@ public class DashboardPageController {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
                 Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = "+tankIdArr[tankComboBox.getSelectionModel().getSelectedIndex()]+" ORDER BY id DESC LIMIT 1");
+                ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = '"+tankIdArr[tankComboBox.getSelectionModel().getSelectedIndex()]+"' ORDER BY id DESC LIMIT 1");
                 while (resultSet.next()){
                     tempLast= Double.parseDouble(resultSet.getString("temperature"));
                     timeStampLast = resultSet.getString("timeStampTemp");
@@ -275,13 +275,13 @@ public class DashboardPageController {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from tankDetail");
             while (resultSet.next()){
-                int[] tempArray = new int[tankIdArr.length+1];
+                String[] tempArray = new String[tankIdArr.length+1];
                 for (int i = 0; i < tankIdArr.length; i++){
                     tempArray[i] = tankIdArr[i];
                 }
-                tempArray[tempArray.length-1] = Integer.parseInt(resultSet.getString("tankId"));
+                tempArray[tempArray.length-1] = resultSet.getString("tankId");
                 tankIdArr = tempArray;
-                System.out.println(Integer.parseInt(resultSet.getString("tankId")));
+                System.out.println(resultSet.getString("tankId"));
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -292,7 +292,7 @@ public class DashboardPageController {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = "+tankIdArr[0]+" ORDER BY id DESC LIMIT 5");
+            ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = '"+tankIdArr[0]+"' ORDER BY id DESC LIMIT 5");
             while (resultSet.next()){
                 double[] tempArray = new double[temperatureData.length+1];
                 for (int i = 0; i < temperatureData.length; i++){
@@ -329,9 +329,9 @@ public class DashboardPageController {
                     FXCollections.observableArrayList();
 
             System.out.println(Arrays.toString(tankIdArr));
-            for (int id: tankIdArr){
+            for (String id: tankIdArr){
                 System.out.println(id);
-                tanksCB.add("Tank 00"+id);
+                tanksCB.add("Tank "+id);
             }
 
 
@@ -489,7 +489,7 @@ public class DashboardPageController {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
                     Statement statement = connection.createStatement();
-                    ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = "+tankIdArr[0]+" ORDER BY id DESC LIMIT 1");
+                    ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = '"+tankIdArr[0]+"' ORDER BY id DESC LIMIT 1");
                     while (resultSet.next()){
                         tempLast= Double.parseDouble(resultSet.getString("temperature"));
                         timeStampLast = resultSet.getString("timeStampTemp");
@@ -589,36 +589,36 @@ public class DashboardPageController {
 //            modeToggleBtn.setStyle("-fx-text-fill: black");
 //            timeLabel.setStyle("-fx-text-fill:black");
 
-                manageTanksPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black; -fx-border-radius:5px");
-                getReportPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black; -fx-border-radius:5px");
-                wchPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-radius:5px");
-                fishPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-radius:5px");
-                vcPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-radius:5px");
-                infoPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-radius:5px");
-                logoutPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-radius:5px");
-                sidePaneDashBoard.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-radius:5px");
-                searchText.setStyle("-fx-background-color: #E2E2E2");
-                adminPane.setStyle("-fx-background-color:#fefefe;-fx-background-radius: 10px");
-                buttonPane.setStyle("-fx-background-color:#fefefe;-fx-background-radius:10px");
-                buttonPane2.setStyle("-fx-background-color:#fefefe;-fx-background-radius:10px;-fx-border-radius: 5px");
-                profilePic.setStyle("-fx-background-color:  #E2E2E2;-fx-background-radius:  50px;-fx-background-size:40px;-fx-background-position:50%;-fx-background-repeat:  no-repeat;-fx-border-radius:  100px");
-                piePane1.setStyle("-fx-background-color:  #E2E2E2;-fx-background-radius: 10px;-fx-border-radius: 10px");
-                piePane2.setStyle("-fx-background-color:  #E2E2E2;-fx-background-radius: 10px;-fx-border-radius: 10px");
-                piePane3.setStyle("-fx-background-color:  #E2E2E2;-fx-background-radius: 10px;-fx-border-radius: 10px");
-                fullPane.setStyle("-fx-background-color:#fefefe;");
-                notBtn.setStyle("-fx-background-color:#E2E2E2");
-                setBtn.setStyle("-fx-background-color:#E2E2E2");
-                adminLabel.setStyle("-fx-text-fill:black");
-                adminLabel2.setStyle("-fx-text-fill:black");
-                pl1.setStyle("-fx-text-fill:black");
-                pl2.setStyle("-fx-text-fill:black");
-                pl3.setStyle("-fx-text-fill:black");
-                bgPane.setStyle("-fx-background-color:radial-gradient(circle, rgba(161,213,235,1) 0%, rgba(255,255,255,1) 100%);");
-                x.setStyle("-fx-tick-label-fill:black");
-                y.setStyle("-fx-tick-label-fill:black");
-                modeToggleBtn.setText("Ligt Mode");
-                modeToggleBtn.setStyle("-fx-text-fill: black");
-                timeLabel.setStyle("-fx-text-fill:black");
+            manageTanksPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black; -fx-border-radius:5px");
+            getReportPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black; -fx-border-radius:5px");
+            wchPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-radius:5px");
+            fishPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-radius:5px");
+            vcPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-radius:5px");
+            infoPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-radius:5px");
+            logoutPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-radius:5px");
+            sidePaneDashBoard.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black;-fx-border-radius:5px");
+            searchText.setStyle("-fx-background-color: #E2E2E2");
+            adminPane.setStyle("-fx-background-color:#fefefe;-fx-background-radius: 10px");
+            buttonPane.setStyle("-fx-background-color:#fefefe;-fx-background-radius:10px");
+            buttonPane2.setStyle("-fx-background-color:#fefefe;-fx-background-radius:10px;-fx-border-radius: 5px");
+            profilePic.setStyle("-fx-background-color:  #E2E2E2;-fx-background-radius:  50px;-fx-background-size:40px;-fx-background-position:50%;-fx-background-repeat:  no-repeat;-fx-border-radius:  100px");
+            piePane1.setStyle("-fx-background-color:  #E2E2E2;-fx-background-radius: 10px;-fx-border-radius: 10px");
+            piePane2.setStyle("-fx-background-color:  #E2E2E2;-fx-background-radius: 10px;-fx-border-radius: 10px");
+            piePane3.setStyle("-fx-background-color:  #E2E2E2;-fx-background-radius: 10px;-fx-border-radius: 10px");
+            fullPane.setStyle("-fx-background-color:#fefefe;");
+            notBtn.setStyle("-fx-background-color:#E2E2E2");
+            setBtn.setStyle("-fx-background-color:#E2E2E2");
+            adminLabel.setStyle("-fx-text-fill:black");
+            adminLabel2.setStyle("-fx-text-fill:black");
+            pl1.setStyle("-fx-text-fill:black");
+            pl2.setStyle("-fx-text-fill:black");
+            pl3.setStyle("-fx-text-fill:black");
+            bgPane.setStyle("-fx-background-color:radial-gradient(circle, rgba(161,213,235,1) 0%, rgba(255,255,255,1) 100%);");
+            x.setStyle("-fx-tick-label-fill:black");
+            y.setStyle("-fx-tick-label-fill:black");
+            modeToggleBtn.setText("Ligt Mode");
+            modeToggleBtn.setStyle("-fx-text-fill: black");
+            timeLabel.setStyle("-fx-text-fill:black");
 
             manageTanksPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black; -fx-border-radius:5px");
             getReportPane.setStyle("-fx-background-color: #E2E2E2;-fx-background-radius:5px;-fx-text-fill:black; -fx-border-radius:5px");
