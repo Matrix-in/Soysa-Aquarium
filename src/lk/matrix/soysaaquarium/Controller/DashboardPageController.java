@@ -10,6 +10,7 @@ import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -29,11 +30,16 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Random;
+import java.util.ResourceBundle;
 
 import javafx.scene.control.Label;
 import javafx.util.Duration;
@@ -262,7 +268,9 @@ public class DashboardPageController {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
-
+    Timeline timeline;
+    LocalTime Time = LocalTime.parse("00:00:00");
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
     @FXML
 
     public void initialize() {
@@ -523,13 +531,14 @@ public class DashboardPageController {
             tankComboBox.setVisible(false);
         }
 
+        timeLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss a")));
 
-        String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
-        timeLabel.setText(timeStamp);
-
-
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> timeLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss a")))));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
 
     }
+
     @FXML
     void logoutClick(MouseEvent event) throws IOException {
         System.out.println("logout");
