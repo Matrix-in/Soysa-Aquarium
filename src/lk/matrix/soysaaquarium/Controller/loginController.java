@@ -157,6 +157,7 @@ public class loginController implements Initializable {
                     public void run() {
                         try {
                             eMailController.sendMail("matrixsolutionsinsoftware@gmail.com");
+
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

@@ -17,11 +17,11 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -41,7 +41,6 @@ import java.util.Calendar;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-import javafx.scene.control.Label;
 import javafx.util.Duration;
 
 public class DashboardPageController {
@@ -51,6 +50,9 @@ public class DashboardPageController {
     public VBox vBox;
     @FXML
     private JFXButton addFirstTankBtn;
+    @FXML
+    private Pane notificationPane;
+    private static ObservableList<String> notifications = FXCollections.observableArrayList();
     @FXML
     private ComboBox tankComboBox;
 
@@ -544,7 +546,19 @@ public class DashboardPageController {
         Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(1), event -> dateLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("     yyyy-MM-dd")))));
         timeline2.setCycleCount(Animation.INDEFINITE);
         timeline2.play();
+        //--notification
+        ListView<String> notificationListView = new ListView<>(notifications);
+        StackPane root = new StackPane();
+        root.getChildren().add(notificationListView);
+        root.setPrefWidth(350);
+        root.setPrefHeight(450);
+        notificationPane.getChildren().add(root);
 
+        addNotification("hello Java"+"\n"+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss a"))));
+
+    }
+    public static void addNotification( String message) {
+        notifications.add(message);
     }
 
     @FXML
@@ -782,5 +796,13 @@ public class DashboardPageController {
         stage.setScene(scene);
         stage.show();
 
+    }
+
+    public void onMouseClickedNotificstionIcon(MouseEvent mouseEvent) {
+        if(notificationPane.isVisible()){
+            notificationPane.setVisible(false);
+        }else{
+            notificationPane.setVisible(true);
+        }
     }
 }

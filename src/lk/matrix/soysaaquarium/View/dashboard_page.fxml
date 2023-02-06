@@ -47,7 +47,7 @@
       </Pane>
       <Pane layoutX="281.0" layoutY="14.0" prefHeight="59.0" prefWidth="995.0" style="-fx-background-color: linear-gradient(to right,#C7DDFF, #FFFFFF); -fx-background-radius: 20px; -fx-border-radius: 20px;">
          <children>
-            <ImageView fitHeight="32.0" fitWidth="28.0" layoutX="728.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="28.0" layoutX="728.0" layoutY="16.0" onMouseClicked="#onMouseClickedNotificstionIcon" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assets/notification.png" />
                </image>
@@ -123,5 +123,6 @@
          </font>
       </Label>
       <Pane layoutX="1003.0" layoutY="86.0" prefHeight="620.0" prefWidth="265.0" style="-fx-background-radius: 20px; -fx-border-radius: 20px; -fx-background-color: linear-gradient(to bottom,#7C97DC, #5AD7FF);" />
+      <Pane fx:id="notificationPane" layoutX="660.0" layoutY="53.0" prefHeight="450.0" prefWidth="350.0" style="-fx-background-color: white; -fx-background-radius: 20 0 20 20; -fx-border-radius: 20 0 20 20; -fx-border-color: blue;" visible="false" />
    </children>
 </AnchorPane>
