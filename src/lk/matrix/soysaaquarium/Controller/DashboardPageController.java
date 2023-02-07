@@ -429,6 +429,7 @@ public class DashboardPageController {
 
             ObservableList<PieChart.Data> amoPieChartData = FXCollections.observableArrayList(
                     new PieChart.Data("Filled", 30),
+
                     new PieChart.Data("free", 70));
 
             amoPieChart.getData().addAll(amoPieChartData);
@@ -513,23 +514,26 @@ public class DashboardPageController {
                     ex.printStackTrace();
                 }
 
-                if(! timeStampLast.equals(timeStampData[timeStampData.length-1])){
-                    series.getData().add(new XYChart.Data<>(timeStampLast, tempLast));
-                    if(series.getData().size() > 5){
-                        series.getData().remove(0);
+                if(timeStampData.length > 0){
+                    if(! timeStampLast.equals(timeStampData[timeStampData.length-1])){
+                        series.getData().add(new XYChart.Data<>(timeStampLast, tempLast));
+                        if(series.getData().size() > 5){
+                            series.getData().remove(0);
+                        }
+                        ObservableList<PieChart.Data> tempPieChartDataInTimeLine = FXCollections.observableArrayList(
+                                new PieChart.Data("Filled", tempLast),
+                                new PieChart.Data("free", 100-tempLast));
+
+                        tempMeter.setValue(latestTemp);
+                        pHMeter.setValue(latestpH);
+                        ammoMeter.setValue(latestAmmo);
+
+                        tempPieChart.getData().clear();
+                        tempPieChart.getData().addAll(tempPieChartDataInTimeLine);
+                        pieLabel1.setText(Double.toString(tempLast));
                     }
-                    ObservableList<PieChart.Data> tempPieChartDataInTimeLine = FXCollections.observableArrayList(
-                            new PieChart.Data("Filled", tempLast),
-                            new PieChart.Data("free", 100-tempLast));
-
-                    tempMeter.setValue(latestTemp);
-                    pHMeter.setValue(latestpH);
-                    ammoMeter.setValue(latestAmmo);
-
-                    tempPieChart.getData().clear();
-                    tempPieChart.getData().addAll(tempPieChartDataInTimeLine);
-                    pieLabel1.setText(Double.toString(tempLast));
                 }
+
 
 
             }));
