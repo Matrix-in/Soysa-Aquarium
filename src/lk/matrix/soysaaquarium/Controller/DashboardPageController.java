@@ -828,4 +828,10 @@ public class DashboardPageController {
     public void onMouseClickedFacebook(MouseEvent mouseEvent) throws URISyntaxException,IOException {
         Desktop.getDesktop().browse(new URI("https://www.facebook.com/profile.php?id=100039631345638"));
     }
+    public void onMouseClickedgMail(MouseEvent mouseEvent) throws URISyntaxException,IOException {
+        Desktop.getDesktop().browse(new URI("https://mail.google.com/mail/u/2/#inbox"));
+    }
+    public void onMouseClickedGoogle(MouseEvent mouseEvent) throws URISyntaxException,IOException {
+        Desktop.getDesktop().browse(new URI("https://www.google.com/"));
+    }
 }
