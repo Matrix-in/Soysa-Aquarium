@@ -91,7 +91,7 @@
             <Label fx:id="fishCountLabel" layoutX="101.0" layoutY="400.0" prefHeight="17.0" prefWidth="181.0" textFill="#ff2216" />
          </children>
       </Pane>
-      <ImageView blendMode="LIGHTEN" fitHeight="720.0" fitWidth="459.0" layoutX="878.0" layoutY="-3.0" preserveRatio="true">
+      <ImageView blendMode="LIGHTEN" fitHeight="818.0" fitWidth="493.0" layoutX="882.0" layoutY="-59.0" preserveRatio="true">
          <image>
             <Image url="@../Assets/1367965.jpg" />
          </image>

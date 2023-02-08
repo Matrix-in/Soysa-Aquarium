@@ -774,37 +774,37 @@ public class DashboardPageController {
     public void onActioninfo(ActionEvent actionEvent) throws IOException {
         Stage thisStage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
 
-        Stage stage = (Stage) infoPane.getScene().getWindow();
-        stage.hide();
+//        Stage stage = (Stage) infoPane.getScene().getWindow();
+//        stage.hide();
 
         FXMLLoader fxmlLoader1 = new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/info_window_form.fxml"));
 
         Scene scene = new Scene(fxmlLoader1.load());
-        Stage outStage =new Stage();
-        outStage.setScene(scene);
-        outStage.show();
+//        Stage outStage =new Stage();
+        thisStage.setScene(scene);
+//        outStage.show();
 
     }
 
     @FXML
     void fishesBtnOnAction(ActionEvent event) throws IOException {
-        dashBoardStage = (Stage) infoPane.getScene().getWindow();
-        dashBoardStage.hide();
+        Stage thisStage = (Stage)((Node) event.getSource()).getScene().getWindow();
 
         FXMLLoader fxmlLoader1 = new FXMLLoader(FishTypeWindowFormController.class.getResource("/lk/matrix/soysaaquarium/View/fish_type_window_form.fxml"));
 
         Scene scene = new Scene(fxmlLoader1.load());
-        Stage outStage =new Stage();
-        outStage.setScene(scene);
-        outStage.show();
+
+        thisStage.setScene(scene);
+
     }
 
     public void onActionGetReport(ActionEvent actionEvent) throws IOException {
+        Stage thisStage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
         FXMLLoader fxmlLoader= new FXMLLoader(getReportFormController.class.getResource("/lk/matrix/soysaaquarium/View/getreportForm.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+
+        thisStage.setScene(scene);
+
 
     }
 
