@@ -53,17 +53,21 @@
                   <Image url="@../Assets/notification.png" />
                </image>
             </ImageView>
-            <JFXTextField fx:id="searchText" focusColor="#005c97" layoutX="21.0" layoutY="7.0" prefHeight="42.0" prefWidth="568.0" promptText="          Search Here" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #FEFEFE;" unFocusColor="#005c97" />
             <Label fx:id="timeLabel" layoutX="884.0" layoutY="17.0" prefHeight="28.0" prefWidth="99.0" style="-fx-background-color: #FEFEFE; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
             <Label fx:id="dateLabel" layoutX="781.0" layoutY="17.0" prefHeight="28.0" prefWidth="99.0" style="-fx-background-color: #FEFEFE; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="540.0" layoutY="7.0">
+            <Pane layoutX="55.0" layoutY="7.0" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: #FEFEFE; -fx-background-radius: 5px; -fx-border-radius: 5px;">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="29.0" layoutX="8.0" layoutY="7.0">
+                     <image>
+                        <Image url="@../Assets/search.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <JFXTextField fx:id="searchText" focusColor="#005c97" layoutX="99.0" layoutY="7.0" prefHeight="42.0" prefWidth="443.0" promptText="Search Here" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #FEFEFE;" unFocusColor="#005c97" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="498.0" layoutY="7.0">
                <image>
                   <Image url="@../Assets/googlepic2.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="107.0" layoutX="308.0" layoutY="1.0">
-               <image>
-                  <Image url="@../Assets/preview.gif" />
                </image>
             </ImageView>
          </children>
