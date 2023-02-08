@@ -809,7 +809,7 @@ public class DashboardPageController {
 
     public void onActionGetReport(ActionEvent actionEvent) throws IOException {
         Stage thisStage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
-        FXMLLoader fxmlLoader= new FXMLLoader(getReportFormController.class.getResource("/lk/matrix/soysaaquarium/View/getreportForm.fxml"));
+        FXMLLoader fxmlLoader= new FXMLLoader(GetReportFormController.class.getResource("/lk/matrix/soysaaquarium/View/get_report_form.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         thisStage.setScene(scene);
