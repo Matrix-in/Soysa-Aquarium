@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="655.0" minWidth="1024.0" prefHeight="655.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to top,#7C97DC, #FFFFFF);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.ManageTankController">
+<AnchorPane minHeight="655.0" minWidth="1024.0" prefHeight="655.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to top,#005C97, transparent);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.ManageTankController">
    <children>
       <JFXButton layoutX="785.0" layoutY="560.0" onAction="#AddNewPageBtnOnAction" prefHeight="51.0" prefWidth="196.0" style="-fx-background-color: #1A8BCC;" text="Update Tank" textFill="WHITE">
          <font>
