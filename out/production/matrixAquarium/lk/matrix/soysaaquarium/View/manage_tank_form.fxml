@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="655.0" minWidth="1024.0" prefHeight="655.0" prefWidth="1024.0" style="-fx-background-color: #1E1F23;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.ManageTankController">
+<AnchorPane minHeight="655.0" minWidth="1024.0" prefHeight="655.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to top,#7C97DC, #FFFFFF);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.ManageTankController">
    <children>
       <JFXButton layoutX="785.0" layoutY="560.0" onAction="#AddNewPageBtnOnAction" prefHeight="51.0" prefWidth="196.0" style="-fx-background-color: #1A8BCC;" text="Update Tank" textFill="WHITE">
          <font>
@@ -21,7 +21,7 @@
             <TableColumn fx:id="colC3" prefWidth="176.0" text="Remove" />
         </columns>
       </TableView>
-      <Label layoutX="44.0" layoutY="45.0" text="Manage Tanks" textFill="WHITE">
+      <Label layoutX="44.0" layoutY="45.0" text="Manage Tanks" textFill="#6b6b6b">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
