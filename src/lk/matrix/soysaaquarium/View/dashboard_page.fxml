@@ -149,6 +149,11 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
+                  <ImageView fx:id="fbImage" fitHeight="36.0" fitWidth="62.0" layoutX="14.0" layoutY="274.0" onMouseClicked="#onMouseClickedFacebook" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Assets/fb.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </children></Pane>

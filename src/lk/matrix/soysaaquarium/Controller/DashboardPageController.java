@@ -18,6 +18,9 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -29,7 +32,10 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -817,5 +823,9 @@ public class DashboardPageController {
         }else{
             notificationPane.setVisible(true);
         }
+    }
+
+    public void onMouseClickedFacebook(MouseEvent mouseEvent) throws URISyntaxException,IOException {
+        Desktop.getDesktop().browse(new URI("https://www.facebook.com/profile.php?id=100039631345638"));
     }
 }
