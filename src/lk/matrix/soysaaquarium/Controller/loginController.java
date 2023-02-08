@@ -24,6 +24,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -135,6 +137,7 @@ public class loginController implements Initializable {
                 //stage2.setResizable(false);
                 stage2.show();
                 dnc.notification("We are glad to have you on board with the Aquarium Management System.","Welcome Back!");
+                DashboardPageController.addNotification("We are glad to have you on\nboard with the Aquarium Management System."+"\n"+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss a"))));
                 ExecutorService executor = Executors.newSingleThreadExecutor();
                 executor.submit(new Runnable() {
                     @Override

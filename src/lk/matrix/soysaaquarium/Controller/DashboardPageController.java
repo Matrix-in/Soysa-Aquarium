@@ -1,6 +1,7 @@
 package lk.matrix.soysaaquarium.Controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 import eu.hansolo.medusa.Gauge;
 import eu.hansolo.medusa.skins.BarSkin;
@@ -177,6 +178,8 @@ public class DashboardPageController {
     private String[] tipsArray=new String[10];
     @FXML
     private Label tipsLabel;
+    @FXML
+    private JFXTextField searchBar;
 
     Gauge tempMeter = new Gauge();
     Gauge pHMeter = new Gauge();
@@ -586,7 +589,6 @@ public class DashboardPageController {
         root.setPrefWidth(350);
         root.setPrefHeight(450);
         notificationPane.getChildren().add(root);
-        addNotification("hello Java"+"\n"+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss a"))));
 
     }
     public static void addNotification( String message) {
@@ -846,5 +848,15 @@ public class DashboardPageController {
     }
     public void onMouseClickedGoogle(MouseEvent mouseEvent) throws URISyntaxException,IOException {
         Desktop.getDesktop().browse(new URI("https://www.google.com/"));
+    }
+
+    public void searchGoogle(ActionEvent actionEvent) {
+        String query=searchBar.getText().replace(" ","+");
+        String url ="https://www.google.com/search?q=" +query;
+        try{
+            Desktop.getDesktop().browse(new URI(url));
+        } catch (IOException | URISyntaxException e){
+            System.out.println(e);
+        }
     }
 }
