@@ -174,6 +174,9 @@ public class DashboardPageController {
     private double latestTemp= 0.0;
     private double latestpH = 0.0;
     private double latestAmmo = 0.0;
+    private String[] tipsArray=new String[10];
+    @FXML
+    private Label tipsLabel;
 
     Gauge tempMeter = new Gauge();
     Gauge pHMeter = new Gauge();
@@ -285,10 +288,21 @@ public class DashboardPageController {
     LocalTime Time = LocalTime.parse("00:00:00");
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
     @FXML
-
+    public void tips(){
+        tipsArray[0]="Maintain a consistent temperature:\n\nKeep the aquarium at a consistent temperature to ensure the well-being of your aquatic animals.";
+        tipsArray[1]="Regular water changes:\n\nRegular water changes will help to remove waste and keep the water healthy for your fish.";
+        tipsArray[2]="Proper filtration:\n\nEnsure that the aquarium has proper filtration to remove waste and maintain a healthy environment.";
+        tipsArray[3]="Adequate lighting:\n\nProvide adequate lighting to promote healthy plant growth and improve the overall aesthetic of your aquarium.";
+        tipsArray[4]="Feed fish regularly:\n\nFeed your fish regularly with a balanced diet to promote healthy growth and well-being.";
+        tipsArray[5]="Monitor water quality:\n\nRegularly monitor the water quality to ensure it is safe for your fish and plants.";
+        tipsArray[6]="Quarantine new fish:\n\nQuarantine new fish before adding them to your aquarium to prevent the spread of diseases.";
+        tipsArray[7]="Research before buying:\n\nDo research before buying new fish or plants to ensure that they are compatible with your existing aquarium setup.";
+        Random tipsRandom = new Random();
+        int num= tipsRandom.nextInt(8);
+        tipsLabel.setText(tipsArray[num]);
+    }
     public void initialize() {
-
-
+        tips();
         try{
 
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -572,7 +586,6 @@ public class DashboardPageController {
         root.setPrefWidth(350);
         root.setPrefHeight(450);
         notificationPane.getChildren().add(root);
-
         addNotification("hello Java"+"\n"+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss a"))));
 
     }
