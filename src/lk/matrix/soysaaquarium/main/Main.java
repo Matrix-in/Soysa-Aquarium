@@ -24,6 +24,12 @@ public class Main extends Application {
       stage.initStyle(StageStyle.TRANSPARENT);
 
       stage.show();
+
+//        FXMLLoader fxmlLoader= new FXMLLoader(ViewCameraWindowFormController.class.getResource("/lk/matrix/soysaaquarium/View/view_camera_window_form.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load());
+//        stage.setScene(scene);
+//
+//        stage.show();
     }
 
     public static void main(String[] args) throws Exception {

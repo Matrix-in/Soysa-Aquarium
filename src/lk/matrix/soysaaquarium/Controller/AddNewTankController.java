@@ -184,22 +184,9 @@ public class AddNewTankController {
     }
 
     public void backButtonOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.hide();
 
-        Stage thisStage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/dashboard_page.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        thisStage.setScene(scene);
-
-//        Stage stage = (Stage) backButton.getScene().getWindow();
-//        stage.hide();
-//
-//        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/manage_tank_form.fxml"));
-//
-//        FXMLLoader fxmlLoader1 = new FXMLLoader(mainController.class.getResource("/lk/matrix/soysaaquarium/View/dashboard_page_form.fxml"));
-//
-//        Scene scene = new Scene(fxmlLoader1.load());
-//        Stage outStage =new Stage();
-//        outStage.setScene(scene);
-//        outStage.show();
+        DashboardPageController.dashBoardStage.show();
     }
 }

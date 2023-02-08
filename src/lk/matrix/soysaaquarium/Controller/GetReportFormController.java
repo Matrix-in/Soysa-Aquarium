@@ -432,7 +432,10 @@ public class GetReportFormController {
     }
 
     public void backBtnOnAction(ActionEvent actionEvent) {
-        //to do
+        Stage stage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.hide();
+
+        DashboardPageController.dashBoardStage.show();
     }
 }
 
