@@ -41,6 +41,7 @@ public class loginController implements Initializable {
     String password="";
     static Stage stage;
     Stage stage2;
+    desktopNotificationController dnc =new desktopNotificationController();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         userName.setStyle("-fx-text-fill: white;");
@@ -133,6 +134,7 @@ public class loginController implements Initializable {
 
                 //stage2.setResizable(false);
                 stage2.show();
+                dnc.notification("We are glad to have you on board with the Aquarium Management System.","Welcome Back!");
                 ExecutorService executor = Executors.newSingleThreadExecutor();
                 executor.submit(new Runnable() {
                     @Override
@@ -140,7 +142,8 @@ public class loginController implements Initializable {
                         try {
                             eMailController.sendMail("matrixsolutionsinsoftware@gmail.com");
                         } catch (Exception e) {
-                            e.printStackTrace();
+                            System.out.println("Failed to send e-mail.Network err!");
+//                            e.printStackTrace();
                         }
                     }
                 });
