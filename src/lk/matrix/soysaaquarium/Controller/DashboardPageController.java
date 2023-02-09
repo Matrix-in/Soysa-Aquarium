@@ -386,9 +386,9 @@ public class DashboardPageController {
             new Thread() {
                 public void run() {
                     while (true) {
-                        latestTemp = r.nextInt(101);
-                        latestpH = r.nextInt(101);
-                        latestAmmo = r.nextInt(101);
+                        latestTemp = r.nextInt(8)+28;
+                        latestpH = r.nextInt(4)+3;
+                        latestAmmo = r.nextDouble()*1.0;
                     }
                 }
             }.start();
@@ -401,6 +401,7 @@ public class DashboardPageController {
             tempMeter.setTitleColor(Color.BLACK);
             tempMeter.setBarColor(Color.rgb(255, 165, 0));
             tempMeter.setValue(latestTemp);
+            tempMeter.setMaxValue(40);
             tempMeter.setMaxSize(150.0, 150.0);
 
             pHMeter.setSkin(new BarSkin(pHMeter));
@@ -411,6 +412,7 @@ public class DashboardPageController {
             pHMeter.setTitleColor(Color.BLACK);
             pHMeter.setBarColor(Color.rgb(255, 165, 0));
             pHMeter.setValue(latestpH);
+            pHMeter.setMaxValue(14);
             pHMeter.setMaxSize(150.0, 150.0);
 
             ammoMeter.setSkin(new BarSkin(ammoMeter));
@@ -421,6 +423,7 @@ public class DashboardPageController {
             ammoMeter.setTitleColor(Color.BLACK);
             ammoMeter.setBarColor(Color.rgb(255, 165, 0));
             ammoMeter.setValue(latestAmmo);
+            ammoMeter.setMaxValue(1);
             ammoMeter.setMaxSize(150.0, 150.0);
 
             vBox.setPadding(new Insets(40, 20, 20, 20));
