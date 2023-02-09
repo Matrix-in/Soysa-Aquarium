@@ -1,6 +1,7 @@
 package lk.matrix.soysaaquarium.Controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 import eu.hansolo.medusa.Gauge;
 import eu.hansolo.medusa.skins.BarSkin;
@@ -177,6 +178,8 @@ public class DashboardPageController {
     private String[] tipsArray=new String[10];
     @FXML
     private Label tipsLabel;
+    @FXML
+    private JFXTextField searchBar;
 
     Gauge tempMeter = new Gauge();
     Gauge pHMeter = new Gauge();
@@ -586,7 +589,6 @@ public class DashboardPageController {
         root.setPrefWidth(350);
         root.setPrefHeight(450);
         notificationPane.getChildren().add(root);
-        addNotification("hello Java"+"\n"+(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss a"))));
 
     }
     public static void addNotification( String message) {
@@ -646,6 +648,7 @@ public class DashboardPageController {
     public void onActioninfo(ActionEvent actionEvent) throws IOException {
         dashBoardStage = (Stage) infoPane.getScene().getWindow();
         dashBoardStage.hide();
+
         FXMLLoader fxmlLoader1 = new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/info_window_form.fxml"));
         Scene scene = new Scene(fxmlLoader1.load());
         Stage outStage =new Stage();
@@ -696,6 +699,7 @@ public class DashboardPageController {
         Desktop.getDesktop().browse(new URI("https://www.google.com/"));
     }
 
+<<<<<<< HEAD
     public void viewCameraBtnOnAction(ActionEvent actionEvent) throws IOException {
         dashBoardStage = (Stage) infoPane.getScene().getWindow();
         dashBoardStage.hide();
@@ -706,5 +710,15 @@ public class DashboardPageController {
         Stage outStage =new Stage();
         outStage.setScene(scene);
         outStage.show();
+=======
+    public void searchGoogle(ActionEvent actionEvent) {
+        String query=searchBar.getText().replace(" ","+");
+        String url ="https://www.google.com/search?q=" +query;
+        try{
+            Desktop.getDesktop().browse(new URI(url));
+        } catch (IOException | URISyntaxException e){
+            System.out.println(e);
+        }
+>>>>>>> 109fa1299a256606778a046e38925ac96e88874b
     }
 }

@@ -48,10 +48,13 @@
       </Pane>
       <Pane layoutX="281.0" layoutY="14.0" prefHeight="59.0" prefWidth="995.0" style="-fx-background-color: linear-gradient(to right,#005C97, #5AD7FF); -fx-background-radius: 20px; -fx-border-radius: 20px;">
          <children>
-            <ImageView fitHeight="32.0" fitWidth="28.0" layoutX="728.0" layoutY="16.0" onMouseClicked="#onMouseClickedNotificstionIcon" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="725.0" layoutY="14.0" onMouseClicked="#onMouseClickedNotificstionIcon" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assets/notification.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <Label fx:id="timeLabel" layoutX="884.0" layoutY="17.0" prefHeight="28.0" prefWidth="99.0" style="-fx-background-color: #FEFEFE; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
             <Label fx:id="dateLabel" layoutX="781.0" layoutY="17.0" prefHeight="28.0" prefWidth="99.0" style="-fx-background-color: #FEFEFE; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
@@ -64,7 +67,11 @@
                   </ImageView>
                </children>
             </Pane>
+<<<<<<< HEAD
+            <JFXTextField fx:id="searchBar" focusColor="#005c97" layoutX="99.0" layoutY="7.0" onAction="#searchGoogle" prefHeight="42.0" prefWidth="443.0" promptText="Search Here" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #FEFEFE;" unFocusColor="#005c97" />
+=======
             <JFXTextField fx:id="searchText" focusColor="#005c97" layoutX="99.0" layoutY="7.0" prefHeight="42.0" prefWidth="443.0" promptText="Search Here" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #FEFEFE;" unFocusColor="#005c97" />
+>>>>>>> 0cb03be0c5d364674f95030753adf74ea9d285a2
             <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="498.0" layoutY="7.0">
                <image>
                   <Image url="@../Assets/googlepic2.png" />
@@ -150,7 +157,7 @@
             </Pane>
             <Pane layoutX="10.0" layoutY="251.0" prefHeight="230.0" prefWidth="248.0" style="-fx-background-color: #C7DDFF; -fx-background-radius: 15px;">
                <children>
-                  <Label fx:id="tipsLabel" layoutX="18.0" prefHeight="230.0" prefWidth="230.0" textFill="#757171" wrapText="true">
+                  <Label fx:id="tipsLabel" layoutX="18.0" prefHeight="230.0" prefWidth="208.0" textFill="#757171" wrapText="true">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
