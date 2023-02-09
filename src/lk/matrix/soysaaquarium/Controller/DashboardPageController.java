@@ -543,8 +543,8 @@ public class DashboardPageController {
                     ex.printStackTrace();
                 }
 
-                if (timeStampData.length > 0) {
-                    if (!timeStampLast.equals(timeStampData[timeStampData.length - 1])) {
+//                if (timeStampData.length > 0) {
+//                    if (!timeStampLast.equals(timeStampData[timeStampData.length - 1])) {
                         series.getData().add(new XYChart.Data<>(timeStampLast, tempLast));
                         if (series.getData().size() > 5) {
                             series.getData().remove(0);
@@ -553,15 +553,15 @@ public class DashboardPageController {
                                 new PieChart.Data("Filled", tempLast),
                                 new PieChart.Data("free", 100 - tempLast));
 
-                        tempMeter.setValue(latestTemp);
+                        tempMeter.setValue(tempLast);
                         pHMeter.setValue(latestpH);
                         ammoMeter.setValue(latestAmmo);
 
                         tempPieChart.getData().clear();
                         tempPieChart.getData().addAll(tempPieChartDataInTimeLine);
                         pieLabel1.setText(Double.toString(tempLast));
-                    }
-                }
+//                    }
+//                }
 
 
             }));

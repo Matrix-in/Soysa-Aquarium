@@ -28,43 +28,66 @@ public class ArduinoToSql {
                 System.out.println("successful connection to arduino at port "+ serialPort);
             }
 
+            try {
+                if (serialPort.isOpen()) {
+                    System.out.println( serialPort.getDescriptivePortName()+" is running !");
+                    serialPort.setComPortTimeouts(SerialPort.TIMEOUT_SCANNER, 0,0);
+
+                    Thread threadCP = new Thread(() -> {
+                        Scanner scanner = new Scanner(serialPort.getInputStream());
+                        while(scanner.hasNextLine()){
+                            try {
+                                Thread.sleep(5000);
+                            } catch (InterruptedException e) {}
+
+                            String line = scanner.next();
+                            temperature = Double.parseDouble(line);
+                            System.out.println(temperature);
+                            //INSERT INTO tempRecords(timeStampTemp, tankId,temperature) VALUES (NOW(), 1, 31.00);
+                            //db connection
+                            try{
+                                Class.forName("com.mysql.cj.jdbc.Driver");
+                                Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
+                                Statement statement = connection.createStatement();
+                                statement.executeUpdate("INSERT INTO tempRecords(timeStampTemp, tankId,temperature) VALUES (NOW(), 'T001', "+temperature+");");
+                                statement.executeUpdate("INSERT INTO tempRecords(timeStampTemp, tankId,temperature) VALUES (NOW(), 'T002', "+temperature+");");
+
+                            }catch (Exception e){
+                                e.printStackTrace();
+                            }
+                        }
+                        scanner.close();
+                    });
+                    threadCP.start();
+                }
+            } catch (Exception e) {
+            }
 
         }catch (Exception e){
             System.out.println("arduino connection failed");
-        }
-
-        try {
-            if (serialPort.isOpen()) {
-                System.out.println( serialPort.getDescriptivePortName()+" is running !");
-                serialPort.setComPortTimeouts(SerialPort.TIMEOUT_SCANNER, 0,0);
-
-                Thread threadCP = new Thread(() -> {
-                    Scanner scanner = new Scanner(serialPort.getInputStream());
-                    while(scanner.hasNextLine()){
-                        try {
-                            Thread.sleep(5000);
-                        } catch (InterruptedException e) {}
-
-                        String line = scanner.next();
-                        temperature = Double.parseDouble(line);
-                        System.out.println(temperature);
-                        //INSERT INTO tempRecords(timeStampTemp, tankId,temperature) VALUES (NOW(), 1, 31.00);
-                        //db connection
-                        try{
-                            Class.forName("com.mysql.cj.jdbc.Driver");
-                            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
-                            Statement statement = connection.createStatement();
-                            statement.executeUpdate("INSERT INTO tempRecords(timeStampTemp, tankId,temperature) VALUES (NOW(), 1, "+temperature+");");
-
-                        }catch (Exception e){
-                            e.printStackTrace();
-                        }
+            System.out.println("arduino connection failed");
+//            addDummyData();
+            Thread newThread = new Thread(() -> {
+                while (true){
+                    try{
+                        Random r = new Random();
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
+                        Statement statement = connection.createStatement();
+                        statement.executeUpdate("INSERT INTO tempRecords(timeStampTemp, tankId,temperature) VALUES (NOW(), 'T001', "+r.nextDouble()*38.0+");");
+                        statement.executeUpdate("INSERT INTO tempRecords(timeStampTemp, tankId,temperature) VALUES (NOW(), 'T002', "+r.nextDouble()*38.0+");");
+                        Thread.sleep(5000);
+                    }catch (Exception err){
+                        err.printStackTrace();
                     }
-                    scanner.close();
-                });
-                threadCP.start();
-            }
-        } catch (Exception e) {
+
+                }
+
+            });
+
+            newThread.start();
         }
+
+
     }
 }
