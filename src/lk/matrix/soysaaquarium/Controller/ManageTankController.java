@@ -7,10 +7,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.matrix.soysaaquarium.Models.Tank;
 
@@ -18,11 +20,15 @@ import java.io.IOException;
 import java.sql.*;
 public class ManageTankController {
 
+
     public TableColumn colC1;
     public TableColumn colC2;
     public TableColumn colC3;
     @FXML
     private TableView<Tank> tankTable;
+
+    @FXML
+    private AnchorPane bgPane;
 
     @FXML
     public void AddNewPageBtnOnAction(ActionEvent event) throws IOException {
@@ -64,5 +70,17 @@ public class ManageTankController {
         colC1.setCellValueFactory(new PropertyValueFactory<Tank,String>("tankId"));
         colC2.setCellValueFactory(new PropertyValueFactory<Tank,String>("fishType"));
         colC3.setCellValueFactory(new PropertyValueFactory<Tank,JFXButton>("bin"));
+    }
+    @FXML
+    void onBack(ActionEvent event) {
+        try {
+            Parent view = FXMLLoader.load(this.getClass().getResource("/lk/matrix/soysaaquarium/View/dashboard_page.fxml"));
+            Stage primaryStage = (Stage) bgPane.getScene().getWindow();
+            Scene scene = new Scene(view);
+            primaryStage.setScene(scene);
+            primaryStage.centerOnScreen();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
