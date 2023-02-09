@@ -22,11 +22,10 @@
    <children>
       <Pane layoutX="17.0" layoutY="123.0" prefHeight="584.0" prefWidth="250.0" style="-fx-background-color: FEFEFE; -fx-background-radius: 5px; -fx-border-radius: 5px;">
          <children>
-            <JFXButton fx:id="getReportPane" layoutX="9.0" layoutY="79.0" onAction="#onActionGetReport" prefHeight="50.0" prefWidth="234.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="Get Report" />
-            <JFXButton fx:id="wchPane" layoutX="10.0" layoutY="138.0" prefHeight="50.0" prefWidth="232.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="Water change History" />
-            <JFXButton fx:id="fishPane" layoutX="11.0" layoutY="200.0" onAction="#fishesBtnOnAction" prefHeight="50.0" prefWidth="230.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="Fishes" />
-            <JFXButton fx:id="vcPane" layoutX="10.0" layoutY="260.0" onAction="#viewCameraBtnOnAction" prefHeight="50.0" prefWidth="232.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="View Camera" />
-            <JFXButton fx:id="infoPane" layoutX="10.0" layoutY="320.0" onAction="#onActioninfo" prefHeight="50.0" prefWidth="232.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="info" />
+            <JFXButton fx:id="getReportPane" layoutX="9.0" layoutY="90.0" onAction="#onActionGetReport" prefHeight="50.0" prefWidth="234.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="Get Report" />
+            <JFXButton fx:id="fishPane" layoutX="11.0" layoutY="160.0" onAction="#fishesBtnOnAction" prefHeight="50.0" prefWidth="230.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="Fishes" />
+            <JFXButton fx:id="vcPane" layoutX="10.0" layoutY="230.0" onAction="#viewCameraBtnOnAction" prefHeight="50.0" prefWidth="232.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="View Camera" />
+            <JFXButton fx:id="infoPane" layoutX="10.0" layoutY="300.0" onAction="#onActioninfo" prefHeight="50.0" prefWidth="232.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="info" />
             <JFXButton fx:id="logoutPane" layoutX="8.0" layoutY="494.0" onMouseClicked="#logoutClick" prefHeight="50.0" prefWidth="234.0" style="-fx-text-fill: black; -fx-background-color: #ff9f1a;" text="Logout" />
             <JFXButton fx:id="manageTanksPane" layoutX="9.0" layoutY="20.0" onAction="#onActiontankDetailForm" prefHeight="50.0" prefWidth="234.0" style="-fx-background-color: #5AD7FF;" text="Manage Tanks" />
          </children>
