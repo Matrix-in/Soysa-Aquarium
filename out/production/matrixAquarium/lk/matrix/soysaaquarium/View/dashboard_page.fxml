@@ -67,11 +67,7 @@
                   </ImageView>
                </children>
             </Pane>
-<<<<<<< HEAD
             <JFXTextField fx:id="searchBar" focusColor="#005c97" layoutX="99.0" layoutY="7.0" onAction="#searchGoogle" prefHeight="42.0" prefWidth="443.0" promptText="Search Here" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #FEFEFE;" unFocusColor="#005c97" />
-=======
-            <JFXTextField fx:id="searchText" focusColor="#005c97" layoutX="99.0" layoutY="7.0" prefHeight="42.0" prefWidth="443.0" promptText="Search Here" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #FEFEFE;" unFocusColor="#005c97" />
->>>>>>> 0cb03be0c5d364674f95030753adf74ea9d285a2
             <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="498.0" layoutY="7.0">
                <image>
                   <Image url="@../Assets/googlepic2.png" />
@@ -179,7 +175,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="100.0" layoutY="53.0" onMouseClicked="#onMouseClickedgMail" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="100.0" layoutY="53.0" onMouseClicked="#onMouseClickedGoogle" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Assets/google.png" />
                      </image>
@@ -187,7 +183,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <ImageView fitHeight="59.0" fitWidth="62.0" layoutX="170.0" layoutY="47.0" onMouseClicked="#onMouseClickedGoogle" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="59.0" fitWidth="62.0" layoutX="170.0" layoutY="47.0" onMouseClicked="#onMouseClickedgMail" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Assets/gmail.png" />
                      </image>
