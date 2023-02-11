@@ -35,6 +35,6 @@ Open CMD **inside** the project directory.
 
 `git push`
 
-And this can be wild as we all are working directly with the main branch. So brace yourself 😇 Happy coding 👍
+We recommend all contributers to double check your chnges before pushing to avoid conflicts 😇 Happy coding 👍
 
-![alt text](https://miro.medium.com/max/1200/0*tmfbLDU_hIeg0B3B.jpg)
+
