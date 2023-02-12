@@ -33,10 +33,9 @@ public class ManageTankController {
     @FXML
     public void AddNewPageBtnOnAction(ActionEvent event) throws IOException {
 
-        Stage thisStage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/add_new_tank_form.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        thisStage.setScene(scene);
+        Node node;
+        node = (Node)FXMLLoader.load(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/add_new_tank_form.fxml"));
+        DashboardPageController.dashBoardMainPane.getChildren().setAll(node);
 
     }
 

@@ -38,8 +38,6 @@ import java.sql.*;
 
 public class GetReportFormController {
     public JFXButton backBtn;
-    private Gauge allFishGauge = new Gauge();
-    private Gauge allSameFishGauge = new Gauge();
     @FXML
     private Pane report;
 
@@ -104,26 +102,10 @@ public class GetReportFormController {
     @FXML
     private TextField textFishQty;
     @FXML
-    private Label fishTypeAndQtyLabel1;
-    @FXML
     private TextField textAddedDate;
 
     @FXML
-    private TextField textAllFishC;
-
-    @FXML
-    private TextField textAlllSameFishC;
-
-    @FXML
-    private VBox allFCountvBox;
-
-    @FXML
-    private VBox allSameFCountvBox;
-
-    @FXML
     private LineChart<?, ?> lineChartTemp;
-    @FXML
-    private Label fishTypeAndQtyLabel;
     @FXML
     private LineChart<?, ?> lineChartpH;
 
@@ -158,27 +140,6 @@ public class GetReportFormController {
         ResultSet rs = con.createStatement().executeQuery("SELECT (tankId) FROM tankdetail;");
         while(rs.next()) dataTankId.add(rs.getString("tankId"));
         tankComboBox.setItems(dataTankId);
-
-        allFishGauge.setSkin(new BarSkin(allFishGauge));
-        allFishGauge.setTitle("%");
-        allFishGauge.setAnimated(true);
-        allFishGauge.setValueColor(Color.valueOf("#0084FF"));
-        allFishGauge.setTitleColor(Color.BLACK);
-        allFishGauge.setBarColor(Color.valueOf("#0084FF"));
-        allFishGauge.setValue(0);
-
-        allFCountvBox.getChildren().add(allFishGauge);
-
-
-        allSameFishGauge.setSkin(new BarSkin(allSameFishGauge));
-        allSameFishGauge.setTitle("%");
-        allSameFishGauge.setAnimated(true);
-        allSameFishGauge.setValueColor(Color.valueOf("#0084FF"));
-        allSameFishGauge.setTitleColor(Color.BLACK);
-        allSameFishGauge.setBarColor(Color.valueOf("#0084FF"));
-        allFishGauge.setValue(0);
-
-        allSameFCountvBox.getChildren().add(allSameFishGauge);
     }
     @FXML
     void fishIdOrTypeComboBoxOnAction(ActionEvent event) throws SQLException {
@@ -265,23 +226,9 @@ public class GetReportFormController {
         textFishType.setText(fishType);
 
         int allFishCount = 0;
-        ResultSet rs2 = con.createStatement().executeQuery("SELECT SUM(fishQty) FROM tankdetail;");
-        while(rs2.next()) allFishCount = rs2.getInt(1);
-        fishTypeAndQtyLabel1.setText("" + allFishCount);
-
-        allFishGauge.setVisible(true);
-        double percentage1 = (fishQty *  100d) / allFishCount;
-        allFishGauge.setValue(percentage1);
 
 
         int allSameFishC = 0;
-        ResultSet rs3 = con.createStatement().executeQuery("SELECT SUM(fishQty) FROM tankdetail WHERE fishId = '"+fishId+"';");
-        while(rs3.next()) allSameFishC = rs3.getInt(1);
-        fishTypeAndQtyLabel.setText("" + allSameFishC);
-
-        allSameFishGauge.setVisible(true);
-        double percentage2 = (fishQty *  100d) / allSameFishC;
-        allSameFishGauge.setValue(percentage2);
 
 
         XYChart.Series series1 = new XYChart.Series();

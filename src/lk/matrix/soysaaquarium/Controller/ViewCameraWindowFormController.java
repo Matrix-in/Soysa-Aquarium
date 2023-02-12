@@ -80,7 +80,7 @@ public class ViewCameraWindowFormController {
 
     public void initialize(){
         view1.setText("Camera 1");
-        labelList = new Label[]{view1,view2,view3,view4,view5,view6,view7,view8};
+        labelList = new Label[]{view2,view3,view4,view5,view6,view7,view8};
     }
 
     @FXML

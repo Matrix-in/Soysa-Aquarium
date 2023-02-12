@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -15,7 +16,6 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <JFXButton fx:id="backBtn" layoutX="36.0" layoutY="40.0" onAction="#backBtnOnAction" prefHeight="27.0" prefWidth="67.0" style="-fx-background-color: transparent; -fx-border-radius: 15px; -fx-background-radius: 15px; -fx-border-color: #2196f3;" text="Back" />
       <JFXButton layoutX="117.0" layoutY="115.0" style="-fx-background-color: white;" text="Copyright © Matrix PVT LTD" />
       <Label layoutX="115.0" layoutY="134.0" prefHeight="164.0" prefWidth="865.0" text="Introducing the Smart IoT Aquarium Automation project a revolutionary system that allows you to remotely monitor and control your aquarium's temperature, pH levels, and lighting with the help of IoT technology. Enjoy a stress-free and convenient aquarium experience with this cuttingedge technology" wrapText="true">
          <font>
@@ -40,6 +40,9 @@
                </image>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
    </children>
 </AnchorPane>

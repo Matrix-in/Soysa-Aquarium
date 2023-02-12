@@ -62,6 +62,7 @@ public class DashboardPageController {
     private JFXButton addFirstTankBtn;
     @FXML
     private AnchorPane mainPane;
+    static AnchorPane dashBoardMainPane;
     @FXML
     private Pane notificationPane;
     private static ObservableList<String> notifications = FXCollections.observableArrayList();
@@ -743,7 +744,6 @@ public class DashboardPageController {
         root.setPrefWidth(350);
         root.setPrefHeight(450);
         notificationPane.getChildren().add(root);
-
     }
 
     public static void addNotification(String message) {
@@ -773,6 +773,7 @@ public class DashboardPageController {
     public void onActiontankDetailForm(ActionEvent actionEvent) throws IOException {
 
         Node node;
+        dashBoardMainPane = mainPane;
         node = (Node)FXMLLoader.load(getClass().getResource("/lk/matrix/soysaaquarium/View/manage_tank_form.fxml"));
         mainPane.getChildren().setAll(node);
 

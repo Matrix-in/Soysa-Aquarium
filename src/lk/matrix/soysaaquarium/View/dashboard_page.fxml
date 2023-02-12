@@ -22,13 +22,34 @@
    <children>
       <Pane layoutX="17.0" layoutY="123.0" prefHeight="584.0" prefWidth="250.0" style="-fx-background-color: FEFEFE; -fx-background-radius: 5px; -fx-border-radius: 5px;">
          <children>
-            <JFXButton fx:id="getReportPane" layoutX="8.0" layoutY="160.0" onAction="#onActionGetReport" prefHeight="50.0" prefWidth="234.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="Get Report" />
-            <JFXButton fx:id="fishPane" layoutX="8.0" layoutY="230.0" onAction="#fishesBtnOnAction" prefHeight="50.0" prefWidth="230.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="Fishes" />
-            <JFXButton fx:id="vcPane" layoutX="8.0" layoutY="300.0" onAction="#viewCameraBtnOnAction" prefHeight="50.0" prefWidth="232.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="View Camera" />
-            <JFXButton fx:id="infoPane" layoutX="8.0" layoutY="370.0" onAction="#onActioninfo" prefHeight="50.0" prefWidth="232.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="info" />
-            <JFXButton fx:id="logoutPane" layoutX="8.0" layoutY="494.0" onMouseClicked="#logoutClick" prefHeight="50.0" prefWidth="234.0" style="-fx-text-fill: black; -fx-background-color: #ff9f1a;" text="Logout" />
-            <JFXButton fx:id="manageTanksPane" layoutX="8.0" layoutY="90.0" onAction="#onActiontankDetailForm" prefHeight="50.0" prefWidth="234.0" style="-fx-background-color: #5AD7FF;" text="Manage Tanks" />
-            <JFXButton fx:id="DashboardBtn" layoutX="8.0" layoutY="20.0" onAction="#dashboardOnAction" prefHeight="50.0" prefWidth="234.0" style="-fx-background-color: #5AD7FF;" text="Dashboard" />
+            <JFXButton fx:id="getReportPane" layoutX="8.0" layoutY="160.0" onAction="#onActionGetReport" prefHeight="50.0" prefWidth="234.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="Get Report">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
+            <JFXButton fx:id="fishPane" layoutX="8.0" layoutY="230.0" onAction="#fishesBtnOnAction" prefHeight="50.0" prefWidth="230.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="Fishes">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
+            <JFXButton fx:id="vcPane" layoutX="8.0" layoutY="300.0" onAction="#viewCameraBtnOnAction" prefHeight="50.0" prefWidth="232.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="View Camera">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
+            <JFXButton fx:id="infoPane" layoutX="8.0" layoutY="370.0" onAction="#onActioninfo" prefHeight="50.0" prefWidth="232.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="info">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
+            <JFXButton fx:id="logoutPane" layoutX="8.0" layoutY="494.0" onMouseClicked="#logoutClick" prefHeight="50.0" prefWidth="234.0" style="-fx-text-fill: black; -fx-background-color: #ff9f1a;" text="Logout">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
+            <JFXButton fx:id="manageTanksPane" layoutX="8.0" layoutY="90.0" onAction="#onActiontankDetailForm" prefHeight="50.0" prefWidth="234.0" style="-fx-background-color: #5AD7FF;" text="Manage Tanks">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
+            <JFXButton fx:id="DashboardBtn" layoutX="8.0" layoutY="20.0" onAction="#dashboardOnAction" prefHeight="50.0" prefWidth="234.0" style="-fx-background-color: #5AD7FF;" text="Dashboard">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXButton>
          </children>
       </Pane>
       <Pane fx:id="adminPane" layoutX="20.0" layoutY="14.0" prefHeight="104.0" prefWidth="250.0" style="-fx-background-color: linear-gradient(to right,#005C97, #5AD7FF); -fx-background-radius: 10px; -fx-border-radius: 10px;">
@@ -196,7 +217,6 @@
                   </Pane>
                </children>
             </Pane>
-            <Pane fx:id="notificationPane" prefHeight="450.0" prefWidth="350.0" style="-fx-background-color: white; -fx-background-radius: 20,0,20,20; -fx-border-radius: 20,0,20,20; -fx-border-color: blue;" visible="false" />
             <LineChart fx:id="fxLinechart" layoutX="29.0" layoutY="298.0" prefHeight="289.0" prefWidth="685.0">
                <xAxis>
                   <CategoryAxis side="BOTTOM" fx:id="x" />
@@ -205,6 +225,7 @@
                   <NumberAxis fx:id="y" side="LEFT" />
                </yAxis>
             </LineChart>
+            <Pane fx:id="notificationPane" layoutX="401.0" layoutY="-17.0" prefHeight="450.0" prefWidth="350.0" style="-fx-background-color: white; -fx-background-radius: 20 0 20 20; -fx-border-radius: 20 0 20 20; -fx-border-color: blue;" visible="false" />
          </children></AnchorPane>
    </children>
 </AnchorPane>

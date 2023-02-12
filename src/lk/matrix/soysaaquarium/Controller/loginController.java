@@ -41,8 +41,8 @@ public class loginController implements Initializable {
     private Parent fxml;
     String username ="";
     String password="";
-    static Stage stage;
-    Stage stage2;
+    Stage stage;
+    static Stage stage2;
     desktopNotificationController dnc =new desktopNotificationController();
     private Connection connection;
 
