@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -19,15 +22,24 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="587.0" layoutY="414.0" prefHeight="47.0" prefWidth="107.0" text="-Team Behind-" textFill="#e8e5e5">
+      <Label layoutX="587.0" layoutY="494.0" prefHeight="47.0" prefWidth="107.0" text="-Team Behind-" textFill="#3c3c3c">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="215.0" layoutY="484.0" prefHeight="130.0" prefWidth="852.0" text="Isanka Suresh,Shehar Mavitha,Dilshan Rangaka,Krishan Mihiranga, Thisara Kavishka , Savindi Liyanage, Shaheer Khan, Ishini Udara, Ahamad Lukman , Anuki Dilara , Ruchira Gunathilaka , Dinithi Chethana , Ishan Ravindu , Dilsahan Dekumpitiya , Gihansa Sansiluni , Amil Srinath" textAlignment="CENTER" textFill="#393939" wrapText="true">
+      <Label layoutX="215.0" layoutY="514.0" prefHeight="130.0" prefWidth="852.0" text="Isanka Suresh,Shehar Mavitha,Dilshan Rangaka,Krishan Mihiranga, Thisara Kavishka , Savindi Liyanage, Shaheer Khan, Ishini Udara, Ahamad Lukman , Anuki Dilara , Ruchira Gunathilaka , Dinithi Chethana , Ishan Ravindu , Dilsahan Dekumpitiya , Gihansa Sansiluni , Amil Srinath" textAlignment="CENTER" textFill="#393939" wrapText="true">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
+      <Button layoutX="567.0" layoutY="420.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="144.0" style="-fx-background-color: #f3f3f3;" text="Visit our site">
+         <graphic>
+            <ImageView fitHeight="38.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/browser.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
