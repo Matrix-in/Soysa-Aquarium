@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="bgPaneTdf" maxHeight="726.0" maxWidth="1008.0" minHeight="720.0" minWidth="946.0" prefHeight="726.0" prefWidth="946.0" style="-fx-background-color: linear-gradient(to top,#005C97, transparent);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.AddNewTankController">
+<AnchorPane fx:id="bgPaneTdf" prefHeight="629.0" prefWidth="986.0" style="-fx-background-color: linear-gradient(to top,#005C97, transparent);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.AddNewTankController">
    <children>
-      <Pane layoutX="14.0" layoutY="76.0" prefHeight="630.0" prefWidth="409.0">
+      <Pane layoutX="14.0" layoutY="13.0" prefHeight="630.0" prefWidth="409.0">
          <children>
             <Label layoutX="48.0" layoutY="213.0" prefHeight="33.0" prefWidth="87.0" text="Min Temp : " textFill="#404040">
                <font>
@@ -80,7 +80,7 @@
                   <Font name="Arial Bold" size="30.0" />
                </font>
             </Label>
-            <JFXButton fx:id="addTankButton" layoutX="67.0" layoutY="518.0" onAction="#addTankButtonOnAction" prefHeight="40.0" prefWidth="275.0" style="-fx-background-color: linear-gradient(to right,#7C97DC, #5AD7FF); -fx-background-radius: 20px;" text="Add Tank" textFill="#f5f5f5">
+            <JFXButton fx:id="addTankButton" layoutX="54.0" layoutY="469.0" onAction="#addTankButtonOnAction" prefHeight="40.0" prefWidth="275.0" style="-fx-background-color: linear-gradient(to right,#7C97DC, #5AD7FF); -fx-background-radius: 20px;" text="Add Tank" textFill="#f5f5f5">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
@@ -91,11 +91,11 @@
             <Label fx:id="fishCountLabel" layoutX="101.0" layoutY="400.0" prefHeight="17.0" prefWidth="181.0" textFill="#ff2216" />
          </children>
       </Pane>
-      <ImageView fitHeight="727.0" fitWidth="440.0" layoutX="653.0" layoutY="-3.0" preserveRatio="true">
+      <ImageView fitHeight="675.0" fitWidth="372.0" layoutX="653.0" layoutY="-3.0" preserveRatio="true">
          <image>
             <Image url="@../Assets/1367965.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="imageId" fitHeight="459.0" fitWidth="494.0" layoutX="385.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageId" fitHeight="459.0" fitWidth="494.0" layoutX="447.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="bgPane" minHeight="655.0" minWidth="1024.0" prefHeight="646.0" prefWidth="1008.0" style="-fx-background-color: linear-gradient(to top,#005C97, transparent);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.ManageTankController">
+<AnchorPane fx:id="bgPane" prefHeight="629.0" prefWidth="986.0" style="-fx-background-color: linear-gradient(to top,#005C97, transparent);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.ManageTankController">
    <children>
-      <JFXButton layoutX="774.0" layoutY="587.0" onAction="#AddNewPageBtnOnAction" prefHeight="51.0" prefWidth="196.0" style="-fx-background-color: #1A8BCC;" text="Update Tank" textFill="WHITE">
+      <JFXButton layoutX="743.0" layoutY="569.0" onAction="#AddNewPageBtnOnAction" prefHeight="51.0" prefWidth="196.0" style="-fx-background-color: #1A8BCC;" text="Update Tank" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="tankTable" layoutX="28.0" layoutY="74.0" prefHeight="563.0" prefWidth="665.0" stylesheets="@../StyleSheets/Style.css">
+      <TableView fx:id="tankTable" layoutX="28.0" layoutY="74.0" prefHeight="546.0" prefWidth="665.0" stylesheets="@../StyleSheets/Style.css">
         <columns>
           <TableColumn fx:id="colC1" prefWidth="198.00001525878906" text="Tank Id" />
           <TableColumn fx:id="colC2" prefWidth="252.66665649414062" text="Fish Type" />
