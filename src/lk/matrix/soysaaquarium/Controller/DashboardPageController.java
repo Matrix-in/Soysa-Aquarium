@@ -183,6 +183,7 @@ public class DashboardPageController {
     Gauge tempMeter = new Gauge();
     Gauge pHMeter = new Gauge();
     Gauge ammoMeter = new Gauge();
+    private Connection connection;
 
     @FXML
     void tankChanged(ActionEvent event) {
@@ -191,8 +192,6 @@ public class DashboardPageController {
         try {
             temperatureData = new double[0];
             timeStampData = new String[0];
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium", "root", "1234");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = '" + tankIdArr[tankComboBox.getSelectionModel().getSelectedIndex()] + "' ORDER BY id DESC LIMIT 5");
             while (resultSet.next()) {
@@ -261,8 +260,6 @@ public class DashboardPageController {
             try {
                 temperatureData = new double[0];
                 timeStampData = new String[0];
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium", "root", "1234");
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = '" + tankIdArr[tankComboBox.getSelectionModel().getSelectedIndex()] + "' ORDER BY id DESC LIMIT 1");
                 while (resultSet.next()) {
@@ -310,9 +307,7 @@ public class DashboardPageController {
     public void initialize() {
         tips();
         try {
-
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium", "root", "1234");
+            connection = DBConnection.connection;
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from tankDetail");
             while (resultSet.next()) {
@@ -329,9 +324,6 @@ public class DashboardPageController {
         }
 
         try {
-
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium", "root", "1234");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = '" + tankIdArr[0] + "' ORDER BY id DESC LIMIT 5");
             while (resultSet.next()) {
@@ -395,7 +387,7 @@ public class DashboardPageController {
 
             tempMeter.setSkin(new BarSkin(tempMeter));
             tempMeter.setTitle("Temp");
-            tempMeter.setValue(10);
+           // tempMeter.setValue(r.nextInt(8)+28);
             tempMeter.setAnimated(true);
             tempMeter.setValueColor(Color.RED);
             tempMeter.setTitleColor(Color.BLACK);
@@ -406,7 +398,7 @@ public class DashboardPageController {
 
             pHMeter.setSkin(new BarSkin(pHMeter));
             pHMeter.setTitle("pH");
-            pHMeter.setValue(10);
+          //  pHMeter.setValue(r.nextInt(4)+3);
             pHMeter.setAnimated(true);
             pHMeter.setValueColor(Color.RED);
             pHMeter.setTitleColor(Color.BLACK);
@@ -417,7 +409,7 @@ public class DashboardPageController {
 
             ammoMeter.setSkin(new BarSkin(ammoMeter));
             ammoMeter.setTitle("Ammonia");
-            ammoMeter.setValue(10);
+            //ammoMeter.setValue(r.nextDouble()*1.0);
             ammoMeter.setAnimated(true);
             ammoMeter.setValueColor(Color.RED);
             ammoMeter.setTitleColor(Color.BLACK);
@@ -534,8 +526,6 @@ public class DashboardPageController {
                 try {
                     temperatureData = new double[0];
                     timeStampData = new String[0];
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium", "root", "1234");
                     Statement statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = '" + tankIdArr[0] + "' ORDER BY id DESC LIMIT 1");
                     while (resultSet.next()) {

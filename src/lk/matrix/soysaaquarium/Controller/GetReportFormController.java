@@ -139,12 +139,7 @@ public class GetReportFormController {
     ObservableList dataFishType = FXCollections.observableArrayList();
 
     public void initialize() throws SQLException {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
-        }catch (ClassNotFoundException e) {
-            System.out.println("Class not found!");
-        }
+        con = DBConnection.connection;
 
         ResultSet rs1 = con.createStatement().executeQuery("SELECT * FROM fish");
         while(rs1.next()){

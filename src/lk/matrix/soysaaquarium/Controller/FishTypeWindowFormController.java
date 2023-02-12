@@ -75,7 +75,7 @@ public class FishTypeWindowFormController {
     private String selected;
 
     public void initialize() throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.cj.jdbc.Driver");con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
+        con = DBConnection.connection;
         Statement statement = con.createStatement();
 
         ResultSet rs = statement.executeQuery("SELECT fish.name,tankdetail.fishId\n" +

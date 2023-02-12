@@ -44,6 +44,8 @@ public class loginController implements Initializable {
     static Stage stage;
     Stage stage2;
     desktopNotificationController dnc =new desktopNotificationController();
+    private Connection connection;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         userName.setStyle("-fx-text-fill: white;");
@@ -101,8 +103,7 @@ public class loginController implements Initializable {
         password=passwordField.getText();
         int count = 0;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
+            connection = DBConnection.connection;
 
             String query = "select count(name) from user where name = '" + username + "' and type = '" + password + "'";
             Statement statement = connection.createStatement();

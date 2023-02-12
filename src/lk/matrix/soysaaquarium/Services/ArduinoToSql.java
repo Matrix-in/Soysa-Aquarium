@@ -74,8 +74,8 @@ public class ArduinoToSql {
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
                         Statement statement = connection.createStatement();
-                        statement.executeUpdate("INSERT INTO tempRecords(timeStampTemp, tankId,temperature) VALUES (NOW(), 'T001', "+r.nextDouble()*38.0+");");
-                        statement.executeUpdate("INSERT INTO tempRecords(timeStampTemp, tankId,temperature) VALUES (NOW(), 'T002', "+r.nextDouble()*38.0+");");
+                        statement.executeUpdate("INSERT INTO tempRecords(timeStampTemp, tankId,temperature) VALUES (NOW(), 'T001', "+(30.0+(33.0-30.0)*r.nextDouble())+");");
+                        statement.executeUpdate("INSERT INTO tempRecords(timeStampTemp, tankId,temperature) VALUES (NOW(), 'T002', "+(30.0+(33.0-30.0)*r.nextDouble())+");");
                         Thread.sleep(5000);
                     }catch (Exception err){
                         err.printStackTrace();

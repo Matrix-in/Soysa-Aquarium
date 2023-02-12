@@ -55,12 +55,7 @@ public class AddNewTankController {
     private Connection con;
     static int count;
     public void initialize() throws SQLException {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
-        }catch (ClassNotFoundException e) {
-            System.out.println("Class not found!");
-        }
+        con = DBConnection.connection;
         Statement statement = con.createStatement();
         ResultSet rs = statement.executeQuery("SELECT * FROM fish");
         ObservableList data = FXCollections.observableArrayList();

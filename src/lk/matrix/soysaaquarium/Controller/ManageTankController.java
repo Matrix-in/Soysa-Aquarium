@@ -48,9 +48,7 @@ public class ManageTankController {
 
 
         try{
-
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
+            Connection connection = DBConnection.connection;
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT tankDetail.tankId , fish.name FROM tankDetail INNER JOIN fish ON tankDetail.fishId = fish.fishId;");
             while (resultSet.next()){
