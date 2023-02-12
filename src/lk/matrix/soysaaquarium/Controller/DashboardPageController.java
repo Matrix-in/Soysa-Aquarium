@@ -299,6 +299,9 @@ public class DashboardPageController {
             double ammoLast = 0;
             double phLast = 0;
             String timeStampLast = "";
+            int countTemp = 0;
+            int countAmo = 0;
+            int countPh = 0;
             try {
                 temperatureData = new double[0];
                 timeStampData = new String[0];
@@ -316,6 +319,29 @@ public class DashboardPageController {
                 while (resultSet.next()) {
                     phLast = Double.parseDouble(resultSet.getString("pH"));
                 }
+
+                resultSet = statement.executeQuery("SELECT count(*) as c FROM tempRecords");
+                while (resultSet.next()){
+                    countTemp = Integer.parseInt(resultSet.getString("c"));
+                }
+                if(countTemp>900){
+                   statement.executeUpdate("DELETE FROM tempRecords ORDER BY id ASC LIMIT 100");
+                }
+                resultSet = statement.executeQuery("SELECT count(*) as c FROM ammoniaRecords");
+                while (resultSet.next()){
+                    countAmo = Integer.parseInt(resultSet.getString("c"));
+                }
+                if(countAmo>900){
+                   statement.executeUpdate("DELETE FROM ammoniaRecords ORDER BY id ASC LIMIT 100");
+                }
+                resultSet = statement.executeQuery("SELECT count(*) as c FROM phRecords");
+                while (resultSet.next()){
+                    countPh = Integer.parseInt(resultSet.getString("c"));
+                }
+                if(countPh>900){
+                   statement.executeUpdate("DELETE FROM phRecords ORDER BY id ASC LIMIT 100");
+                }
+
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -612,6 +638,9 @@ public class DashboardPageController {
                 double tempLast = 0;
                 double ammoLast = 0;
                 double phLast = 0;
+                int countTemp = 0;
+                int countAmo = 0;
+                int countPh = 0;
                 String timeStampLast = "";
                 try {
 
@@ -628,6 +657,27 @@ public class DashboardPageController {
                     resultSet = statement.executeQuery("select * from phRecords WHERE tankId = '" + tankIdArr[0] + "' ORDER BY id DESC LIMIT 1");
                     while (resultSet.next()) {
                         phLast = Double.parseDouble(resultSet.getString("pH"));
+                    }
+                    resultSet = statement.executeQuery("SELECT count(*) as c FROM tempRecords");
+                    while (resultSet.next()){
+                        countTemp = Integer.parseInt(resultSet.getString("c"));
+                    }
+                    if(countTemp>900){
+                        statement.executeUpdate("DELETE FROM tempRecords ORDER BY id ASC LIMIT 100");
+                    }
+                    resultSet = statement.executeQuery("SELECT count(*) as c FROM ammoniaRecords");
+                    while (resultSet.next()){
+                        countAmo = Integer.parseInt(resultSet.getString("c"));
+                    }
+                    if(countAmo>900){
+                        statement.executeUpdate("DELETE FROM ammoniaRecords ORDER BY id ASC LIMIT 100");
+                    }
+                    resultSet = statement.executeQuery("SELECT count(*) as c FROM phRecords");
+                    while (resultSet.next()){
+                        countPh = Integer.parseInt(resultSet.getString("c"));
+                    }
+                    if(countPh>900){
+                        statement.executeUpdate("DELETE FROM phRecords ORDER BY id ASC LIMIT 100");
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
