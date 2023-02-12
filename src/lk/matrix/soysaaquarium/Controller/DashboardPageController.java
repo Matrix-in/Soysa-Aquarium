@@ -50,8 +50,10 @@ import java.util.ResourceBundle;
 
 import javafx.util.Duration;
 
+
 public class DashboardPageController {
 
+    private Node dashboardNode;
 
     public VBox vBox2;
     public VBox vBox1;
@@ -109,7 +111,8 @@ public class DashboardPageController {
 
     @FXML
     private JFXButton fishPane;
-
+    @FXML
+    private JFXButton DashboardBtn;
     @FXML
     private JFXButton manageTanksPane;
 
@@ -768,77 +771,55 @@ public class DashboardPageController {
     }
 
     public void onActiontankDetailForm(ActionEvent actionEvent) throws IOException {
-        dashBoardStage = (Stage) infoPane.getScene().getWindow();
-        dashBoardStage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/manage_tank_form.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage outStage = new Stage();
-        outStage.setScene(scene);
-        outStage.show();
-//        thisStage.setFullScreen(true);
 
-//        int width = (int) Screen.getPrimary().getBounds().getWidth();
-//        int height = (int) Screen.getPrimary().getBounds().getHeight();
-//
-//        thisStage.setMaximized(true);
-//        thisStage.setWidth(width);
-//        thisStage.setHeight(height);
-//        if(stage2 == null) {
-//            stage = (Stage) fullPane.getScene().getWindow();
-//            stage.hide();
-//            FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/manage_tank_form.fxml"));
-//            Scene scene = new Scene(fxmlLoader.load());
-//            stage2 = new Stage();
-//            stage2.setScene(scene);
-//            stage2.setResizable(false);
-//            stage2.show();
-//        }else{
-//            stage = (Stage) fullPane.getScene().getWindow();
-//            stage.hide();
-//            stage2.show();
-//        }
+        Node node;
+        node = (Node)FXMLLoader.load(getClass().getResource("/lk/matrix/soysaaquarium/View/manage_tank_form.fxml"));
+        mainPane.getChildren().setAll(node);
+
+        //        dashBoardStage = (Stage) infoPane.getScene().getWindow();
+//        dashBoardStage.hide();
+//        FXMLLoader fxmlLoader = new FXMLLoader(DashboardPageController.class.getResource("/lk/matrix/soysaaquarium/View/manage_tank_form.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load());
+//        Stage outStage = new Stage();
+//        outStage.setScene(scene);
+//        outStage.show();
     }
 
     public void onActioninfo(ActionEvent actionEvent) throws IOException {
-
-
-
-//        dashBoardStage = (Stage) infoPane.getScene().getWindow();
-//        dashBoardStage.hide();
-
 
         Node node;
         node = (Node)FXMLLoader.load(getClass().getResource("/lk/matrix/soysaaquarium/View/info_window_form.fxml"));
         mainPane.getChildren().setAll(node);
 
-//        FXMLLoader fxmlLoader1 = new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/info_window_form.fxml"));
-        //        Scene scene = new Scene(fxmlLoader1.load());
+    }
+
+    @FXML
+    void fishesBtnOnAction(ActionEvent event) throws IOException {
+        Node node;
+        node = (Node)FXMLLoader.load(getClass().getResource("/lk/matrix/soysaaquarium/View/fish_type_window_form.fxml"));
+        mainPane.getChildren().setAll(node);
+        //        dashBoardStage = (Stage) infoPane.getScene().getWindow();
+//        dashBoardStage.hide();
+//        FXMLLoader fxmlLoader1 = new FXMLLoader(FishTypeWindowFormController.class.getResource("/lk/matrix/soysaaquarium/View/fish_type_window_form.fxml"));
+//        Scene scene = new Scene(fxmlLoader1.load());
 //        Stage outStage = new Stage();
 //        outStage.setScene(scene);
 //        outStage.show();
 
     }
 
-    @FXML
-    void fishesBtnOnAction(ActionEvent event) throws IOException {
-        dashBoardStage = (Stage) infoPane.getScene().getWindow();
-        dashBoardStage.hide();
-        FXMLLoader fxmlLoader1 = new FXMLLoader(FishTypeWindowFormController.class.getResource("/lk/matrix/soysaaquarium/View/fish_type_window_form.fxml"));
-        Scene scene = new Scene(fxmlLoader1.load());
-        Stage outStage = new Stage();
-        outStage.setScene(scene);
-        outStage.show();
-
-    }
-
     public void onActionGetReport(ActionEvent actionEvent) throws IOException {
-        dashBoardStage = (Stage) infoPane.getScene().getWindow();
-        dashBoardStage.hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(GetReportFormController.class.getResource("/lk/matrix/soysaaquarium/View/get_report_form.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage outStage = new Stage();
-        outStage.setScene(scene);
-        outStage.show();
+
+        Node node;
+        node = (Node)FXMLLoader.load(getClass().getResource("/lk/matrix/soysaaquarium/View/get_report_form.fxml"));
+        mainPane.getChildren().setAll(node);
+        //        dashBoardStage = (Stage) infoPane.getScene().getWindow();
+//        dashBoardStage.hide();
+//        FXMLLoader fxmlLoader = new FXMLLoader(GetReportFormController.class.getResource("/lk/matrix/soysaaquarium/View/get_report_form.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load());
+//        Stage outStage = new Stage();
+//        outStage.setScene(scene);
+//        outStage.show();
 
 
     }
@@ -864,15 +845,18 @@ public class DashboardPageController {
     }
 
     public void viewCameraBtnOnAction(ActionEvent actionEvent) throws IOException {
-        dashBoardStage = (Stage) infoPane.getScene().getWindow();
-        dashBoardStage.hide();
-
-        FXMLLoader fxmlLoader1 = new FXMLLoader(ViewCameraWindowFormController.class.getResource("/lk/matrix/soysaaquarium/View/view_camera_window_form.fxml"));
-
-        Scene scene = new Scene(fxmlLoader1.load());
-        Stage outStage = new Stage();
-        outStage.setScene(scene);
-        outStage.show();
+        Node node;
+        node = (Node)FXMLLoader.load(getClass().getResource("/lk/matrix/soysaaquarium/View/view_camera_window_form.fxml"));
+        mainPane.getChildren().setAll(node);
+//        dashBoardStage = (Stage) infoPane.getScene().getWindow();
+//        dashBoardStage.hide();
+//
+//        FXMLLoader fxmlLoader1 = new FXMLLoader(ViewCameraWindowFormController.class.getResource("/lk/matrix/soysaaquarium/View/view_camera_window_form.fxml"));
+//
+//        Scene scene = new Scene(fxmlLoader1.load());
+//        Stage outStage = new Stage();
+//        outStage.setScene(scene);
+//        outStage.show();
 
 
     }
@@ -884,5 +868,12 @@ public class DashboardPageController {
         } catch (IOException | URISyntaxException e) {
             System.out.println(e);
         }
+    }
+
+    public void dashboardOnAction(ActionEvent event) throws IOException {
+        Stage thisStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader= new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/dashboard_page.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        thisStage.setScene(scene);
     }
 }
