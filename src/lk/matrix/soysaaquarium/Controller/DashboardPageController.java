@@ -59,6 +59,8 @@ public class DashboardPageController {
     @FXML
     private JFXButton addFirstTankBtn;
     @FXML
+    private AnchorPane mainPane;
+    @FXML
     private Pane notificationPane;
     private static ObservableList<String> notifications = FXCollections.observableArrayList();
     @FXML
@@ -385,6 +387,9 @@ public class DashboardPageController {
     }
 
     public void initialize() {
+
+
+
         tips();
         try {
             connection = DBConnection.connection;
@@ -795,14 +800,22 @@ public class DashboardPageController {
     }
 
     public void onActioninfo(ActionEvent actionEvent) throws IOException {
-        dashBoardStage = (Stage) infoPane.getScene().getWindow();
-        dashBoardStage.hide();
 
-        FXMLLoader fxmlLoader1 = new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/info_window_form.fxml"));
-        Scene scene = new Scene(fxmlLoader1.load());
-        Stage outStage = new Stage();
-        outStage.setScene(scene);
-        outStage.show();
+
+
+//        dashBoardStage = (Stage) infoPane.getScene().getWindow();
+//        dashBoardStage.hide();
+
+
+        Node node;
+        node = (Node)FXMLLoader.load(getClass().getResource("/lk/matrix/soysaaquarium/View/info_window_form.fxml"));
+        mainPane.getChildren().setAll(node);
+
+//        FXMLLoader fxmlLoader1 = new FXMLLoader(loginController.class.getResource("/lk/matrix/soysaaquarium/View/info_window_form.fxml"));
+        //        Scene scene = new Scene(fxmlLoader1.load());
+//        Stage outStage = new Stage();
+//        outStage.setScene(scene);
+//        outStage.show();
 
     }
 
