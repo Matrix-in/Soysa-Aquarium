@@ -169,6 +169,8 @@ public class DashboardPageController {
 
     private String[] tankIdArr = new String[0];
     private double[] temperatureData = new double[0];
+    private double[] ammoniaData = new double[0];
+    private double[] phData = new double[0];
     private String[] timeStampData = new String[0];
 
     private double latestTemp = 0.0;
@@ -191,6 +193,8 @@ public class DashboardPageController {
 
         try {
             temperatureData = new double[0];
+            ammoniaData = new double[0];
+            phData = new double[0];
             timeStampData = new String[0];
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = '" + tankIdArr[tankComboBox.getSelectionModel().getSelectedIndex()] + "' ORDER BY id DESC LIMIT 5");
@@ -211,6 +215,26 @@ public class DashboardPageController {
                 timeStampData = tempArray2;
                 System.out.println(resultSet.getString("timeStampTemp"));
             }
+            resultSet = statement.executeQuery("select * from ammoniaRecords WHERE tankId = '" + tankIdArr[tankComboBox.getSelectionModel().getSelectedIndex()] + "' ORDER BY id DESC LIMIT 5");
+            while (resultSet.next()) {
+                double[] tempArray = new double[ammoniaData.length + 1];
+                for (int i = 0; i < ammoniaData.length; i++) {
+                    tempArray[i] = ammoniaData[i];
+                }
+                tempArray[tempArray.length - 1] = Double.parseDouble(resultSet.getString("ammonia"));
+                ammoniaData = tempArray;
+                System.out.println(Double.parseDouble(resultSet.getString("ammonia")));
+            }
+            resultSet = statement.executeQuery("select * from phRecords WHERE tankId = '" + tankIdArr[tankComboBox.getSelectionModel().getSelectedIndex()] + "' ORDER BY id DESC LIMIT 5");
+            while (resultSet.next()) {
+                double[] tempArray = new double[phData.length + 1];
+                for (int i = 0; i < phData.length; i++) {
+                    tempArray[i] = phData[i];
+                }
+                tempArray[tempArray.length - 1] = Double.parseDouble(resultSet.getString("pH"));
+                phData = tempArray;
+                System.out.println(Double.parseDouble(resultSet.getString("pH")));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -227,12 +251,28 @@ public class DashboardPageController {
             series.getData().add(new XYChart.Data(timeStampData[i - 1], temperatureData[i - 1]));
         }
 
-//        series.getData().add(new XYChart.Data("1", 23));
-//        series.getData().add(new XYChart.Data("2", 14));
+
+        XYChart.Series amoSeries = new XYChart.Series();
+        amoSeries.setName("Ammonia");
+        //populating the series with data
+        for (int i = ammoniaData.length; i > 0; i--) {
+
+            amoSeries.getData().add(new XYChart.Data(timeStampData[i - 1], ammoniaData[i - 1]));
+        }
 
 
+        XYChart.Series phSeries = new XYChart.Series();
+        phSeries.setName("pH");
+        //populating the series with data
+        for (int i = phData.length; i > 0; i--) {
+
+            phSeries.getData().add(new XYChart.Data(timeStampData[i - 1], phData[i - 1]));
+        }
         fxLinechart.getData().clear();
         fxLinechart.getData().add(series);
+        fxLinechart.getData().add(amoSeries);
+        fxLinechart.getData().add(phSeries);
+
 
         ObservableList<PieChart.Data> tempPieChartData = FXCollections.observableArrayList(
                 new PieChart.Data("Filled", latestTemp),
@@ -256,6 +296,8 @@ public class DashboardPageController {
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), e -> {
             double tempLast = 0;
+            double ammoLast = 0;
+            double phLast = 0;
             String timeStampLast = "";
             try {
                 temperatureData = new double[0];
@@ -266,12 +308,24 @@ public class DashboardPageController {
                     tempLast = Double.parseDouble(resultSet.getString("temperature"));
                     timeStampLast = resultSet.getString("timeStampTemp");
                 }
+                resultSet = statement.executeQuery("select * from ammoniaRecords WHERE tankId = '" + tankIdArr[tankComboBox.getSelectionModel().getSelectedIndex()] + "' ORDER BY id DESC LIMIT 1");
+                while (resultSet.next()) {
+                    ammoLast = Double.parseDouble(resultSet.getString("ammonia"));
+                }
+                resultSet = statement.executeQuery("select * from phRecords WHERE tankId = '"+ tankIdArr[tankComboBox.getSelectionModel().getSelectedIndex()] + "' ORDER BY id DESC LIMIT 1");
+                while (resultSet.next()) {
+                    phLast = Double.parseDouble(resultSet.getString("pH"));
+                }
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
             series.getData().add(new XYChart.Data<>(timeStampLast, tempLast));
+            amoSeries.getData().add(new XYChart.Data<>(timeStampLast, ammoLast));
+            phSeries.getData().add(new XYChart.Data<>(timeStampLast, phLast));
             if (series.getData().size() > 5) {
                 series.getData().remove(0);
+                amoSeries.getData().remove(0);
+                phSeries.getData().remove(0);
             }
             ObservableList<PieChart.Data> tempPieChartDataInTimeLine = FXCollections.observableArrayList(
                     new PieChart.Data("Filled", tempLast),
@@ -342,6 +396,27 @@ public class DashboardPageController {
                 tempArray2[tempArray2.length - 1] = resultSet.getString("timeStampTemp");
                 timeStampData = tempArray2;
                 System.out.println(resultSet.getString("timeStampTemp"));
+            }
+
+            resultSet = statement.executeQuery("select * from ammoniaRecords WHERE tankId = '" + tankIdArr[0] + "' ORDER BY id DESC LIMIT 5");
+            while (resultSet.next()) {
+                double[] tempArray = new double[ammoniaData.length + 1];
+                for (int i = 0; i < ammoniaData.length; i++) {
+                    tempArray[i] = ammoniaData[i];
+                }
+                tempArray[tempArray.length - 1] = Double.parseDouble(resultSet.getString("ammonia"));
+                ammoniaData = tempArray;
+                System.out.println(Double.parseDouble(resultSet.getString("ammonia")));
+            }
+            resultSet = statement.executeQuery("select * from phRecords WHERE tankId = '"+ tankIdArr[0] +"' ORDER BY id DESC LIMIT 5");
+            while (resultSet.next()) {
+                double[] tempArray = new double[phData.length + 1];
+                for (int i = 0; i < phData.length; i++) {
+                    tempArray[i] = phData[i];
+                }
+                tempArray[tempArray.length - 1] = Double.parseDouble(resultSet.getString("pH"));
+                phData = tempArray;
+                System.out.println(Double.parseDouble(resultSet.getString("pH")));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -482,12 +557,25 @@ public class DashboardPageController {
 
                 series.getData().add(new XYChart.Data(timeStampData[i - 1], temperatureData[i - 1]));
             }
-
-//        series.getData().add(new XYChart.Data("1", 23));
-//        series.getData().add(new XYChart.Data("2", 14));
-
-
             fxLinechart.getData().add(series);
+
+            XYChart.Series amoSeries = new XYChart.Series();
+            amoSeries.setName("Ammonia");
+            //populating the series with data
+            for (int i = ammoniaData.length; i > 0; i--) {
+
+                amoSeries.getData().add(new XYChart.Data(timeStampData[i - 1], ammoniaData[i - 1]));
+            }
+            fxLinechart.getData().add(amoSeries);
+
+            XYChart.Series phSeries = new XYChart.Series();
+            phSeries.setName("pH");
+            //populating the series with data
+            for (int i = phData.length; i > 0; i--) {
+
+                phSeries.getData().add(new XYChart.Data(timeStampData[i - 1], phData[i - 1]));
+            }
+            fxLinechart.getData().add(phSeries);
 
 //        //tl1
 //        XYChart.Series seriesTemp = new XYChart.Series<>();
@@ -504,14 +592,14 @@ public class DashboardPageController {
 //        timeline.setCycleCount(Animation.INDEFINITE);
 //        timeline.play();
 
-//        //tl2
+        //tl2
 //        XYChart.Series seriesPH = new XYChart.Series<>();
 //        seriesPH.setName("pH");
 //        Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(2.5), e -> {
-//            Random r = new Random();
+//            Random r2 = new Random();
 //            String nextMinute = "17:" + ( timer);
 //            timer = timer+10;
-//            seriesPH.getData().add(new XYChart.Data<>(nextMinute, r.nextDouble() * 100));
+//            seriesPH.getData().add(new XYChart.Data<>(nextMinute, r2.nextDouble() * 100));
 //            if(seriesPH.getData().size() >= 7){
 //                seriesPH.getData().remove(0);
 //            }
@@ -522,15 +610,24 @@ public class DashboardPageController {
 
             Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), e -> {
                 double tempLast = 0;
+                double ammoLast = 0;
+                double phLast = 0;
                 String timeStampLast = "";
                 try {
-                    temperatureData = new double[0];
-                    timeStampData = new String[0];
+
                     Statement statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery("select * from tempRecords WHERE tankId = '" + tankIdArr[0] + "' ORDER BY id DESC LIMIT 1");
                     while (resultSet.next()) {
                         tempLast = Double.parseDouble(resultSet.getString("temperature"));
                         timeStampLast = resultSet.getString("timeStampTemp");
+                    }
+                    resultSet = statement.executeQuery("select * from ammoniaRecords WHERE tankId = '" + tankIdArr[0] + "' ORDER BY id DESC LIMIT 1");
+                    while (resultSet.next()) {
+                        ammoLast = Double.parseDouble(resultSet.getString("ammonia"));
+                    }
+                    resultSet = statement.executeQuery("select * from phRecords WHERE tankId = '" + tankIdArr[0] + "' ORDER BY id DESC LIMIT 1");
+                    while (resultSet.next()) {
+                        phLast = Double.parseDouble(resultSet.getString("pH"));
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -539,8 +636,12 @@ public class DashboardPageController {
 //                if (timeStampData.length > 0) {
 //                    if (!timeStampLast.equals(timeStampData[timeStampData.length - 1])) {
                         series.getData().add(new XYChart.Data<>(timeStampLast, tempLast));
+                        amoSeries.getData().add(new XYChart.Data<>(timeStampLast, ammoLast));
+                        phSeries.getData().add(new XYChart.Data<>(timeStampLast, phLast));
                         if (series.getData().size() > 5) {
                             series.getData().remove(0);
+                            amoSeries.getData().remove(0);
+                            phSeries.getData().remove(0);
                         }
                         ObservableList<PieChart.Data> tempPieChartDataInTimeLine = FXCollections.observableArrayList(
                                 new PieChart.Data("Filled", tempLast),

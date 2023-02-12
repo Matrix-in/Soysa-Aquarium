@@ -46,11 +46,16 @@ public class ArduinoToSql {
                             //INSERT INTO tempRecords(timeStampTemp, tankId,temperature) VALUES (NOW(), 1, 31.00);
                             //db connection
                             try{
+                                Random r = new Random();
                                 Class.forName("com.mysql.cj.jdbc.Driver");
                                 Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aquarium","root","1234");
                                 Statement statement = connection.createStatement();
                                 statement.executeUpdate("INSERT INTO tempRecords(timeStampTemp, tankId,temperature) VALUES (NOW(), 'T001', "+temperature+");");
                                 statement.executeUpdate("INSERT INTO tempRecords(timeStampTemp, tankId,temperature) VALUES (NOW(), 'T002', "+temperature+");");
+                                statement.executeUpdate("INSERT INTO ammoniaRecords(timeStampAmmo, tankId,ammonia) VALUES (NOW(), 'T001', "+(0.0+(1.0-0.0)*r.nextDouble())+");");
+                                statement.executeUpdate("INSERT INTO ammoniaRecords(timeStampAmmo, tankId,ammonia) VALUES (NOW(), 'T002', "+(0.0+(1.0-0.0)*r.nextDouble())+");");
+                                statement.executeUpdate("INSERT INTO phRecords(timeStampPH, tankId,pH) VALUES (NOW(), 'T001', "+(3.0+(7.0-3.0)*r.nextDouble())+");");
+                                statement.executeUpdate("INSERT INTO phRecords(timeStampPH, tankId,pH) VALUES (NOW(), 'T002', "+(3.0+(7.0-3.0)*r.nextDouble())+");");
 
                             }catch (Exception e){
                                 e.printStackTrace();
@@ -76,6 +81,10 @@ public class ArduinoToSql {
                         Statement statement = connection.createStatement();
                         statement.executeUpdate("INSERT INTO tempRecords(timeStampTemp, tankId,temperature) VALUES (NOW(), 'T001', "+(30.0+(33.0-30.0)*r.nextDouble())+");");
                         statement.executeUpdate("INSERT INTO tempRecords(timeStampTemp, tankId,temperature) VALUES (NOW(), 'T002', "+(30.0+(33.0-30.0)*r.nextDouble())+");");
+                        statement.executeUpdate("INSERT INTO ammoniaRecords(timeStampAmmo, tankId,ammonia) VALUES (NOW(), 'T001', "+(0.0+(1.0-0.0)*r.nextDouble())+");");
+                        statement.executeUpdate("INSERT INTO ammoniaRecords(timeStampAmmo, tankId,ammonia) VALUES (NOW(), 'T002', "+(0.0+(1.0-0.0)*r.nextDouble())+");");
+                        statement.executeUpdate("INSERT INTO phRecords(timeStampPH, tankId,pH) VALUES (NOW(), 'T001', "+(3.0+(7.0-3.0)*r.nextDouble())+");");
+                        statement.executeUpdate("INSERT INTO phRecords(timeStampPH, tankId,pH) VALUES (NOW(), 'T002', "+(3.0+(7.0-3.0)*r.nextDouble())+");");
                         Thread.sleep(5000);
                     }catch (Exception err){
                         err.printStackTrace();
