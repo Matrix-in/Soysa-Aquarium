@@ -96,7 +96,7 @@
                   <Font size="40.0" />
                </font>
             </Label>
-            <Button layoutX="617.0" layoutY="34.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: transparent; -fx-text-fill: whitesmoke; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-color: #2196f3;" text="back">
+            <Button layoutX="617.0" layoutY="34.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="35.0" prefWidth="90.0" style="-fx-background-color: transparent; -fx-text-fill: whitesmoke; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-color: #2196f3;" text="back">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

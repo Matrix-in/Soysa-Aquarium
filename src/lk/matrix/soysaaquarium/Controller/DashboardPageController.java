@@ -504,7 +504,7 @@ public class DashboardPageController {
             tempMeter.setBarColor(Color.rgb(255, 165, 0));
             tempMeter.setValue(latestTemp);
             tempMeter.setMaxValue(40);
-            tempMeter.setMaxSize(150.0, 150.0);
+//            tempMeter.setMaxSize(150.0, 150.0);
 
             pHMeter.setSkin(new BarSkin(pHMeter));
             pHMeter.setTitle("pH");
@@ -515,7 +515,7 @@ public class DashboardPageController {
             pHMeter.setBarColor(Color.rgb(255, 165, 0));
             pHMeter.setValue(latestpH);
             pHMeter.setMaxValue(14);
-            pHMeter.setMaxSize(150.0, 150.0);
+//            pHMeter.setMaxSize(150.0, 150.0);
 
             ammoMeter.setSkin(new BarSkin(ammoMeter));
             ammoMeter.setTitle("Ammonia");
@@ -526,7 +526,7 @@ public class DashboardPageController {
             ammoMeter.setBarColor(Color.rgb(255, 165, 0));
             ammoMeter.setValue(latestAmmo);
             ammoMeter.setMaxValue(1);
-            ammoMeter.setMaxSize(150.0, 150.0);
+//            ammoMeter.setMaxSize(150.0, 150.0);
 
             vBox.setPadding(new Insets(40, 20, 20, 20));
             vBox.getChildren().add(tempMeter);

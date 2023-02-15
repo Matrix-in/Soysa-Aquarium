@@ -128,12 +128,12 @@ public class loginController implements Initializable {
                 stage2 = new Stage();
                 stage2.setScene(scene);
 //                stage2.setFullScreen(true);
-                int width = (int) Screen.getPrimary().getBounds().getWidth();
-                int height = (int) Screen.getPrimary().getBounds().getHeight();
+               // int width = (int) Screen.getPrimary().getBounds().getWidth();
+               // int height = (int) Screen.getPrimary().getBounds().getHeight();
 
-                stage2.setMaximized(true);
-                stage2.setWidth(width);
-                stage2.setHeight(height);
+                //stage2.setMaximized(true);
+               // stage2.setWidth(width);
+               // stage2.setHeight(height);
 
                 //stage2.setResizable(false);
                 stage2.show();

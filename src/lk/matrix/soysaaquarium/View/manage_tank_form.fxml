@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="bgPane" prefHeight="629.0" prefWidth="986.0" style="-fx-background-color: linear-gradient(to top,#005C97, transparent);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.ManageTankController">
+<AnchorPane fx:id="bgPane" prefHeight="907.0" prefWidth="1495.0" style="-fx-background-color: linear-gradient(to top,#005C97, transparent);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.ManageTankController">
    <children>
-      <JFXButton layoutX="743.0" layoutY="569.0" onAction="#AddNewPageBtnOnAction" prefHeight="51.0" prefWidth="196.0" style="-fx-background-color: #1A8BCC;" text="Update Tank" textFill="WHITE">
+      <JFXButton layoutX="1216.0" layoutY="818.0" onAction="#AddNewPageBtnOnAction" prefHeight="76.0" prefWidth="265.0" style="-fx-background-color: #1A8BCC;" text="Update Tank" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="29.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="tankTable" layoutX="28.0" layoutY="74.0" prefHeight="546.0" prefWidth="665.0" stylesheets="@../StyleSheets/Style.css">
+      <TableView fx:id="tankTable" layoutX="14.0" layoutY="74.0" prefHeight="821.0" prefWidth="1172.0" stylesheets="@../StyleSheets/Style.css">
         <columns>
           <TableColumn fx:id="colC1" prefWidth="198.00001525878906" text="Tank Id" />
           <TableColumn fx:id="colC2" prefWidth="252.66665649414062" text="Fish Type" />
@@ -24,9 +24,9 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label layoutX="26.0" layoutY="14.0" text="Manage Tanks" textFill="#6b6b6b">
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="53.0" prefWidth="232.0" text="Manage Tanks" textFill="#6b6b6b">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="System Bold" size="28.0" />
          </font>
       </Label>
    </children>

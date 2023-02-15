@@ -14,11 +14,11 @@
 
 <AnchorPane prefHeight="629.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.ViewCameraWindowFormController">
     <children>
-        <Pane prefHeight="646.0" prefWidth="1008.0" style="-fx-background-color: lightblue;">
+        <Pane prefHeight="907.0" prefWidth="1495.0" style="-fx-background-color: linear-gradient(to top,#005C97, transparent);">
             <children>
-                <Pane layoutX="12.0" layoutY="92.0" prefHeight="544.0" prefWidth="227.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+                <Pane layoutX="12.0" layoutY="92.0" prefHeight="784.0" prefWidth="347.0" style="-fx-background-color: white; -fx-background-radius: 20;">
                     <children>
-                        <GridPane layoutX="23.0" layoutY="18.0" prefHeight="509.0" prefWidth="184.0">
+                        <GridPane layoutX="23.0" layoutY="18.0" prefHeight="748.0" prefWidth="319.0">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             </columnConstraints>
@@ -33,20 +33,20 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <JFXButton fx:id="view1Btn" onAction="#view1BtnOnAction" prefHeight="47.0" prefWidth="232.0" style="-fx-background-color: #FF8040; -fx-background-radius: 20;" text="Camera View 1" />
-                                <JFXButton fx:id="view3Btn" layoutX="10.0" layoutY="19.0" onAction="#view3BtnOnAction" prefHeight="47.0" prefWidth="232.0" style="-fx-background-color: #FF8040; -fx-background-radius: 20;" text="Camera View 3" GridPane.rowIndex="2" />
-                                <JFXButton fx:id="view4Btn" layoutX="10.0" layoutY="84.0" onAction="#view4BtnOnAction" prefHeight="47.0" prefWidth="232.0" style="-fx-background-color: #FF8040; -fx-background-radius: 20;" text="Camera View 4" GridPane.rowIndex="3" />
-                                <JFXButton fx:id="view6Btn" layoutX="10.0" layoutY="19.0" onAction="#view6BtnOnAction" prefHeight="47.0" prefWidth="232.0" style="-fx-background-color: #FF8040; -fx-background-radius: 20;" text="Camera View 6" GridPane.rowIndex="5" />
-                                <JFXButton fx:id="view5Btn" layoutX="10.0" layoutY="149.0" onAction="#view5BtnOnAction" prefHeight="47.0" prefWidth="232.0" style="-fx-background-color: #FF8040; -fx-background-radius: 20;" text="Camera View 5" GridPane.rowIndex="4" />
-                                <JFXButton fx:id="view2Btn" layoutX="10.0" layoutY="84.0" onAction="#view2BtnOnAction" prefHeight="47.0" prefWidth="232.0" style="-fx-background-color: #FF8040; -fx-background-radius: 20;" text="Camera View 2" GridPane.rowIndex="1" />
-                                <JFXButton fx:id="view8Btn" layoutX="10.0" layoutY="386.0" onAction="#view8BtnOnAction" prefHeight="47.0" prefWidth="232.0" style="-fx-background-color: #FF8040; -fx-background-radius: 20;" text="Camera View 8" GridPane.rowIndex="7" />
-                                <JFXButton fx:id="view7Btn" layoutX="10.0" layoutY="314.0" onAction="#view7BtnOnAction" prefHeight="47.0" prefWidth="232.0" style="-fx-background-color: #FF8040; -fx-background-radius: 20;" text="Camera View 7" GridPane.rowIndex="6" />
+                                <JFXButton fx:id="view1Btn" onAction="#view1BtnOnAction" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #FF8040; -fx-background-radius: 20;" text="Camera View 1" />
+                                <JFXButton fx:id="view3Btn" layoutX="10.0" layoutY="19.0" onAction="#view3BtnOnAction" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #FF8040; -fx-background-radius: 20;" text="Camera View 3" GridPane.rowIndex="2" />
+                                <JFXButton fx:id="view4Btn" layoutX="10.0" layoutY="84.0" onAction="#view4BtnOnAction" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #FF8040; -fx-background-radius: 20;" text="Camera View 4" GridPane.rowIndex="3" />
+                                <JFXButton fx:id="view6Btn" layoutX="10.0" layoutY="19.0" onAction="#view6BtnOnAction" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #FF8040; -fx-background-radius: 20;" text="Camera View 6" GridPane.rowIndex="5" />
+                                <JFXButton fx:id="view5Btn" layoutX="10.0" layoutY="149.0" onAction="#view5BtnOnAction" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #FF8040; -fx-background-radius: 20;" text="Camera View 5" GridPane.rowIndex="4" />
+                                <JFXButton fx:id="view2Btn" layoutX="10.0" layoutY="84.0" onAction="#view2BtnOnAction" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #FF8040; -fx-background-radius: 20;" text="Camera View 2" GridPane.rowIndex="1" />
+                                <JFXButton fx:id="view8Btn" layoutX="10.0" layoutY="386.0" onAction="#view8BtnOnAction" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #FF8040; -fx-background-radius: 20;" text="Camera View 8" GridPane.rowIndex="7" />
+                                <JFXButton fx:id="view7Btn" layoutX="10.0" layoutY="314.0" onAction="#view7BtnOnAction" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #FF8040; -fx-background-radius: 20;" text="Camera View 7" GridPane.rowIndex="6" />
                             </children>
                         </GridPane>
                     </children></Pane>
-            <Pane layoutX="253.0" layoutY="92.0" prefHeight="544.0" prefWidth="739.0">
+            <Pane layoutX="398.0" layoutY="92.0" prefHeight="801.0" prefWidth="1085.0">
                <children>
-                        <ImageView fitHeight="545.0" fitWidth="626.0" layoutY="1.0" pickOnBounds="true">
+                        <ImageView fitHeight="783.0" fitWidth="898.0" layoutY="4.0" pickOnBounds="true">
                             <viewport>
                                 <Rectangle2D height="500.0" width="700.0" />
                             </viewport>
@@ -54,7 +54,7 @@
                                 <Image url="@../Assets/cctv(700x500).jpg" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="76.0" fitWidth="117.0" layoutX="626.0" layoutY="1.0" pickOnBounds="true">
+                        <ImageView fitHeight="110.0" fitWidth="175.0" layoutX="900.0" layoutY="678.0" pickOnBounds="true">
                             <viewport>
                                 <Rectangle2D height="150.0" width="210.0" />
                             </viewport>
@@ -62,12 +62,12 @@
                                 <Image url="@../Assets/cctv(210x150).jpg" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="65.0" fitWidth="77.0" layoutX="539.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="141.0" fitWidth="201.0" layoutX="750.0" layoutY="685.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../Assets/live.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="83.0" fitWidth="117.0" layoutX="626.0" layoutY="77.0" pickOnBounds="true">
+                        <ImageView fitHeight="110.0" fitWidth="175.0" layoutX="900.0" layoutY="566.0" pickOnBounds="true">
                             <viewport>
                                 <Rectangle2D height="150.0" width="210.0" />
                             </viewport>
@@ -75,7 +75,7 @@
                                 <Image url="@../Assets/cctv(210x150).jpg" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="76.0" fitWidth="117.0" layoutX="626.0" layoutY="160.0" pickOnBounds="true">
+                        <ImageView fitHeight="110.0" fitWidth="175.0" layoutX="900.0" layoutY="454.0" pickOnBounds="true">
                             <viewport>
                                 <Rectangle2D height="150.0" width="210.0" />
                             </viewport>
@@ -83,7 +83,7 @@
                                 <Image url="@../Assets/cctv(210x150).jpg" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="76.0" fitWidth="117.0" layoutX="626.0" layoutY="236.0" pickOnBounds="true">
+                        <ImageView fitHeight="110.0" fitWidth="175.0" layoutX="900.0" layoutY="342.0" pickOnBounds="true">
                             <viewport>
                                 <Rectangle2D height="150.0" width="210.0" />
                             </viewport>
@@ -91,7 +91,7 @@
                                 <Image url="@../Assets/cctv(210x150).jpg" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="76.0" fitWidth="117.0" layoutX="626.0" layoutY="312.0" pickOnBounds="true">
+                        <ImageView fitHeight="110.0" fitWidth="175.0" layoutX="900.0" layoutY="230.0" pickOnBounds="true">
                             <viewport>
                                 <Rectangle2D height="150.0" width="210.0" />
                             </viewport>
@@ -99,7 +99,7 @@
                                 <Image url="@../Assets/cctv(210x150).jpg" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="76.0" fitWidth="117.0" layoutX="626.0" layoutY="388.0" pickOnBounds="true">
+                        <ImageView fitHeight="110.0" fitWidth="175.0" layoutX="900.0" layoutY="118.0" pickOnBounds="true">
                             <viewport>
                                 <Rectangle2D height="150.0" width="210.0" />
                             </viewport>
@@ -107,7 +107,7 @@
                                 <Image url="@../Assets/cctv(210x150).jpg" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="82.0" fitWidth="117.0" layoutX="626.0" layoutY="464.0" pickOnBounds="true">
+                        <ImageView fitHeight="110.0" fitWidth="175.0" layoutX="900.0" layoutY="6.0" pickOnBounds="true">
                             <viewport>
                                 <Rectangle2D height="150.0" width="210.0" />
                             </viewport>
@@ -115,19 +115,19 @@
                                 <Image url="@../Assets/cctv(210x150).jpg" />
                             </image>
                         </ImageView>
-                        <Label fx:id="view3" alignment="CENTER" layoutX="643.0" layoutY="105.0" prefHeight="17.0" prefWidth="82.0" text="Camera 3" textFill="WHITE" />
-                        <Label fx:id="view4" alignment="CENTER" layoutX="641.0" layoutY="185.0" prefHeight="17.0" prefWidth="82.0" text="Camera 4" textFill="WHITE" />
-                        <Label fx:id="view5" alignment="CENTER" layoutX="642.0" layoutY="262.0" prefHeight="17.0" prefWidth="82.0" text="Camera 5" textFill="WHITE" />
-                        <Label fx:id="view6" alignment="CENTER" layoutX="644.0" layoutY="335.0" prefHeight="17.0" prefWidth="82.0" text="Camera 6" textFill="WHITE" />
-                        <Label fx:id="view7" alignment="CENTER" layoutX="642.0" layoutY="411.0" prefHeight="17.0" prefWidth="82.0" text="Camera 7" textFill="WHITE" />
-                        <Label fx:id="view8" alignment="CENTER" layoutX="645.0" layoutY="492.0" prefHeight="17.0" prefWidth="82.0" text="Camera 8" textFill="WHITE" />
-                        <Label fx:id="view2" alignment="CENTER" layoutX="644.0" layoutY="32.0" prefHeight="17.0" prefWidth="82.0" text="Camera 2" textFill="WHITE" />
+                        <Label fx:id="view3" alignment="CENTER" layoutX="987.0" layoutY="646.0" prefHeight="17.0" prefWidth="82.0" text="Camera 3" textFill="WHITE" />
+                        <Label fx:id="view4" alignment="CENTER" layoutX="988.0" layoutY="535.0" prefHeight="17.0" prefWidth="82.0" text="Camera 4" textFill="WHITE" />
+                        <Label fx:id="view5" alignment="CENTER" layoutX="983.0" layoutY="422.0" prefHeight="17.0" prefWidth="82.0" text="Camera 5" textFill="WHITE" />
+                        <Label fx:id="view6" alignment="CENTER" layoutX="988.0" layoutY="313.0" prefHeight="17.0" prefWidth="82.0" text="Camera 6" textFill="WHITE" />
+                        <Label fx:id="view7" alignment="CENTER" layoutX="988.0" layoutY="200.0" prefHeight="17.0" prefWidth="82.0" text="Camera 7" textFill="WHITE" />
+                        <Label fx:id="view8" alignment="CENTER" layoutX="989.0" layoutY="77.0" prefHeight="17.0" prefWidth="82.0" text="Camera 8" textFill="WHITE" />
+                        <Label fx:id="view2" alignment="CENTER" layoutX="991.0" layoutY="764.0" prefHeight="17.0" prefWidth="82.0" text="Camera 2" textFill="WHITE" />
                   <Label fx:id="view1" alignment="CENTER" layoutX="438.0" layoutY="67.0" prefHeight="42.0" prefWidth="165.0" text="Camera 1" textFill="WHITE" visible="false">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="mainCamera" alignment="CENTER" layoutX="15.0" layoutY="486.0" prefHeight="42.0" prefWidth="165.0" text="Camera 1" textFill="WHITE">
+                  <Label fx:id="mainCamera" alignment="CENTER" layoutX="18.0" layoutY="733.0" prefHeight="42.0" prefWidth="165.0" text="Camera 1" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -136,9 +136,9 @@
             </Pane>
             </children>
         </Pane>
-      <Pane layoutX="9.0" layoutY="21.0" prefHeight="49.0" prefWidth="986.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: linear-gradient(to right,#005C97, #5AD7FF); -fx-border-width: 5; -fx-border-radius: 20;">
+      <Pane layoutX="9.0" layoutY="21.0" prefHeight="54.0" prefWidth="1462.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: linear-gradient(to right,#005C97, #5AD7FF); -fx-border-width: 5; -fx-border-radius: 20;">
          <children>
-            <Label alignment="CENTER" layoutX="383.0" layoutY="7.0" prefHeight="36.0" prefWidth="221.0" text="View Camera">
+            <Label alignment="CENTER" layoutX="629.0" layoutY="7.0" prefHeight="36.0" prefWidth="221.0" text="View Camera">
                <font>
                   <Font name="Arial Bold" size="30.0" />
                </font>

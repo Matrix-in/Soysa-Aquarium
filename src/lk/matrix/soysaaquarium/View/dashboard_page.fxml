@@ -17,94 +17,118 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="bgPane" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-background-color: linear-gradient(to top,#005C97, transparent);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.DashboardPageController">
+<AnchorPane fx:id="bgPane" minHeight="1000.0" minWidth="1920.0" prefHeight="1000.0" prefWidth="1920.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-background-color: linear-gradient(to top,#005C97, transparent);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.matrix.soysaaquarium.Controller.DashboardPageController">
 
    <children>
-      <Pane layoutX="17.0" layoutY="123.0" prefHeight="584.0" prefWidth="250.0" style="-fx-background-color: FEFEFE; -fx-background-radius: 5px; -fx-border-radius: 5px;">
+      <Pane layoutX="15.0" layoutY="135.0" prefHeight="850.0" prefWidth="400.0" style="-fx-background-color: FEFEFE; -fx-background-radius: 5px; -fx-border-radius: 5px;">
          <children>
-            <JFXButton fx:id="getReportPane" layoutX="8.0" layoutY="160.0" onAction="#onActionGetReport" prefHeight="50.0" prefWidth="234.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="Get Report">
+            <JFXButton fx:id="getReportPane" layoutX="10.0" layoutY="220.0" onAction="#onActionGetReport" prefHeight="80.0" prefWidth="380.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="Get Report">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></JFXButton>
-            <JFXButton fx:id="fishPane" layoutX="8.0" layoutY="230.0" onAction="#fishesBtnOnAction" prefHeight="50.0" prefWidth="230.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="Fishes">
+               </cursor>
+               <font>
+                  <Font size="20.0" />
+               </font></JFXButton>
+            <JFXButton fx:id="fishPane" layoutX="10.0" layoutY="320.0" onAction="#fishesBtnOnAction" prefHeight="80.0" prefWidth="380.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="Fishes">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></JFXButton>
-            <JFXButton fx:id="vcPane" layoutX="8.0" layoutY="300.0" onAction="#viewCameraBtnOnAction" prefHeight="50.0" prefWidth="232.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="View Camera">
+               </cursor>
+               <font>
+                  <Font size="20.0" />
+               </font></JFXButton>
+            <JFXButton fx:id="vcPane" layoutX="10.0" layoutY="420.0" onAction="#viewCameraBtnOnAction" prefHeight="80.0" prefWidth="380.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="View Camera">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></JFXButton>
-            <JFXButton fx:id="infoPane" layoutX="8.0" layoutY="370.0" onAction="#onActioninfo" prefHeight="50.0" prefWidth="232.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="info">
+               </cursor>
+               <font>
+                  <Font size="20.0" />
+               </font></JFXButton>
+            <JFXButton fx:id="infoPane" layoutX="10.0" layoutY="520.0" onAction="#onActioninfo" prefHeight="80.0" prefWidth="380.0" style="-fx-text-fill: black; -fx-background-color: #5AD7FF;" text="info">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></JFXButton>
-            <JFXButton fx:id="logoutPane" layoutX="8.0" layoutY="494.0" onMouseClicked="#logoutClick" prefHeight="50.0" prefWidth="234.0" style="-fx-text-fill: black; -fx-background-color: #ff9f1a;" text="Logout">
+               </cursor>
+               <font>
+                  <Font size="20.0" />
+               </font></JFXButton>
+            <JFXButton fx:id="logoutPane" layoutX="10.0" layoutY="750.0" onMouseClicked="#logoutClick" prefHeight="80.0" prefWidth="380.0" style="-fx-text-fill: black; -fx-background-color: #ff9f1a;" text="Logout">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></JFXButton>
-            <JFXButton fx:id="manageTanksPane" layoutX="8.0" layoutY="90.0" onAction="#onActiontankDetailForm" prefHeight="50.0" prefWidth="234.0" style="-fx-background-color: #5AD7FF;" text="Manage Tanks">
+               </cursor>
+               <font>
+                  <Font size="20.0" />
+               </font></JFXButton>
+            <JFXButton fx:id="manageTanksPane" layoutX="10.0" layoutY="120.0" onAction="#onActiontankDetailForm" prefHeight="80.0" prefWidth="380.0" style="-fx-background-color: #5AD7FF;" text="Manage Tanks">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></JFXButton>
-            <JFXButton fx:id="DashboardBtn" layoutX="8.0" layoutY="20.0" onAction="#dashboardOnAction" prefHeight="50.0" prefWidth="234.0" style="-fx-background-color: #5AD7FF;" text="Dashboard">
+               </cursor>
+               <font>
+                  <Font size="20.0" />
+               </font></JFXButton>
+            <JFXButton fx:id="DashboardBtn" layoutX="10.0" layoutY="20.0" onAction="#dashboardOnAction" prefHeight="80.0" prefWidth="380.0" style="-fx-background-color: #5AD7FF;" text="Dashboard">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></JFXButton>
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="29.0" layoutY="165.0">
+               </cursor>
+               <font>
+                  <Font size="20.0" />
+               </font></JFXButton>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="30.0" layoutY="230.0">
                <image>
                   <Image url="@../Assets/icons8-graph-report-50.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="29.0" layoutY="375.0">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="30.0" layoutY="530.0">
                <image>
                   <Image url="@../Assets/icons8-info-squared-50.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="29.0" layoutY="305.0">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="30.0" layoutY="430.0">
                <image>
                   <Image url="@../Assets/icons8-private-wall-mount-camera-64.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="29.0" layoutY="95.0">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="30.0" layoutY="130.0">
                <image>
                   <Image url="@../Assets/icons8-tools-50.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="29.0" layoutY="25.0">
+            <ImageView fitHeight="68.0" fitWidth="67.0" layoutX="30.0" layoutY="25.0">
                <image>
                   <Image url="@../Assets/icons8-dashboard-80.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="29.0" layoutY="235.0">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="30.0" layoutY="330.0">
                <image>
                   <Image url="@../Assets/icons8-fish-food-64.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="29.0" layoutY="499.0">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="30.0" layoutY="760.0">
                <image>
                   <Image url="@../Assets/log-out.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="adminPane" layoutX="20.0" layoutY="14.0" prefHeight="104.0" prefWidth="250.0" style="-fx-background-color: linear-gradient(to right,#005C97, #5AD7FF); -fx-background-radius: 10px; -fx-border-radius: 10px;">
+      <Pane fx:id="adminPane" layoutX="15.0" layoutY="10.0" prefHeight="120.0" prefWidth="400.0" style="-fx-background-color: linear-gradient(to right,#005C97, #5AD7FF); -fx-background-radius: 10px; -fx-border-radius: 10px;">
          <children>
-            <Label layoutX="90.0" layoutY="21.0" text="ADMIN" textFill="WHITE">
+            <Label layoutX="110.0" layoutY="20.0" prefHeight="30.0" prefWidth="80.0" text="ADMIN" textFill="WHITE">
                <font>
-                  <Font name="Consolas" size="18.0" />
+                  <Font name="Consolas" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="90.0" layoutY="50.0" text="You are an admin user." textFill="WHITE" />
-            <ImageView fitHeight="67.0" fitWidth="68.0" layoutX="12.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+            <Label layoutX="110.0" layoutY="50.0" prefHeight="38.0" prefWidth="233.0" text="You are an admin user." textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <ImageView fitHeight="93.0" fitWidth="100.0" layoutX="12.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assets/user.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="281.0" layoutY="14.0" prefHeight="59.0" prefWidth="995.0" style="-fx-background-color: linear-gradient(to right,#005C97, #5AD7FF); -fx-background-radius: 20px; -fx-border-radius: 20px;">
+      <Pane layoutX="425.0" layoutY="10.0" prefHeight="75.0" prefWidth="1480.0" style="-fx-background-color: linear-gradient(to right,#005C97, #5AD7FF); -fx-background-radius: 20px; -fx-border-radius: 20px;">
          <children>
-            <ImageView fitHeight="35.0" fitWidth="40.0" layoutX="725.0" layoutY="14.0" onMouseClicked="#onMouseClickedNotificstionIcon" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="991.0" layoutY="8.0" onMouseClicked="#onMouseClickedNotificstionIcon" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assets/notification.png" />
                </image>
@@ -112,29 +136,39 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Label fx:id="timeLabel" layoutX="884.0" layoutY="17.0" prefHeight="28.0" prefWidth="99.0" style="-fx-background-color: #FEFEFE; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
-            <Label fx:id="dateLabel" layoutX="781.0" layoutY="17.0" prefHeight="28.0" prefWidth="99.0" style="-fx-background-color: #FEFEFE; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
-            <Pane layoutX="55.0" layoutY="7.0" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: #FEFEFE; -fx-background-radius: 5px; -fx-border-radius: 5px;">
+            <Label fx:id="timeLabel" layoutX="1266.0" layoutY="7.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #FEFEFE; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+            <Label fx:id="dateLabel" layoutX="1058.0" layoutY="7.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #FEFEFE; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+            <Pane layoutX="55.0" layoutY="7.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #FEFEFE; -fx-background-radius: 5px; -fx-border-radius: 5px;">
                <children>
-                  <ImageView fitHeight="30.0" fitWidth="29.0" layoutX="8.0" layoutY="7.0">
+                  <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="6.0" layoutY="6.0">
                      <image>
                         <Image url="@../Assets/search.png" />
                      </image>
                   </ImageView>
                </children>
             </Pane>
-            <JFXTextField fx:id="searchBar" focusColor="#005c97" layoutX="99.0" layoutY="7.0" onAction="#searchGoogle" prefHeight="42.0" prefWidth="443.0" promptText="Search Here" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #FEFEFE;" unFocusColor="#005c97" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="498.0" layoutY="7.0">
+            <JFXTextField fx:id="searchBar" focusColor="#005c97" layoutX="110.0" layoutY="7.0" onAction="#searchGoogle" prefHeight="60.0" prefWidth="561.0" promptText="Search Here" style="-fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #FEFEFE;" unFocusColor="#005c97" />
+            <ImageView fitHeight="60.0" fitWidth="62.0" layoutX="609.0" layoutY="7.0">
                <image>
                   <Image url="@../Assets/googlepic2.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <AnchorPane fx:id="mainPane" layoutX="272.0" layoutY="76.0" prefHeight="629.0" prefWidth="986.0">
+      <AnchorPane fx:id="mainPane" layoutX="425.0" layoutY="93.0" prefHeight="907.0" prefWidth="1495.0">
          <children>
-            <Pane layoutX="12.0" layoutY="288.0" prefHeight="318.0" prefWidth="710.0" style="-fx-background-color: #f5f6fa; -fx-background-radius: 10px; -fx-border-radius: 10px;" />
-            <Pane fx:id="fullPane" layoutX="10.0" layoutY="30.0" prefHeight="244.0" prefWidth="710.0" style="-fx-background-color: linear-gradient(to left,#005C97, #5AD7FF); -fx-border-radius: 20px; -fx-background-radius: 20px;">
+            <Pane layoutX="5.0" layoutY="402.0" prefHeight="495.0" prefWidth="1044.0" style="-fx-background-color: #f5f6fa; -fx-background-radius: 10px; -fx-border-radius: 10px;">
+               <children>
+                  <LineChart fx:id="fxLinechart" layoutY="2.0" prefHeight="495.0" prefWidth="1037.0">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" fx:id="x" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis fx:id="y" side="LEFT" />
+                     </yAxis>
+                  </LineChart>
+               </children></Pane>
+            <Pane fx:id="fullPane" layoutX="4.0" layoutY="30.0" prefHeight="359.0" prefWidth="1050.0" style="-fx-background-color: linear-gradient(to left,#005C97, #5AD7FF); -fx-border-radius: 20px; -fx-background-radius: 20px;">
                <children>
                   <Pane fx:id="piePane1" layoutX="169.0" layoutY="45.0" prefHeight="161.0" prefWidth="212.0" style="-fx-background-color: #A5C9FF; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-rotate: 90;" visible="false">
                      <children>
@@ -164,7 +198,7 @@
       
       
       
-                  <JFXButton fx:id="addFirstTankBtn" layoutX="22.0" layoutY="114.0" prefHeight="31.0" prefWidth="121.0" style="-fx-border-color: white;" text="add" textFill="WHITE" />
+                  <JFXButton fx:id="addFirstTankBtn" layoutX="22.0" layoutY="126.0" prefHeight="31.0" prefWidth="121.0" style="-fx-border-color: white;" text="add" textFill="WHITE" />
                   <Pane fx:id="piePane2" layoutX="340.0" layoutY="45.0" prefHeight="161.0" prefWidth="212.0" style="-fx-background-color: #FFB168; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-rotate: 90;" visible="false">
                      <children>
                         <PieChart fx:id="phPieChart" labelsVisible="false" layoutX="-18.0" layoutY="2.0" legendVisible="false" prefHeight="161.0" prefWidth="212.0" style="-fx-rotate: 180deg;" />
@@ -177,9 +211,9 @@
                         </Label>
                      </children>
                   </Pane>
-                  <VBox fx:id="vBox" layoutX="145.0" layoutY="12.0" prefHeight="226.0" prefWidth="238.0" />
-                  <VBox fx:id="vBox2" layoutX="482.0" layoutY="12.0" prefHeight="226.0" prefWidth="263.0" />
-                  <VBox fx:id="vBox1" layoutX="314.0" layoutY="12.0" prefHeight="226.0" prefWidth="265.0" />
+                  <VBox fx:id="vBox" layoutX="143.0" layoutY="4.0" prefHeight="350.0" prefWidth="350.0" />
+                  <VBox fx:id="vBox1" layoutX="424.0" layoutY="4.0" prefHeight="350.0" prefWidth="350.0" />
+                  <VBox fx:id="vBox2" layoutX="694.0" prefHeight="350.0" prefWidth="350.0" />
       
                </children>
             </Pane>
@@ -188,34 +222,43 @@
                   <Font name="Calibri" size="23.0" />
                </font>
             </Label>
-            <Pane layoutX="730.0" prefHeight="620.0" prefWidth="265.0" style="-fx-background-radius: 20px; -fx-border-radius: 20px; -fx-background-color: linear-gradient(to bottom,#005C97, #5AD7FF);">
+            <Pane layoutX="1062.0" layoutY="2.0" prefHeight="896.0" prefWidth="421.0" style="-fx-background-radius: 20px; -fx-border-radius: 20px; -fx-background-color: linear-gradient(to bottom,#005C97, #5AD7FF);">
                <children>
-                  <Pane layoutX="9.0" layoutY="12.0" prefHeight="186.0" prefWidth="248.0" style="-fx-background-color: #ecdcf7; -fx-background-radius: 15px;">
+                  <Pane layoutX="9.0" layoutY="12.0" prefHeight="318.0" prefWidth="408.0" style="-fx-background-color: #ecdcf7; -fx-background-radius: 15px;">
                      <children>
-                        <ImageView fitHeight="176.0" fitWidth="235.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="296.0" fitWidth="394.0" layoutX="5.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Assets/3dfish.gif" />
                            </image>
                         </ImageView>
                      </children>
                   </Pane>
-                  <Pane layoutX="10.0" layoutY="251.0" prefHeight="230.0" prefWidth="248.0" style="-fx-background-color: #C7DDFF; -fx-background-radius: 15px;">
+                  <Pane layoutX="7.0" layoutY="382.0" prefHeight="358.0" prefWidth="408.0" style="-fx-background-color: #C7DDFF; -fx-background-radius: 15px;">
                      <children>
-                        <Label fx:id="tipsLabel" layoutX="18.0" prefHeight="230.0" prefWidth="208.0" textFill="#757171" wrapText="true">
+                        <Label fx:id="tipsLabel" layoutX="19.0" layoutY="32.0" prefHeight="335.0" prefWidth="371.0" textFill="#757171" wrapText="true">
                            <font>
-                              <Font name="System Bold" size="14.0" />
+                              <Font name="System Bold" size="20.0" />
                            </font>
                         </Label>
+                        <Pane layoutX="129.0" layoutY="-34.0" prefHeight="68.0" prefWidth="150.0" style="-fx-background-color: #ff9f1a; -fx-background-radius: 15; -fx-border-radius: 15;">
+                           <children>
+                              <Label layoutX="15.0" layoutY="18.0" prefHeight="33.0" prefWidth="121.0" text="Usage Tips!" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
                      </children>
                   </Pane>
-                  <Pane layoutX="9.0" layoutY="493.0" prefHeight="76.0" prefWidth="248.0" style="-fx-background-color: #ff9f1a; -fx-background-radius: 15px;">
+                  <Pane layoutX="6.0" layoutY="754.0" prefHeight="110.0" prefWidth="408.0" style="-fx-background-color: #ff9f1a; -fx-background-radius: 15px;">
                      <children>
                         <Label layoutX="11.0" layoutY="9.0" prefHeight="13.0" prefWidth="127.0" text="Social Media" textFill="WHITE">
                            <font>
-                              <Font name="System Bold" size="13.0" />
+                              <Font name="System Bold" size="20.0" />
                            </font>
                         </Label>
-                        <ImageView fx:id="fbImage" fitHeight="42.0" fitWidth="42.0" layoutX="30.0" layoutY="53.0" onMouseClicked="#onMouseClickedFacebook" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="fbImage" fitHeight="75.0" fitWidth="80.0" layoutX="47.0" layoutY="59.0" onMouseClicked="#onMouseClickedFacebook" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Assets/fb.png" />
                            </image>
@@ -223,7 +266,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="100.0" layoutY="53.0" onMouseClicked="#onMouseClickedGoogle" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="164.0" layoutY="57.0" onMouseClicked="#onMouseClickedGoogle" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Assets/google.png" />
                            </image>
@@ -231,7 +274,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="59.0" fitWidth="62.0" layoutX="170.0" layoutY="47.0" onMouseClicked="#onMouseClickedgMail" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="101.0" fitWidth="99.0" layoutX="285.0" layoutY="47.0" onMouseClicked="#onMouseClickedgMail" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Assets/gmail.png" />
                            </image>
@@ -241,26 +284,9 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <Pane layoutX="70.0" layoutY="217.0" prefHeight="46.0" prefWidth="127.0" style="-fx-background-color: #ff9f1a; -fx-background-radius: 15; -fx-border-radius: 15;">
-                     <children>
-                        <Label layoutX="25.0" layoutY="13.0" text="Usage Tips!" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
                </children>
             </Pane>
-            <LineChart fx:id="fxLinechart" layoutX="29.0" layoutY="298.0" prefHeight="289.0" prefWidth="685.0">
-               <xAxis>
-                  <CategoryAxis side="BOTTOM" fx:id="x" />
-               </xAxis>
-               <yAxis>
-                  <NumberAxis fx:id="y" side="LEFT" />
-               </yAxis>
-            </LineChart>
-            <Pane fx:id="notificationPane" layoutX="401.0" layoutY="-17.0" prefHeight="450.0" prefWidth="350.0" style="-fx-background-color: white; -fx-background-radius: 20 0 20 20; -fx-border-radius: 20 0 20 20; -fx-border-color: blue;" visible="false" />
+            <Pane fx:id="notificationPane" layoutX="660.0" layoutY="-12.0" prefHeight="450.0" prefWidth="350.0" style="-fx-background-color: white; -fx-background-radius: 20 0 20 20; -fx-border-radius: 20 0 20 20; -fx-border-color: blue;" visible="false" />
          </children></AnchorPane>
    </children>
 </AnchorPane>
